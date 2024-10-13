@@ -6,7 +6,7 @@
         </div>
         <div class="footer-content">
             <div class="info">
-                <p>&copy; 2024 Công ty MONA COMPUTER</p>
+                <p>&copy; 2024 Công ty SIXTECHS</p>
                 <p>
                     Địa chỉ: 18 phố viên, Đức Thắng, Bắc Từ Liêm, Thành phố Hà Nội
                 </p>
