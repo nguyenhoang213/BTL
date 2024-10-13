@@ -1,57 +1,57 @@
 <?php
-    session_start();
-    include("../connection.php");
-    include("../side_nav.php");
-    include("../side_nav.php");
-    if(isset($_SESSION['role'])&&$_SESSION['role']==1 ) {
-        echo "<script>
+session_start();
+include("../connection.php");
+include("../side_nav.php");
+include("../side_nav.php");
+if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
+    echo "<script>
                 alert('Không thể thực hiện hành động này');
                 // Quay lại trang trước
                 window.location.href = '" . (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'http://localhost/BTL/admin.php') . "';
             </script>";
-    
+
+}
+// Lấy admin_id từ URL
+if (isset($_GET['id'])) {
+    $admin_id = $_GET['id'];
+
+    // Truy vấn thông tin tài khoản admin theo admin_id
+    $sql = "SELECT * FROM Admin_account WHERE admin_id = '$admin_id'";
+    $result = $conn->query($sql);
+
+    // Kiểm tra nếu tài khoản admin tồn tại
+    if ($result->num_rows > 0) {
+        $admin = $result->fetch_assoc();
+    } else {
+        echo "Tài khoản không tồn tại!";
+        exit();
     }
-    // Lấy admin_id từ URL
-    if (isset($_GET['id'])) {
-        $admin_id = $_GET['id'];
+}
 
-        // Truy vấn thông tin tài khoản admin theo admin_id
-        $sql = "SELECT * FROM Admin_account WHERE admin_id = '$admin_id'";
-        $result = $conn->query($sql);
+// Xử lý khi form cập nhật được submit
+if (isset($_POST['update'])) {
+    $admin_name = $_POST['admin_name'];
+    $password = $_POST['password'];
+    $role = $_POST['role'];
 
-        // Kiểm tra nếu tài khoản admin tồn tại
-        if ($result->num_rows > 0) {
-            $admin = $result->fetch_assoc();
-        } else {
-            echo "Tài khoản không tồn tại!";
-            exit();
-        }
-    }
-
-    // Xử lý khi form cập nhật được submit
-    if (isset($_POST['update'])) {
-        $admin_name = $_POST['admin_name'];
-        $password = $_POST['password'];
-        $role = $_POST['role'];
-
-        // Cập nhật thông tin tài khoản admin trong cơ sở dữ liệu
-        $sql = "UPDATE Admin_account 
+    // Cập nhật thông tin tài khoản admin trong cơ sở dữ liệu
+    $sql = "UPDATE Admin_account 
                 SET admin_name='$admin_name', password='$password', role='$role' 
                 WHERE admin_id='$admin_id'";
 
-        if ($conn->query($sql) === TRUE) {
-            echo "
+    if ($conn->query($sql) === TRUE) {
+        echo "
             <script>
                 alert('Cập nhật thông tin tài khoản thành công!');
                 window.location.href = '../account/admin_account.php';
             </script>
             ";
-        } else {
-            echo "Lỗi: " . $sql . "<br>" . $conn->error;
-        }
+    } else {
+        echo "Lỗi: " . $sql . "<br>" . $conn->error;
     }
+}
 
-    $conn->close();
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -85,8 +85,10 @@
 
             <label for="role">Quyền</label>
             <select name="role" required>
-                <option value="admin" <?php if ($admin['role'] == 'admin') echo 'selected'; ?>>Admin</option>
-                <option value="superadmin" <?php if ($admin['role'] == 'superadmin') echo 'selected'; ?>>Super Admin
+                <option value="1" <?php if ($admin['role'] == '1')
+                    echo 'selected'; ?>>Admin</option>
+                <option value="0" <?php if ($admin['role'] == '0')
+                    echo 'selected'; ?>>Super Admin
                 </option>
             </select> <br>
 
@@ -95,25 +97,25 @@
     </div>
 
     <script>
-    // Hiển thị/ẩn mật khẩu
-    const password = document.getElementById('password');
-    const confirmPassword = document.getElementById('confirm_password');
-    const showPassword = document.getElementById('show_password');
+        // Hiển thị/ẩn mật khẩu
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirm_password');
+        const showPassword = document.getElementById('show_password');
 
-    showPassword.addEventListener('change', function() {
-        const type = this.checked ? 'text' : 'password';
-        password.type = type;
-        confirmPassword.type = type;
-    });
+        showPassword.addEventListener('change', function () {
+            const type = this.checked ? 'text' : 'password';
+            password.type = type;
+            confirmPassword.type = type;
+        });
 
-    // Kiểm tra mật khẩu xác nhận trước khi submit form
-    const form = document.querySelector('form');
-    form.addEventListener('submit', function(e) {
-        if (password.value !== confirmPassword.value) {
-            e.preventDefault(); // Ngăn không cho gửi form
-            alert('Mật khẩu và mật khẩu xác nhận không khớp!');
-        }
-    });
+        // Kiểm tra mật khẩu xác nhận trước khi submit form
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function (e) {
+            if (password.value !== confirmPassword.value) {
+                e.preventDefault(); // Ngăn không cho gửi form
+                alert('Mật khẩu và mật khẩu xác nhận không khớp!');
+            }
+        });
     </script>
 </body>
 

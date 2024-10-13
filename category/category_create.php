@@ -1,5 +1,7 @@
 <?php
-    include("../side_nav.php");
+session_start();
+
+include("../side_nav.php");
 ?>
 
 <!DOCTYPE html>

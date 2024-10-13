@@ -1,54 +1,59 @@
 <?php
-    include("../connection.php");
-    include("../side_nav.php");
+session_start();
 
-    $sql = "SELECT * FROM orders";  
+include("../connection.php");
+include("../side_nav.php");
+
+$sql = "SELECT * FROM orders";
+$result = $conn->query($sql);
+$search_category = "order_id";
+
+$json_data = file_get_contents('../src/json/don_vi_hanh_chinh.json');
+$locations = json_decode($json_data, true); // Chuyển JSON thành mảng PHP
+
+// Hàm tìm tên tỉnh
+function getProvinceName($province_id, $locations)
+{
+    foreach ($locations['province'] as $province) {
+        if ($province['id'] == $province_id) {
+            return $province['name'];
+        }
+    }
+    return 'Unknown Province'; // Nếu không tìm thấy
+}
+
+// Hàm tìm tên huyện
+function getDistrictName($district_id, $locations)
+{
+    foreach ($locations['district'] as $district) {
+        if ($district['id'] == $district_id) {
+            return $district['name'];
+        }
+    }
+    return 'Unknown District'; // Nếu không tìm thấy
+}
+
+// Hàm tìm tên xã
+function getWardName($ward_id, $locations)
+{
+    foreach ($locations['ward'] as $ward) {
+        if ($ward['id'] == $ward_id) {
+            return $ward['name'];
+        }
+    }
+    return 'Unknown Ward'; // Nếu không tìm thấy
+}
+
+?>
+
+<?php
+if (isset($_GET["search"])) {
+    $search_category = $_GET["search_category"];
+    $search_string = $_GET["search"];
+    $sql = "SELECT * FROM orders WHERE $search_category LIKE '%$search_string%'";
     $result = $conn->query($sql);
-    $search_category = "order_id";
-
-    $json_data = file_get_contents('../src/json/don_vi_hanh_chinh.json');
-    $locations = json_decode($json_data, true); // Chuyển JSON thành mảng PHP
-
-    // Hàm tìm tên tỉnh
-    function getProvinceName($province_id, $locations) {
-        foreach ($locations['province'] as $province) {
-            if ($province['id'] == $province_id) {
-                return $province['name'];
-            }
-        }
-        return 'Unknown Province'; // Nếu không tìm thấy
-    }
-
-    // Hàm tìm tên huyện
-    function getDistrictName($district_id, $locations) {
-        foreach ($locations['district'] as $district) {
-            if ($district['id'] == $district_id) {
-                return $district['name'];            
-            }
-        }
-        return 'Unknown District'; // Nếu không tìm thấy
-    }
-
-    // Hàm tìm tên xã
-    function getWardName($ward_id, $locations) {
-        foreach ($locations['ward'] as $ward) {
-            if ($ward['id'] == $ward_id) {  
-                return $ward['name'];
-            }
-        }
-        return 'Unknown Ward'; // Nếu không tìm thấy
-    }
-
-    ?>
-
-<?php 
-        if(isset($_GET["search"])) {
-            $search_category = $_GET["search_category"];
-            $search_string = $_GET["search"];
-            $sql = "SELECT * FROM orders WHERE $search_category LIKE '%$search_string%'"; 
-            $result = $conn->query($sql);
-        }
-    ?>
+}
+?>
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -66,12 +71,15 @@
         <form action="" method="get">
             <label for="search">Tìm kiếm đơn hàng:</label>
             <select name="search_category">
-                <option value="order_id" <?php if ($search_category == "order_id") echo 'selected'; ?>>Mã đơn hàng
+                <option value="order_id" <?php if ($search_category == "order_id")
+                    echo 'selected'; ?>>Mã đơn hàng
                 </option>
-                <option value="full_name" <?php if ($search_category == "full_name") echo 'selected'; ?>>Tên khách
+                <option value="full_name" <?php if ($search_category == "full_name")
+                    echo 'selected'; ?>>Tên khách
                     hàng
                 </option>
-                <option value="phone" <?php if ($search_category == "phone") echo 'selected'; ?>>Số điện thoại
+                <option value="phone" <?php if ($search_category == "phone")
+                    echo 'selected'; ?>>Số điện thoại
                 </option>
             </select>
             <input type="text" id="search" name="search" placeholder="Nhập từ khóa">
@@ -95,32 +103,32 @@
             </tr>
 
             <?php
-                // Hiển thị danh sách đơn hàng
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $province_name = getProvinceName($row['province'], $locations);
-                        $district_name = getDistrictName($row['district'], $locations);
-                        $ward_name = getWardName($row['ward'], $locations);
-                        echo "<tr>";
-                        echo "<td>" . $row['order_id'] . "</td>";
-                        echo "<td>" . $row['full_name'] . "</td>";
-                        echo "<td>" . $row['phone'] . "</td>";
-                        echo "<td>" . $row['email'] . "</td>";
-                        echo "<td>" . $province_name . ' - ' . $district_name . ' - ' . $ward_name . ' - ' . htmlspecialchars($row['address']) . "</td>";
-                        echo "<td>" . number_format($row['total'], 0, ',', '.') . " VND</td>";
-                        echo "<td>" . number_format($row['discount_amount'], 0, ',', '.') . " VND</td>";
-                        echo "<td>" . number_format($row['total'] - $row['discount_amount'], 0, ',', '.') . " VND</td>";
-                        echo "<td>" . $row['payment_method'] . "</td>";
-                        echo "<td> <span style='color:red; font-weight: bold'>" . $row['order_status'] . "</td>";
-                        echo "<td>" . $row['order_time'] . "</td>";
-                        echo "<td><a href='../order/order_detail.php?id=" . $row['order_id'] . "'>Xử lý</a></td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='14'>Không có đơn hàng nào!</td></tr>";
+            // Hiển thị danh sách đơn hàng
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $province_name = getProvinceName($row['province'], $locations);
+                    $district_name = getDistrictName($row['district'], $locations);
+                    $ward_name = getWardName($row['ward'], $locations);
+                    echo "<tr>";
+                    echo "<td>" . $row['order_id'] . "</td>";
+                    echo "<td>" . $row['full_name'] . "</td>";
+                    echo "<td>" . $row['phone'] . "</td>";
+                    echo "<td>" . $row['email'] . "</td>";
+                    echo "<td>" . $province_name . ' - ' . $district_name . ' - ' . $ward_name . ' - ' . htmlspecialchars($row['address']) . "</td>";
+                    echo "<td>" . number_format($row['total'], 0, ',', '.') . " VND</td>";
+                    echo "<td>" . number_format($row['discount_amount'], 0, ',', '.') . " VND</td>";
+                    echo "<td>" . number_format($row['total'] - $row['discount_amount'], 0, ',', '.') . " VND</td>";
+                    echo "<td>" . $row['payment_method'] . "</td>";
+                    echo "<td> <span style='color:red; font-weight: bold'>" . $row['order_status'] . "</td>";
+                    echo "<td>" . $row['order_time'] . "</td>";
+                    echo "<td><a href='../order/order_detail.php?id=" . $row['order_id'] . "'>Xử lý</a></td>";
+                    echo "</tr>";
                 }
+            } else {
+                echo "<tr><td colspan='14'>Không có đơn hàng nào!</td></tr>";
+            }
 
-                $conn->close();
+            $conn->close();
             ?>
         </table>
     </div>
