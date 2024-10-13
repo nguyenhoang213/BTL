@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
 
     $password_user = $_POST['password'];
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT); 
+    $hashed_password = password_hash($password_user, PASSWORD_DEFAULT); 
 
     $check_query = "select * from `user` where email='$email'";
     $check_result = mysqli_query($conn, $check_query);
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
     } else {
         $result_query_user = mysqli_query($conn, "insert into user(user_id, first_name, last_name, gender, birth, phone, email) VALUES ('$user_id','$firstName','$lastName','$gender','$birth','$phone','$email')");
         if($result_query_user){
-          $result_query_user_account = mysqli_query($conn, "insert into user_account(user_id, password, phone) VALUES ('$user_id','$hashed_password','$phone')");
+          $result_query_user_account = mysqli_query($conn, "insert into user_account(email,user_id, password, phone) VALUES ('$email','$user_id','$hashed_password','$phone')");
           if ($result_query_user_account) {
               echo "<script>alert('Tạo mới người dùng thành công !')</script>";
               echo "<script> window.location.href = 'http://localhost/BTL/login/login.php';</script>";  
@@ -119,7 +119,7 @@ if (isset($_POST['submit'])) {
                     <option selected disabled value="Nam"></option>
                     <?php
             $currentYear = date("Y");
-            for ($i = 1900; $i <= $currentYear; $i++) {
+            for ($i = $currentYear; $i >= 1900; $i--) {
                 echo "<option value='$i'>$i</option>";
             }
             ?>
