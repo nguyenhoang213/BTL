@@ -27,13 +27,14 @@ include("side_nav.php");
     <div class="content">
         <h1>Trang quản lý tổng quát Admin</h1>
 
-        <!-- Thông tin tổng quan -->
+        <!-- Thông tin tổng quan (có thể hiển thị số lượng tài khoản, sản phẩm, đơn hàng, v.v.) -->
         <div class="overview">
-            <!-- Hiển thị tổng quan về tài khoản Admin, Sản phẩm, Đơn hàng, Người dùng -->
+            <!-- Tổng quan khác như tài khoản Admin, Sản phẩm, Đơn hàng, Người dùng -->
             <div class="overview-item">
                 <h3>Tài khoản Admin</h3>
                 <p>
                     <?php
+                    // Đếm số lượng tài khoản admin
                     $sql = "SELECT COUNT(*) as count FROM Admin_account";
                     $result = $conn->query($sql);
                     $row = $result->fetch_assoc();
@@ -47,6 +48,7 @@ include("side_nav.php");
                 <h3>Sản phẩm</h3>
                 <p>
                     <?php
+                    // Đếm số lượng sản phẩm
                     $sql = "SELECT COUNT(*) as count FROM Product";
                     $result = $conn->query($sql);
                     $row = $result->fetch_assoc();
@@ -60,6 +62,7 @@ include("side_nav.php");
                 <h3>Đơn hàng</h3>
                 <p>
                     <?php
+                    // Đếm số lượng đơn hàng
                     $sql = "SELECT COUNT(*) as count FROM Orders";
                     $result = $conn->query($sql);
                     $row = $result->fetch_assoc();
@@ -73,6 +76,7 @@ include("side_nav.php");
                 <h3>Người dùng</h3>
                 <p>
                     <?php
+                    // Đếm số lượng người dùng
                     $sql = "SELECT COUNT(*) as count FROM User";
                     $result = $conn->query($sql);
                     $row = $result->fetch_assoc();
@@ -89,8 +93,8 @@ include("side_nav.php");
             <canvas id="revenueChart" width="400" height="150"></canvas>
 
             <?php
-            // Truy vấn doanh thu và số lượng đơn hàng theo tháng
-            $sql_sale = "SELECT MONTH(order_time) AS month, SUM(total) - SUM(discount_amount) AS monthly_revenue, COUNT(order_id) AS order_count 
+            // Truy vấn doanh thu theo tháng
+            $sql_sale = "SELECT MONTH(order_time) AS month, SUM(total) - SUM(discount_amount) AS monthly_revenue, COUNT(order_id) as order_count
                          FROM Orders 
                          WHERE order_status = 'Đã hoàn thành' 
                          GROUP BY MONTH(order_time)";
@@ -99,13 +103,11 @@ include("side_nav.php");
             // Tạo mảng để lưu dữ liệu
             $months = [];
             $revenues = [];
-            $order_counts = []; // Số lượng đơn hàng
-            
+
             if ($result_sale->num_rows > 0) {
                 while ($row = $result_sale->fetch_assoc()) {
                     $months[] = $row['month']; // Tháng
                     $revenues[] = $row['monthly_revenue']; // Doanh thu trong tháng
-                    $order_counts[] = $row['order_count']; // Số lượng đơn hàng trong tháng
                 }
             }
             ?>
@@ -114,54 +116,25 @@ include("side_nav.php");
                 // Lấy dữ liệu từ PHP
                 var months = <?php echo json_encode($months); ?>;
                 var revenues = <?php echo json_encode($revenues); ?>;
-                var orderCounts = <?php echo json_encode($order_counts); ?>;
 
-                // Vẽ biểu đồ doanh thu và số lượng đơn hàng
+                // Vẽ biểu đồ doanh thu
                 var ctx = document.getElementById('revenueChart').getContext('2d');
                 var revenueChart = new Chart(ctx, {
                     type: 'bar', // Kiểu biểu đồ: cột
                     data: {
-                        labels: months, // Tháng
-                        datasets: [
-                            {
-                                label: 'Doanh thu (VND)',
-                                data: revenues, // Dữ liệu doanh thu
-                                backgroundColor: 'rgba(54, 162, 235, 0.6)', // Màu nền
-                                borderColor: 'rgba(54, 162, 235, 1)', // Màu viền
-                                borderWidth: 1,
-                                yAxisID: 'y1' // Trục Y cho doanh thu
-                            },
-                            {
-                                label: 'Số lượng đơn hàng',
-                                data: orderCounts, // Dữ liệu số lượng đơn hàng
-                                backgroundColor: 'rgba(255, 99, 132, 0.6)', // Màu nền
-                                borderColor: 'rgba(255, 99, 132, 1)', // Màu viền
-                                borderWidth: 1,
-                                type: 'line', // Biểu đồ đường cho số lượng đơn hàng
-                                yAxisID: 'y2' // Trục Y cho số lượng đơn hàng
-                            }
-                        ]
+                        labels: months, // Tháng (labels)
+                        datasets: [{
+                            label: 'Doanh thu (VND)',
+                            data: revenues, // Doanh thu theo tháng
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)', // Màu nền
+                            borderColor: 'rgba(54, 162, 235, 1)', // Màu viền
+                            borderWidth: 1
+                        }]
                     },
                     options: {
                         scales: {
-                            y1: {
-                                beginAtZero: true, // Bắt đầu từ 0 trên trục y1 (doanh thu)
-                                position: 'left',
-                                title: {
-                                    display: true,
-                                    text: 'Doanh thu (VND)'
-                                }
-                            },
-                            y2: {
-                                beginAtZero: true, // Bắt đầu từ 0 trên trục y2 (số lượng đơn hàng)
-                                position: 'right',
-                                title: {
-                                    display: true,
-                                    text: 'Số lượng đơn hàng'
-                                },
-                                grid: {
-                                    drawOnChartArea: false // Tắt đường lưới cho trục y2
-                                }
+                            y: {
+                                beginAtZero: true // Bắt đầu từ 0 trên trục y
                             }
                         },
                         plugins: {
@@ -171,7 +144,7 @@ include("side_nav.php");
                             },
                             title: {
                                 display: true,
-                                text: 'Biểu đồ doanh thu và số lượng đơn hàng hàng tháng'
+                                text: 'Biểu đồ doanh thu hàng tháng'
                             }
                         }
                     }
