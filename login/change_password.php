@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($current_password) || empty($new_password) || empty($confirm_password)) {
         $error_message = 'Vui lòng điền đầy đủ thông tin.';
     } else {
-        // Kiểm tra mật khẩu hiện tại (không hash)
+        // Lấy mật khẩu đã băm từ cơ sở dữ liệu
         $sql = "SELECT password FROM user_account WHERE user_id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $user_id);
@@ -33,14 +33,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->fetch();
         $stmt->close();
 
-        // Kiểm tra mật khẩu hiện tại có đúng không (không hash)
-        if ($current_password === $stored_password) {
+        // Kiểm tra mật khẩu hiện tại (so sánh hash)
+        if (password_verify($current_password, $stored_password)) {
             // Kiểm tra nếu mật khẩu mới và xác nhận mật khẩu khớp nhau
             if ($new_password === $confirm_password) {
-                // Cập nhật mật khẩu mới vào cơ sở dữ liệu (không hash)
+                // Mã hóa mật khẩu mới trước khi cập nhật
+                $hashed_new_password = password_hash($new_password, PASSWORD_DEFAULT);
+
+                // Cập nhật mật khẩu mới vào cơ sở dữ liệu
                 $sql_update = "UPDATE user_account SET password = ? WHERE user_id = ?";
                 $stmt_update = $conn->prepare($sql_update);
-                $stmt_update->bind_param("si", $new_password, $user_id);
+                $stmt_update->bind_param("si", $hashed_new_password, $user_id);
                 $stmt_update->execute();
 
                 if ($stmt_update->affected_rows > 0) {
@@ -76,21 +79,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             position: fixed;
             z-index: 1;
             background-color: #FFFFFF;
-            /* Màu nền đậm hơn */
             padding-top: 20px;
             border-right: 1px solid #dee2e6;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            /* Hiệu ứng đổ bóng */
             color: #fff;
-            /* Màu chữ trắng */
         }
 
         .sidenav h3 {
             color: black;
-            /* Màu chữ của tiêu đề */
             padding-bottom: 20px;
             border-bottom: 1px solid #dee2e6;
-            /* Đường ngăn cách phía dưới tiêu đề */
             margin-bottom: 20px;
         }
 
@@ -99,7 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             text-decoration: none;
             font-size: 16px;
             color: black;
-            /* Màu chữ nhạt hơn cho side nav */
             display: block;
             transition: all 0.3s ease;
             border-radius: 4px;
@@ -108,10 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         .sidenav a:hover {
             background-color: #495057;
-            /* Hiệu ứng nền khi hover */
             color: #f8f9fa;
         }
-
 
         .content {
             margin-left: 260px;
