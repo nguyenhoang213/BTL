@@ -12,9 +12,8 @@
 <body>
 
     <?php
-echo "Hello";
-        include("connection.php");
-        include("header.php");
+    include("connection.php");
+    include("header.php");
     ?>
     <div class="main-body">
         <div style="border-radius: 0px; border-left: 1px solid #d5cfcf;">
@@ -196,30 +195,30 @@ echo "Hello";
         <div id="message"></div>
         <div class="row mt-2 pb-3">
             <?php
-                    $stmt = $conn->prepare('SELECT * FROM Product');
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    while ($row = $result->fetch_assoc()) {
-                        echo ' <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
+            $stmt = $conn->prepare('SELECT * FROM Product');
+            $stmt->execute();
+            $result = $stmt->get_result();
+            while ($row = $result->fetch_assoc()) {
+                echo ' <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
                         <div class="list-product">
                             <a href="./product/product_detail.php?id=' . $row['product_id'] . '">
                             <div>
-                                <img src="/BTL/src/assets/uploads/product/'. $row['image'] . '" class="card-img-top" height="250">
+                                <img src="/BTL/src/assets/uploads/product/' . $row['image'] . '" class="card-img-top" height="250">
                                 <div class="card-body p-1">
-                                    <h4 class="card-title text-center text-info"> '. $row['product_name'] . ' </h4>
-                                    <h5 class="card-text text-center text-danger"> '. number_format($row['price']) .' VNĐ</h5>
+                                    <h4 class="card-title text-center text-info"> ' . $row['product_name'] . ' </h4>
+                                    <h5 class="card-text text-center text-danger"> ' . number_format($row['price']) . ' VNĐ</h5>
                                 </div>
                             </a>
                             </div>
                         </div>
                     </div>';
-               } ?>
+            } ?>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>
