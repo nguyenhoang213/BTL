@@ -66,27 +66,47 @@ function getWardName($ward_id, $locations)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/BTL/css/index.css">
     <style>
+        /* Side Navigation */
         .sidenav {
             height: 100vh;
             width: 250px;
             position: fixed;
             z-index: 1;
-            background-color: #f8f9fa;
+            background-color: #FFFFFF;
+            /* Màu nền đậm hơn */
             padding-top: 20px;
             border-right: 1px solid #dee2e6;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            /* Hiệu ứng đổ bóng */
+            color: #fff;
+            /* Màu chữ trắng */
+        }
+
+        .sidenav h3 {
+            color: black;
+            /* Màu chữ của tiêu đề */
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dee2e6;
+            /* Đường ngăn cách phía dưới tiêu đề */
+            margin-bottom: 20px;
         }
 
         .sidenav a {
-            padding: 8px 16px;
+            padding: 12px 20px;
             text-decoration: none;
-            font-size: 18px;
-            color: #333;
+            font-size: 16px;
+            color: black;
+            /* Màu chữ nhạt hơn cho side nav */
             display: block;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            margin: 5px 10px;
         }
 
         .sidenav a:hover {
-            background-color: #ddd;
-            color: #000;
+            background-color: #495057;
+            /* Hiệu ứng nền khi hover */
+            color: #f8f9fa;
         }
 
         .content {

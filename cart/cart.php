@@ -10,49 +10,136 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <style>
-    .count {
-        display: flex;
-        align-items: center;
-    }
+    /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #343a40;
+}
 
-    .count button {
-        width: 30px;
-        height: 30px;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        font-size: 18px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
+.container {
+    margin-top: 50px;
+}
 
-    .count button:hover {
-        background-color: #ddd;
-    }
+h4 {
+    font-size: 24px;
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
 
-    .count input[type="number"] {
-        width: 60px;
-        height: 30px;
-        text-align: center;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        margin: 0 5px;
+.table-responsive {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
 
-    }
+/* Table Styles */
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
 
-    .count button:active {
-        background-color: #bbb;
-    }
+thead th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+}
 
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+tbody td {
+    padding: 15px;
+    vertical-align: middle;
+    font-size: 16px;
+    text-align: center;
+}
 
-    /* Ẩn thanh cuộn trên Firefox */
-    input[type="number"] {
-        -moz-appearance: textfield;
-    }
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Màu nền xen kẽ */
+}
+
+/* Styling for Image */
+table img {
+    border-radius: 5px;
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+}
+
+/* Button Styles */
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for Quantity Controls */
+.count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.count button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.count button:hover {
+    background-color: #0056b3;
+}
+
+.count input {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
     </style>
 </head>
 

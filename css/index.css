@@ -53,9 +53,8 @@ body {
 .btn-hotline {
   display: flex;
   align-items: center;
-  width: 50%;
   justify-content: flex-end;
-  margin-right: 20px;
+  width: 500px;
 }
 .btn-phone {
   background-color: #3498db;

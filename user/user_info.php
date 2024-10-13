@@ -36,39 +36,72 @@ if ($result->num_rows > 0) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/BTL/css/index.css">
     <style>
-    .sidenav {
-        height: 100vh;
-        /* Chiều cao đầy đủ màn hình */
-        width: 250px;
-        /* Độ rộng của side nav */
-        position: fixed;
-        /* Gắn cố định vào bên trái */
-        z-index: 1;
-        /* Lớp trên cùng */
-        background-color: #f8f9fa;
-        /* Màu nền của side nav */
-        padding-top: 20px;
-        border-right: 1px solid #dee2e6;
-    }
+        /* Content Area */
+        .content {
+            margin-left: 270px;
+            /* Khoảng cách cho phù hợp với độ rộng của side nav */
+            padding: 30px;
 
-    .sidenav a {
-        padding: 8px 16px;
-        text-decoration: none;
-        font-size: 18px;
-        color: #333;
-        display: block;
-    }
+        }
 
-    .sidenav a:hover {
-        background-color: #ddd;
-        color: #000;
-    }
+        .content h2 {
+            font-size: 28px;
+            color: #343a40;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #6c757d;
+            padding-bottom: 10px;
+        }
 
-    .content {
-        margin-left: 260px;
-        /* Để nội dung chính không bị side nav che */
-        padding: 20px;
-    }
+        /* Table Styling */
+        table {
+            width: 100%;
+            background-color: #fff;
+            border-collapse: collapse;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            /* Hiệu ứng đổ bóng cho bảng */
+        }
+
+        table th,
+        table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #dee2e6;
+            font-size: 16px;
+            color: #343a40;
+        }
+
+        table th {
+            background-color: #6c757d;
+            /* Màu nền cho tiêu đề của bảng */
+            color: #f8f9fa;
+            /* Màu chữ sáng */
+        }
+
+        /* Button Styling */
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            /* Màu nền khi hover */
+            color: #fff;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-3 {
+            margin-top: 20px;
+        }
     </style>
 </head>
 
