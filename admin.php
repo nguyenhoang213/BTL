@@ -82,6 +82,14 @@ include("side_nav.php");
             </div>
         </div>
 
+        <!-- Báo cáo doanh thu -->
+        <div class="admin-salereport">
+            <h2>Báo cáo doanh thu</h2>
+            <?php
+            $sql = "SELECT COUNT(*) FROM orders";
+            ?>
+        </div>
+
         <!-- Các chức năng chính -->
         <div class="admin-functions">
             <h2>Các chức năng quản lý</h2>

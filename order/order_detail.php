@@ -49,20 +49,38 @@ function getWardName($ward_id, $locations)
     return 'Unknown Ward'; // Nếu không tìm thấy
 }
 
+// Xử lý xác nhận đơn hàng
 if (isset($_POST['accept'])) {
-    $sql_accept = "UPDATE orders SET order_status = 'Đã xác nhận' WHERE order_id = '$id'";
-    if ($conn->query($sql_accept) == TRUE) {
-        echo '<script> alert("Đã xác nhận đơn hàng") 
-            window.location.href = "../order/order_list.php";
-            </script>';
+    // Truy vấn lấy trạng thái hiện tại của đơn hàng
+    $sql_status = "SELECT order_status FROM orders WHERE order_id = '$id'";
+    $result_status = $conn->query($sql_status);
+    $row_status = $result_status->fetch_assoc();
 
+    // Kiểm tra trạng thái đơn hàng
+    if ($row_status['order_status'] == 'Đã xác nhận') {
+        // Nếu đơn hàng đã được xác nhận, chuyển sang "Đã hoàn thành"
+        $sql_complete = "UPDATE orders SET order_status = 'Đã hoàn thành' WHERE order_id = '$id'";
+        if ($conn->query($sql_complete) === TRUE) {
+            echo '<script> alert("Đơn hàng đã được hoàn thành!"); 
+                   window.location.href = "../order/order_list.php";
+                   </script>';
+        } else {
+            echo '<script> alert("Không thể cập nhật trạng thái đơn hàng."); </script>';
+        }
     } else {
-        echo '<script> alert("Không thể xác nhận đơn hàng"); 
-            </script>';
+        // Nếu chưa được xác nhận, chuyển sang "Đã xác nhận"
+        $sql_accept = "UPDATE orders SET order_status = 'Đã xác nhận' WHERE order_id = '$id'";
+        if ($conn->query($sql_accept) === TRUE) {
+            echo '<script> alert("Đã xác nhận đơn hàng!"); 
+                   window.location.href = "../order/order_list.php";
+                   </script>';
+        } else {
+            echo '<script> alert("Không thể xác nhận đơn hàng."); </script>';
+        }
     }
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -170,7 +188,7 @@ if (isset($_POST['accept'])) {
                     ';
 
                     // Truy vấn thông tin sản phẩm trong đơn hàng
-                    $sql_products = "SELECT op.product_id, p.product_name, op.stock, op.price 
+                    $sql_products = "SELECT op.product_id, p.product_name, op.stock, op.price
                                      FROM order_product op
                                      JOIN product p ON op.product_id = p.product_id
                                      WHERE op.order_id = '$id'";
@@ -210,9 +228,21 @@ if (isset($_POST['accept'])) {
             } else {
                 echo '<p>Không tìm thấy đơn hàng.</p>';
             }
+            $sql_status = "SELECT order_status FROM orders WHERE order_id = '$id'";
+            $result_status = $conn->query($sql_status);
+            $row_status = $result_status->fetch_assoc();
+            if ($row_status['order_status'] == "Đang chờ") {
+                echo "
+                    <center> <button name='accept'>Xác nhận đơn hàng</button>
+                </center>";
+            } else
+                if ($row_status['order_status'] == "Đã xác nhận") {
+                    echo "
+                    <center> <button name='accept'>Hoàn thành đơn hàng</button>
+                </center>";
+                }
             ?>
-            <center> <button name='accept'>Xác nhận đơn hàng</button>
-            </center>
+
         </form>
     </div>
 </body>
