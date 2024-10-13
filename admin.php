@@ -160,8 +160,8 @@ include("side_nav.php");
                 <li><a href="/BTL/product/product_list.php">Quản lý sản phẩm</a></li>
                 <li><a href="/BTL/order/order_list.php">Quản lý đơn hàng</a></li>
                 <li><a href="/BTL/account/user_account.php">Quản lý người dùng</a></li>
-                <li><a href="/BTL/reports/sales_report.php">Báo cáo doanh thu</a></li>
-                <li><a href="/BTL/settings/settings.php">Cài đặt hệ thống</a></li>
+                <li><a href="">Báo cáo doanh thu</a></li>
+                <li><a href="">Cài đặt hệ thống</a></li>
             </ul>
         </div>
     </div>
