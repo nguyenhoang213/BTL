@@ -1,47 +1,48 @@
 <?php
 include("../connection.php");
 session_start();
-if(isset($_SESSION["user_id"])){
+if (isset($_SESSION["user_id"])) {
     echo "<script>window.location.href='http://localhost/BTL/';</script>";
 }
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     // $phone = $_POST['phone'];
     $password = $_POST['password'];
-    $select = mysqli_query($conn,
-      "select user.user_id,user.email, user_account.password 
+    $select = mysqli_query(
+        $conn,
+        "select user.user_id,user.email, user_account.password 
       from user 
       inner join user_account 
       on user.user_id = user_account.user_id 
       where user.email = '$email'
-      ");
+      "
+    );
     $row = mysqli_fetch_assoc($select);
-    if (is_array($row)) {
+    if ($row) {
         $_SESSION['user_id'] = $row['user_id'];
         // Giải mã mật khẩu (compare)
         if (isset($_SESSION['user_id']) && password_verify($password, $row['password'])) {
-          echo "<script>alert('Đăng nhập thành công')</script>";
-          //truy vết
-          $user_id = $row['user_id'];
-          //Lấy IP
-          $ip = get_client_ip();  
-          //Lấy thời gian truy cập 
-          date_default_timezone_set('Asia/Ho_Chi_Minh');
-          $time = date('Y-m-d H:i:s');
-          //Lấy tên thiết bị 
-          $device = getDeviceType();
-          // Insert thông tin truy vết
-          $insert_login_history = "insert into user_login_history(user_id, time, ip, device) values ('$user_id', '$time','$ip','$device')";
-          $insert_login_history_query = mysqli_query($conn,$insert_login_history);
-          echo "<script> window.location.href = 'http://localhost/BTL';</script>";
-          
-          exit();
+            echo "<script>alert('Đăng nhập thành công')</script>";
+            //truy vết
+            $user_id = $row['user_id'];
+            //Lấy IP
+            $ip = get_client_ip();
+            //Lấy thời gian truy cập 
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $time = date('Y-m-d H:i:s');
+            //Lấy tên thiết bị 
+            $device = getDeviceType();
+            // Insert thông tin truy vết
+            $insert_login_history = "insert into user_login_history(user_id, time, ip, device) values ('$user_id', '$time','$ip','$device')";
+            $insert_login_history_query = mysqli_query($conn, $insert_login_history);
+            echo "<script> window.location.href = 'http://localhost/BTL';</script>";
+
+            exit();
         } else {
             echo "<script type='text/javascript'>alert('Sai mật khẩu hoặc email')</script>";
         }
     } else {
-      echo "<script type='text/javascript'>alert('Sai mật khẩu hoặc email')</script>";
-
+        echo "<script type='text/javascript'>alert('Sai mật khẩu hoặc email')</script>";
     }
 }
 
@@ -96,27 +97,27 @@ if (isset($_POST['login'])) {
         </div>
 
         <script>
-        // Open modal on link click
-        var modal = document.getElementById("forgot-password-modal");
-        var link = document.getElementById("forgot-password-link");
-        var closeBtn = document.getElementsByClassName("close-btn")[0];
+            // Open modal on link click
+            var modal = document.getElementById("forgot-password-modal");
+            var link = document.getElementById("forgot-password-link");
+            var closeBtn = document.getElementsByClassName("close-btn")[0];
 
-        link.onclick = function(event) {
-            event.preventDefault();
-            modal.style.display = "flex";
-        }
+            link.onclick = function (event) {
+                event.preventDefault();
+                modal.style.display = "flex";
+            }
 
-        // Close modal on 'x' click
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // Close modal if user clicks outside of the modal content
-        window.onclick = function(event) {
-            if (event.target == modal) {
+            // Close modal on 'x' click
+            closeBtn.onclick = function () {
                 modal.style.display = "none";
             }
-        }
+
+            // Close modal if user clicks outside of the modal content
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         </script>
     </div>
 </body>
@@ -147,7 +148,8 @@ function get_client_ip()
 <!-- Hàm Check thiết bị -->
 <?php
 // Hàm kiểm tra thiết bị và hệ điều hành dựa vào User-Agent
-function getDeviceType() {
+function getDeviceType()
+{
     $userAgent = strtolower($_SERVER["HTTP_USER_AGENT"]);
 
     // Kiểm tra Mobile
@@ -164,7 +166,7 @@ function getDeviceType() {
     // $isIOS = $isIPhone || $isIPad;
 
     $device = '';
-    
+
     // Xác định thiết bị
     if ($isMob) {
         if ($isTab) {
