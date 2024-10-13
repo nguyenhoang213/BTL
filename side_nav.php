@@ -1,5 +1,5 @@
 <?php
-    // include("connection.php");
+// include("connection.php");
 ?>
 
 <head>
@@ -16,7 +16,7 @@
             <img src="/BTL/src/assets/images/user.png" alt="User Avatar" class="user-avatar" />
             <span class="user-name">Admin :<?php echo $_SESSION['admin_name']; ?></span>
             <!-- icon -->
-            <nav style="margin-left: 1200px">
+            <nav style="position: fixed; right: 30px">
                 <div class="icon">
                     <div class="icon_item">
                         <i style="font-size: 25px" class="fas fa-bell"></i>
@@ -141,11 +141,11 @@
         </ul>
     </div>
     <script>
-    function logout() {
-        if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
-            window.location.href = '/BTL/admin/logout_admin.php'; // Chuyển hướng đến trang logout.php
+        function logout() {
+            if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
+                window.location.href = '/BTL/admin/logout_admin.php'; // Chuyển hướng đến trang logout.php
+            }
         }
-    }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
