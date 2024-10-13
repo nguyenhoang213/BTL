@@ -1,12 +1,14 @@
 <?php
 session_start();
 include("./connection.php");
+
 if (!isset($_SESSION['role'])) {
     echo "<script>
             alert('Không có quyền truy cập vào trang này. Bạn sẽ được chuyển tới trang chủ');
             window.location.href = 'http://localhost/BTL';
-            </script>";
+          </script>";
 }
+
 include("side_nav.php");
 ?>
 <!DOCTYPE html>
@@ -17,6 +19,8 @@ include("side_nav.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/BTL/css/dashboard.css">
     <title>Trang quản lý Admin</title>
+    <!-- Thêm thư viện Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -25,6 +29,7 @@ include("side_nav.php");
 
         <!-- Thông tin tổng quan (có thể hiển thị số lượng tài khoản, sản phẩm, đơn hàng, v.v.) -->
         <div class="overview">
+            <!-- Tổng quan khác như tài khoản Admin, Sản phẩm, Đơn hàng, Người dùng -->
             <div class="overview-item">
                 <h3>Tài khoản Admin</h3>
                 <p>
@@ -85,9 +90,66 @@ include("side_nav.php");
         <!-- Báo cáo doanh thu -->
         <div class="admin-salereport">
             <h2>Báo cáo doanh thu</h2>
+            <canvas id="revenueChart" width="400" height="150"></canvas>
+
             <?php
-            $sql = "SELECT COUNT(*) FROM orders";
+            // Truy vấn doanh thu theo tháng
+            $sql_sale = "SELECT MONTH(order_time) AS month, SUM(total) - SUM(discount_amount) AS monthly_revenue 
+                         FROM Orders 
+                         WHERE order_status = 'Đã hoàn thành' 
+                         GROUP BY MONTH(order_time)";
+            $result_sale = $conn->query($sql_sale);
+
+            // Tạo mảng để lưu dữ liệu
+            $months = [];
+            $revenues = [];
+
+            if ($result_sale->num_rows > 0) {
+                while ($row = $result_sale->fetch_assoc()) {
+                    $months[] = $row['month']; // Tháng
+                    $revenues[] = $row['monthly_revenue']; // Doanh thu trong tháng
+                }
+            }
             ?>
+
+            <script>
+                // Lấy dữ liệu từ PHP
+                var months = <?php echo json_encode($months); ?>;
+                var revenues = <?php echo json_encode($revenues); ?>;
+
+                // Vẽ biểu đồ doanh thu
+                var ctx = document.getElementById('revenueChart').getContext('2d');
+                var revenueChart = new Chart(ctx, {
+                    type: 'bar', // Kiểu biểu đồ: cột
+                    data: {
+                        labels: months, // Tháng (labels)
+                        datasets: [{
+                            label: 'Doanh thu (VND)',
+                            data: revenues, // Doanh thu theo tháng
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)', // Màu nền
+                            borderColor: 'rgba(54, 162, 235, 1)', // Màu viền
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true // Bắt đầu từ 0 trên trục y
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Biểu đồ doanh thu hàng tháng'
+                            }
+                        }
+                    }
+                });
+            </script>
         </div>
 
         <!-- Các chức năng chính -->
