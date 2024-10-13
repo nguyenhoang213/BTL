@@ -10,18 +10,16 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
     $select = mysqli_query(
         $conn,
-        "select user.user_id,user.email, user_account.password 
-      from user 
-      inner join user_account 
-      on user.user_id = user_account.user_id 
-      where user.email = '$email'
-      "
+        "select * 
+                from user_account 
+                where email = '$email'
+                "
     );
     $row = mysqli_fetch_assoc($select);
     if ($row) {
-        $_SESSION['user_id'] = $row['user_id'];
         // Giải mã mật khẩu (compare)
-        if (isset($_SESSION['user_id']) && password_verify($password, $row['password'])) {
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['user_id'];
             echo "<script>alert('Đăng nhập thành công')</script>";
             //truy vết
             $user_id = $row['user_id'];
