@@ -1,13 +1,13 @@
 <?php
-    session_start();
-    include("./connection.php");
-    if(!isset($_SESSION['role'])) {
-        echo "<script>
+session_start();
+include("./connection.php");
+if (!isset($_SESSION['role'])) {
+    echo "<script>
             alert('Không có quyền truy cập vào trang này. Bạn sẽ được chuyển tới trang chủ');
             window.location.href = 'http://localhost/BTL';
             </script>";
-    }
-    include("side_nav.php");
+}
+include("side_nav.php");
 ?>
 
 <!DOCTYPE html>

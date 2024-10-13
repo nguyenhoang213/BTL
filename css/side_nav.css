@@ -20,9 +20,8 @@
 }
 .notifi {
   position: absolute;
-  top: 60px;
   width: 400px;
-  right: 70px;
+  right: 0px;
   background-color: #ecf0f1;
   color: #131314;
   border: 1px solid #131314;
