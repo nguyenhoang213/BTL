@@ -12,7 +12,6 @@
 <body>
 
     <?php
-    echo "Hello Đăng";
     include("connection.php");
     include("header.php");
     ?>
