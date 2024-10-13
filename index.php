@@ -206,17 +206,17 @@
                         </li>
                     </ul>
                 </li>
-                <li id="menu-item-1564" "><a
-                        href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/smartwatch/"><img
-                        width="24" height="24"
-                        src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/cate2_icon-24x24.png"
-                        class="menu-image menu-image-title-after" alt="" /><span>SmartWatch</span></a></li>
-                <li id="menu-item-1563" "><a
+                <li id="menu-item-1564"><a
+                        href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/smartwatch/"><img width="24"
+                            height="24"
+                            src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/cate2_icon-24x24.png"
+                            class="menu-image menu-image-title-after" alt="" /><span>SmartWatch</span></a></li>
+                <li id="menu-item-1563"><a
                         href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/apple-watch/"><img
-                        width="24" height="24"
-                        src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/smartphone.png"
-                        class="menu-image menu-image-title-after" alt="" /><span>Apple
-                        Watch</span></a></li>
+                            width="24" height="24"
+                            src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/smartphone.png"
+                            class="menu-image menu-image-title-after" alt="" /><span>Apple
+                            Watch</span></a></li>
                 <li id="menu-item-433" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-433"><a
                         href="#"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/printer.png"
@@ -236,31 +236,31 @@
                             class="menu-image menu-image-title-after" alt="" /><span>Tai
                             nghe</span></a>
                 </li>
-                <li id="menu-item-2041" "><a
+                <li id="menu-item-2041"><a
                         href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/camera/"><img width="24"
-                        height="24"
-                        src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/processor-24x24.png"
-                        class="menu-image menu-image-title-after" alt="" /><span>Camera</span></a></li>
-                <li id="menu-item-2042" "><a
+                            height="24"
+                            src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/processor-24x24.png"
+                            class="menu-image menu-image-title-after" alt="" /><span>Camera</span></a></li>
+                <li id="menu-item-2042"><a
                         href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/linh-kien-may-tinh/"><img
-                        width="24" height="24"
-                        src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/flash-disk-24x24.png"
-                        class="menu-image menu-image-title-after" alt="" /><span>Linh kiện
-                        máy
-                        tính</span></a></li>
-                <li id="menu-item-2043" "><a
+                            width="24" height="24"
+                            src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/flash-disk-24x24.png"
+                            class="menu-image menu-image-title-after" alt="" /><span>Linh kiện
+                            máy
+                            tính</span></a></li>
+                <li id="menu-item-2043"><a
                         href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/phu-kien/ban-phim/"><img
-                        width="24" height="24"
-                        src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/database-24x24.png"
-                        class="menu-image menu-image-title-after" alt="" /><span>Bàn
-                        phím</span></a></li>
-                <li id="menu-item-2044" "><a
+                            width="24" height="24"
+                            src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/database-24x24.png"
+                            class="menu-image menu-image-title-after" alt="" /><span>Bàn
+                            phím</span></a></li>
+                <li id="menu-item-2044"><a
                         href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/may-tinh-van-phong/"><img
-                        width="24" height="24"
-                        src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/pay-per-click-24x24.png"
-                        class="menu-image menu-image-title-after" alt="" /><span>Máy tính
-                        văn
-                        phòng</span></a></li>
+                            width="24" height="24"
+                            src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/pay-per-click-24x24.png"
+                            class="menu-image menu-image-title-after" alt="" /><span>Máy tính
+                            văn
+                            phòng</span></a></li>
             </ul>
         </div>
         <!-- slider -->
@@ -302,40 +302,180 @@
     <!-- end slider -->
     </div>
     <!-- product -->
-    <h1 style="margin: 10px 0 10px 200px">Sản phẩm</h1>
-    <div class="filter-container">
-        <div class="filter-item">
-            <label for="category">Danh mục</label>
-            <select>
-                <option>Tất cả</option>
-                <option>Điện thoại</option>
-                <option>Laptop</option>
-                <option>Table</option>
-                <option>Tai nghe</option>
-                <option>Chuột máy tính</option>
-                <option>PC</option>
-                <option>Dây sạc</option>
-            </select>
+    <div class="container">
+        <div class="menu-product">
+            <button class="main-title">SẢN PHẨM BÁN CHẠY</button>
         </div>
+        <div class="products">
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
 
-        <div class="filter-item">
-            <label for="price-range">Khoảng giá</label>
-            <input type="range" id="price-range" min="0" max="1000" step="50" />
-            <span style=" color: #e74c3c; font-weight: bold; margin-top: 5px; color: #e74c3c;">$500</span>
-        </div>
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
 
-        <div class="filter-item">
-            <label>Đánh giá</label>
-            <select>
-                <option>Tất cả</option>
-                <option>4 sao trở lên</option>
-                <option>3 sao trở lên</option>
-                <option>2 sao trở lên</option>
-            </select>
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
         </div>
-        <button class="filter-button">lọc</button>
     </div>
     <div class="container">
+        <div class="menu-product">
+            <button class="main-title">Điện thoại</button>
+            <button class="active-product">Apple</button>
+            <button class="active-product">SamSung</button>
+            <button class="active-product">BlackBerry</button>
+            <button class="active-product">Motorola</button>
+            <button class="active-product">Nokia</button>
+        </div>
+        <div class="products">
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+            
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="menu-product">
+            <button class="main-title">Laptop</button>
+            <button class="active-product">Macbook</button>
+            <button class="active-product">Laptop Asus</button>
+            <button class="active-product">Laptop Dell</button>
+            <button class="active-product">Laptop HP</button>
+        </div>
+        <div class="products">
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+            
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+
+            <div class="product-item">
+                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                <span>10,900,000 ₫</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- product cũ nhé -->
+    <!-- <div class="container">
         <div id="message"></div>
         <div class="row mt-2 pb-3">
             <?php
@@ -358,7 +498,8 @@
                     </div>';
             } ?>
         </div>
-    </div>
+    </div> -->
+
     <?php
     include("footer.php");
 
