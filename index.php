@@ -12,6 +12,7 @@
 <body>
 
     <?php
+echo "Hello";
         include("connection.php");
         include("header.php");
     ?>
