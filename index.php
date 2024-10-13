@@ -12,7 +12,7 @@
 <body>
 
     <?php
-    echo "Hello Tài";
+    echo "Hello Đăng";
     include("connection.php");
     include("header.php");
     ?>
