@@ -85,9 +85,9 @@ $conn->close();
 
             <label for="role">Quyền</label>
             <select name="role" required>
-                <option value="0" <?php if ($admin['role'] == '0')
+                <option value="1" <?php if ($admin['role'] == '1')
                     echo 'selected'; ?>>Admin</option>
-                <option value="1" <?php if ($admin['role'] == '0')
+                <option value="0" <?php if ($admin['role'] == '0')
                     echo 'selected'; ?>>Super Admin
                 </option>
             </select> <br>

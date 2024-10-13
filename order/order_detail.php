@@ -1,63 +1,66 @@
 <?php
-    include("../side_nav.php");
-    include("../connection.php");
+session_start();
+include("../side_nav.php");
+include("../connection.php");
 
-    // Kiểm tra xem id của đơn hàng đã được truyền vào chưa
-    if(isset($_GET["id"])) {
-        $id = $_GET["id"];
-    }
+// Kiểm tra xem id của đơn hàng đã được truyền vào chưa
+if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+}
 
-    // Truy vấn chi tiết đơn hàng
-    $sql = "SELECT * FROM orders WHERE order_id = '$id'";
-    $result = $conn -> query($sql);
+// Truy vấn chi tiết đơn hàng
+$sql = "SELECT * FROM orders WHERE order_id = '$id'";
+$result = $conn->query($sql);
 
-    // Đọc dữ liệu đơn vị hành chính từ file JSON
-    $json_data = file_get_contents('../src/json/don_vi_hanh_chinh.json');
-    $locations = json_decode($json_data, true); // Chuyển JSON thành mảng PHP
+// Đọc dữ liệu đơn vị hành chính từ file JSON
+$json_data = file_get_contents('../src/json/don_vi_hanh_chinh.json');
+$locations = json_decode($json_data, true); // Chuyển JSON thành mảng PHP
 
-    // Hàm tìm tên tỉnh
-    function getProvinceName($province_id, $locations) {
-        foreach ($locations['province'] as $province) {
-            if ($province['id'] == $province_id) {
-                return $province['name'];
-            }
+// Hàm tìm tên tỉnh
+function getProvinceName($province_id, $locations)
+{
+    foreach ($locations['province'] as $province) {
+        if ($province['id'] == $province_id) {
+            return $province['name'];
         }
-        return 'Unknown Province'; // Nếu không tìm thấy
     }
+    return 'Unknown Province'; // Nếu không tìm thấy
+}
 
-    // Hàm tìm tên huyện
-    function getDistrictName($district_id, $locations) {
-        foreach ($locations['district'] as $district) {
-            if ($district['id'] == $district_id) {
-                return $district['name'];            
-            }
+// Hàm tìm tên huyện
+function getDistrictName($district_id, $locations)
+{
+    foreach ($locations['district'] as $district) {
+        if ($district['id'] == $district_id) {
+            return $district['name'];
         }
-        return 'Unknown District'; // Nếu không tìm thấy
     }
+    return 'Unknown District'; // Nếu không tìm thấy
+}
 
-    // Hàm tìm tên xã
-    function getWardName($ward_id, $locations) {
-        foreach ($locations['ward'] as $ward) {
-            if ($ward['id'] == $ward_id) {  
-                return $ward['name'];
-            }
+// Hàm tìm tên xã
+function getWardName($ward_id, $locations)
+{
+    foreach ($locations['ward'] as $ward) {
+        if ($ward['id'] == $ward_id) {
+            return $ward['name'];
         }
-        return 'Unknown Ward'; // Nếu không tìm thấy
     }
+    return 'Unknown Ward'; // Nếu không tìm thấy
+}
 
-    if(isset($_POST['accept'])) {
-        $sql_accept = "UPDATE orders SET order_status = 'Đã xác nhận' WHERE order_id = '$id'";
-        if($conn -> query($sql_accept) == TRUE) {
-            echo '<script> alert("Đã xác nhận đơn hàng") 
+if (isset($_POST['accept'])) {
+    $sql_accept = "UPDATE orders SET order_status = 'Đã xác nhận' WHERE order_id = '$id'";
+    if ($conn->query($sql_accept) == TRUE) {
+        echo '<script> alert("Đã xác nhận đơn hàng") 
             window.location.href = "../order/order_list.php";
             </script>';
-            
-        }
-        else {
-            echo '<script> alert("Không thể xác nhận đơn hàng"); 
+
+    } else {
+        echo '<script> alert("Không thể xác nhận đơn hàng"); 
             </script>';
-        }
     }
+}
 
 ?>
 
@@ -70,49 +73,49 @@
     <title>Xử lý đơn hàng</title>
     <link rel="stylesheet" href="/BTL/css/list.css">
     <style>
-    .user {
-        display: flex;
-        justify-content: space-between;
-    }
+        .user {
+            display: flex;
+            justify-content: space-between;
+        }
 
-    .user>div {
-        margin: 20px 15px 15px 0px;
-        padding: 15px 20px;
-        border-radius: 10px;
-        width: 35%;
-        background-color: rgb(209 232 247);
-        border: solid;
-    }
+        .user>div {
+            margin: 20px 15px 15px 0px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            width: 35%;
+            background-color: rgb(209 232 247);
+            border: solid;
+        }
 
-    table {
-        margin: 10px 0;
-    }
+        table {
+            margin: 10px 0;
+        }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-    table thead {
-        background-color: #2980b9;
-        color: #fff;
-    }
+        table thead {
+            background-color: #2980b9;
+            color: #fff;
+        }
 
-    table th,
-    table td {
-        padding: 12px 15px;
-        text-align: left;
-        border: 1px solid #ddd;
-    }
+        table th,
+        table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
 
-    table tbody tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+        table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-    table tbody tr:hover {
-        background-color: #e1f5fe;
-    }
+        table tbody tr:hover {
+            background-color: #e1f5fe;
+        }
     </style>
 </head>
 
@@ -123,8 +126,8 @@
         </center>
         <form method="POST">
             <?php
-            if($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
                     //Lấy địa chỉ
                     $province_name = getProvinceName($row['province'], $locations);
                     $district_name = getDistrictName($row['district'], $locations);
@@ -133,17 +136,17 @@
                     //Lấy thông tin người đặt
                     $user_id = $row["user_id"];
                     $sql_user = "SELECT * FROM user WHERE user_id = '$user_id'";
-                    $result_user = $conn -> query($sql_user);
-                    $row_user = $result_user -> fetch_assoc();
-                    
+                    $result_user = $conn->query($sql_user);
+                    $row_user = $result_user->fetch_assoc();
+
                     // Thông tin người đặt
                     echo '<div class = "user"> <div>
                     <h4>Thông tin khách hàng: </h4>
-                    <p>Mã khách hàng: '. $row['user_id'] .'</p>
-                    <p>Tên khách hàng: ' . $row_user['first_name'] .' '. $row_user['last_name'] . '</p>
+                    <p>Mã khách hàng: ' . $row['user_id'] . '</p>
+                    <p>Tên khách hàng: ' . $row_user['first_name'] . ' ' . $row_user['last_name'] . '</p>
                     <p>SĐT: ' . $row_user['phone'] . '</p>
                     <p>Email: ' . $row_user['email'] . '</p> 
-                    <p> Phương thức thanh toán: ' .  $row['payment_method'] . '</p>
+                    <p> Phương thức thanh toán: ' . $row['payment_method'] . '</p>
                     </div>
                     ';
 
@@ -153,7 +156,7 @@
                     <p>Tên người nhận: ' . $row['full_name'] . '</p>
                     <p>SĐT: ' . $row['phone'] . '</p>
                     <p>Email: ' . $row['email'] . '</p>
-                    <p>Địa chỉ: '. $province_name . ' - ' . $district_name . ' - ' . $ward_name . ' - ' . htmlspecialchars($row['address']) .'</p> </div> 
+                    <p>Địa chỉ: ' . $province_name . ' - ' . $district_name . ' - ' . $ward_name . ' - ' . htmlspecialchars($row['address']) . '</p> </div> 
                     ';
 
                     //Thông tin đơn hàng
@@ -161,9 +164,9 @@
                     <h4> Chi tiết đơn hàng </h4>
                     <p> Thời gian đặt hàng: ' . $row['order_time'] . '</p>
                     <p> Tổng đơn hàng: ' . number_format($row['total'], 0, ',', '.') . ' VND</p>
-                    <p> Giảm giá: ' .  number_format($row['discount_amount'], 0, ',', '.') . ' VND</p>
-                    <p> Tổng tiền: ' .  number_format($row['total'] - $row['discount_amount'], 0, ',', '.') . ' VND</p>
-                    <p> Tình trạng: <span style="color:red;font-weight: bold">' .  $row['order_status'] . '</p> </div> </div>
+                    <p> Giảm giá: ' . number_format($row['discount_amount'], 0, ',', '.') . ' VND</p>
+                    <p> Tổng tiền: ' . number_format($row['total'] - $row['discount_amount'], 0, ',', '.') . ' VND</p>
+                    <p> Tình trạng: <span style="color:red;font-weight: bold">' . $row['order_status'] . '</p> </div> </div>
                     ';
 
                     // Truy vấn thông tin sản phẩm trong đơn hàng
@@ -184,9 +187,9 @@
                                     <th>Giá tiền</th>
                                     <th>Tổng tiền</th>
                                 </tr>';
-                        
+
                         // Hiển thị từng sản phẩm trong đơn hàng
-                        while($product = $result_products->fetch_assoc()) {
+                        while ($product = $result_products->fetch_assoc()) {
                             $total_price = $product['stock'] * $product['price'];
                             echo '<tr>
                                     <td>' . $product['product_id'] . '</td>
@@ -207,7 +210,7 @@
             } else {
                 echo '<p>Không tìm thấy đơn hàng.</p>';
             }
-        ?>
+            ?>
             <center> <button name='accept'>Xác nhận đơn hàng</button>
             </center>
         </form>

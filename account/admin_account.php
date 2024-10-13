@@ -75,7 +75,7 @@ if (isset($_GET["search"])) {
                     echo "<td>" . $row['admin_id'] . "</td>";
                     echo "<td>" . $row['admin_name'] . "</td>";
                     echo "<td>" . $row['password'] . "</td>";
-                    echo "<td>" . ($row['role'] == 0 ? 'Admin' : 'Super Admin') . "</td>";
+                    echo "<td>" . ($row['role'] == 1 ? 'Admin' : 'Super Admin') . "</td>";
                     // Nút chỉnh sửa và xóa
                     echo "<td><a href='/BTL/account/admin_account_update.php?id=" . $row['admin_id'] . "'>Chỉnh sửa</a></td>";
                     echo "<td><a href='/BTL/account/admin_account_delete.php?id=" . $row['admin_id'] . "' onclick=\"return confirm('Bạn có chắc chắn muốn xóa tài khoản này?');\">Xóa</a></td>";

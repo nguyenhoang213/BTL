@@ -1,6 +1,7 @@
 <?php
+session_start();
 
-    include("../connection.php");
+include("../connection.php");
 
     // Lấy product_id từ URL
     if (isset($_GET['product'])) {
