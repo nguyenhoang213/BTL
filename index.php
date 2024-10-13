@@ -12,7 +12,6 @@
 <body>
 
     <?php
-    echo "Hello TÀIAFAIDAJODADAD";
     include("connection.php");
     include("header.php");
     ?>
