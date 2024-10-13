@@ -13,8 +13,6 @@
     // Lấy admin_id từ URL
     if (isset($_GET['id'])) {
         $admin_id = $_GET['id'];
-        echo $admin_id;
-        echo $_SESSION['admin_id'];
         if($_SESSION['admin_id']!==$admin_id){
             // Câu lệnh SQL để xóa tài khoản admin theo admin_id
             $sql = "DELETE FROM Admin_account WHERE admin_id = '$admin_id'";

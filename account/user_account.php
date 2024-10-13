@@ -6,7 +6,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
                 // Quay lại trang trước
                 window.location.href = '" . (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'http://localhost/BTL/admin.php') . "';
             </script>";
-
 }
 ?>
 <?php
@@ -52,15 +51,13 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
             <button type="submit">Tìm kiếm</button>
         </form>
 
-        <a href="../account/user_account_create.php">Thêm tài khoản</a>
+        <!-- <a href="../account/user_account_create.php">Thêm tài khoản</a> -->
 
         <table>
             <tr>
                 <th>ID</th>
                 <th>Email</th>
-                <th>Mật khẩu</th>
                 <th>Tên</th>
-                <th>Cập nhật</th>
                 <th>Xóa</th>
             </tr>
 
@@ -71,11 +68,9 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
                     echo "<tr>";
                     echo "<td>" . $row['user_id'] . "</td>";
                     echo "<td>" . $row['email'] . "</td>";
-                    echo "<td>" . $row['password'] . "</td>";
                     echo "<td>{$row['first_name']} {$row['last_name']}</td>";
                     // Nút chỉnh sửa và xóa
-                    echo "<td><a href='/BTL/account/user_account_update.php?id=" . $row['user_id'] . "'>Chỉnh sửa</a></td>";
-                    echo "<td><a href='/BTL/account/user_account_delete.php?id=" . $row['user_id'] . "' onclick=\"return confirm('Bạn có chắc chắn muốn xóa tài khoản này?');\">Xóa</a></td>";
+                    echo "<td><a href='/BTL/account/user_account_delete.php?id=" . $row['user_id'] . "' onclick=\"return confirm('Bạn có chắc chắn muốn xóa tài khoản của user này?');\">Xóa</a></td>";
                     echo "</tr>";
                 }
             } else {
