@@ -11,7 +11,7 @@
                 <img style="font-size: 10px;" src="/BTL/src/assets/images/logo-01.png" alt="">
             </a>
         </div>
-        <form action="./find_product.php" method="GET" style="width:450px">
+        <form action="/BTL/find_product.php" method="GET" style="width:450px">
             <div class="share-header">
                 <input name="keyword" type="text" placeholder="Gõ từ khóa tìm kiếm..." />
                 <button style="border:none; background-color: inherit"><i
