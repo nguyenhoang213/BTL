@@ -43,159 +43,172 @@ if (!empty($sort)) {
     <link rel="stylesheet" href="css/index.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+
+        .filter-section {
+            width: 250px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 31px;
+        }
+
+        .filter-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-group label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .filter-group select,
+        .filter-group input[type="range"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .filter-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .apply-filter-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #ee9a00;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .apply-filter-btn:hover {
+            background-color: orange;
+        }
+
+        .product-section {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .product-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .products {
+            display: flex;
+            justify-content: center;
+        }
+
+        .product-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 230px;
+        }
+    </style>
 
 <body>
     <?php
     include("header.php");
     ?>
-    <!-- end header -->
 
-    <div class="main-body">
-        <div style="border-radius: 0px; border-left: 1px solid #d5cfcf;">
-            <div style="display: flex;" class="btn-group">
-                <button class="btn btn-lg dropdown-toggle bg-light" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" style="width: 232px; height: 50px;">
-                    Điện thoại
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
+    <!-- kết quả tìm kiếm -->
+
+    <div class="container">
+        <div class="filter-section">
+            <h2>Bộ lọc sản phẩm</h2>
+
+            <div class="filter-group">
+                <label for="category">Danh mục</label>
+                <select id="category">
+                    <option value="">Tất cả danh mục</option>
+                    <option value="clothing">Quần áo</option>
+                    <option value="electronics">Điện tử</option>
+                    <option value="furniture">Nội thất</option>
+                </select>
             </div>
-            <div style="display: flex;" class="btn-group">
-                <button class="btn btn-lg dropdown-toggle bg-light" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" style="width: 232px; height: 50px;">
-                    Laptop</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
+
+            <div class="filter-group">
+                <label for="price-range">Khoảng giá</label>
+                <input type="range" id="price-range" min="0" max="1000" step="50">
+                <span id="price-value">500$</span>
             </div>
-            <div style="display: flex;" class="btn-group">
-                <button class="btn btn-lg dropdown-toggle bg-light" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" style="width: 232px; height: 50px;">
-                    Table
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
+
+            <div class="filter-group">
+                <label for="rating">Đánh giá</label>
+                <input type="checkbox" id="rating-4" value="4"> 4 sao trở lên <br>
+                <input type="checkbox" id="rating-3" value="3"> 3 sao trở lên <br>
+                <input type="checkbox" id="rating-2" value="2"> 2 sao trở lên <br>
+                <input type="checkbox" id="rating-1" value="1"> 1 sao trở lên <br>
             </div>
-            <div style="display: flex;" class="btn-group">
-                <button class="btn btn-lg dropdown-toggle bg-light" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" style="width: 232px; height: 50px;">
-                    Tai nghe
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-            </div>
-            <div style="display: flex;" class="btn-group">
-                <button class="btn btn-lg dropdown-toggle bg-light" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" style="width: 232px; height: 50px;">
-                    Chuột máy tính
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-            </div>
-            <div style="display: flex;" class="btn-group">
-                <button class="btn btn-lg dropdown-toggle bg-light" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" style="width: 232px; height: 50px;">
-                    PC
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-            </div>
-            <div style="display: flex;" class="btn-group">
-                <button class="btn btn-lg dropdown-toggle bg-light" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false" style="width: 232px; height: 50px;">
-                    Dây sạc
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
+
+            <button class="apply-filter-btn">Áp dụng bộ lọc</button>
+        </div>
+
+        <div class="product-section">
+            <h2 style="margin: 10px 0 20px 53px">Kết quả tìm kiếm cho từ khóa "..."</h2>
+            <div class="products">
+                <div class="product-card">
+                    <img style="width: 170px; height: 170px"
+                        src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                    <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                    <span>10,900,000 ₫</span>
+                </div>
+                <div class="product-card">
+                    <img style="width: 170px; height: 170px"
+                        src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                    <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                    <span>10,900,000 ₫</span>
+                </div>
+                <div class="product-card">
+                    <img style="width: 170px; height: 170px"
+                        src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
+                    <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
+                    <span>10,900,000 ₫</span>
+                </div>
+                
             </div>
 
         </div>
-        <!-- slider -->
-        <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div style="width: 910px; height: 370px" class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./src/assets/images/slider 1.avif" class="d-block w-100" alt="..." />
-                </div>
-                <div class="carousel-item">
-                    <img src="./src/assets/images/slider 2.jpg" class="d-block w-100" alt="..." />
-                </div>
-                <div class="carousel-item">
-                    <img src="./src/assets/images/slider 3.jpeg" class="d-block w-100" alt="..." />
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <!-- end slider -->
     </div>
-    <!-- product -->
-    <h1 style="margin: 10px 0 10px 200px">Kết quả tìm kiếm</h1>
+    </div>
 
-    <script>
+    <!-- đã comment cũ -->
+    <!-- <script>
         function price_range_display() {
             var price = document.getElementById('price-range').value;
             document.getElementById('price_display').textContent = parseInt(price).toLocaleString('vi-VN') + " VNĐ";
@@ -294,7 +307,8 @@ if (!empty($sort)) {
             }
             ?>
         </div>
-    </div>
+    </div> -->
+
 
     <script src="https://kit.fontawesome.com/0236bf0649.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
