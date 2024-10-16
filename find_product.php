@@ -12,12 +12,8 @@ if ($category !== 'Tất cả') {
     $sql .= " AND product_id IN (SELECT product_id FROM product_category WHERE category_id in (SELECT category_id FROM category WHERE category_name like '%$category%'))";
 }
 
-if (!$price_range) {
+if ($price_range) {
     $sql .= " AND price <= $price_range";
-}
-
-if ($rating !== 'Tất cả') {
-    $sql .= " AND rating >= " . (int) $rating;
 }
 
 if (!empty($sort)) {
@@ -160,7 +156,7 @@ if (!empty($sort)) {
 
                 <div class="filter-group">
                     <label for="category">Danh mục</label>
-                    <select id="category">
+                    <select id="category" name="category">
                         <option <?php if ($category == 'Tất cả')
                             echo 'selected'; ?>>Tất cả</option>
                         <option <?php if ($category == 'Điện thoại')
@@ -211,7 +207,7 @@ if (!empty($sort)) {
         </form>
 
         <div class="product-section">
-            <h2 style="margin: 10px 0 20px 53px">Kết quả tìm kiếm cho từ khóa "..."</h2>
+            <h2 style="margin: 10px 0 20px 53px">Kết quả tìm kiếm cho từ khóa "<?php echo $keyword ?>"</h2>
             <div class="products">
                 <?php
                 $result = $conn->query($sql);
@@ -228,6 +224,8 @@ if (!empty($sort)) {
                             </div>
                             ';
                     }
+                } else {
+                    echo '<p> Không có sản phẩm nào!</p>';
                 }
                 ?>
             </div>
