@@ -28,7 +28,6 @@
             </button>
             <!-- Nút kích hoạt Modal -->
             <?php
-            // session_start();
             if (isset($_SESSION["user_id"])) {
                 $user_id = $_SESSION["user_id"];
                 $sql_user = "SELECT * FROM user WHERE user_id = '$user_id'";

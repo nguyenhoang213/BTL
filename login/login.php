@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include("../connection.php");
 if (isset($_SESSION["user_id"])) {
     echo "<script>window.location.href='http://localhost/BTL/';</script>";
@@ -43,6 +41,7 @@ if (isset($_POST['login'])) {
     } else {
         echo "<script type='text/javascript'>alert('Sai mật khẩu hoặc email')</script>";
     }
+
 }
 
 ?>
@@ -59,16 +58,16 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" />
     <title>Đăng nhập</title>
     <style>
-        .btn-number{
+        .btn-number {
             margin: 10px;
         }
     </style>
 </head>
 
 <body>
-    <?php 
+    <?php
     include("../header.php")
-    ?>
+        ?>
     <div class="form-login">
         <div class="form-register">
             <form class="row g-3" method="POST">
@@ -129,9 +128,9 @@ if (isset($_POST['login'])) {
             }
         </script>
     </div>
-    <?php 
+    <?php
     include("../footer.php")
-    ?>
+        ?>
 </body>
 
 </html>

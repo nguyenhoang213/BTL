@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    include("../side_nav.php");
+
+include("../side_nav.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,73 +37,73 @@
 </html>
 
 <?php
-    include("../connection.php");
+include("../connection.php");
 
-    // Xử lý khi form thêm sản phẩm được submit
-    if (isset($_POST['submit'])) {
-        $maSP = $_POST['maSP'];
-        $tenSP = $_POST['tenSP'];
-        $motaSP = $_POST['motaSP'];
-        $giaSP = $_POST['giaSP'];
-        $soluongSP = $_POST['soluongSP'];
-        $hinhanhSP = '';
+// Xử lý khi form thêm sản phẩm được submit
+if (isset($_POST['submit'])) {
+    $maSP = $_POST['maSP'];
+    $tenSP = $_POST['tenSP'];
+    $motaSP = $_POST['motaSP'];
+    $giaSP = $_POST['giaSP'];
+    $soluongSP = $_POST['soluongSP'];
+    $hinhanhSP = '';
 
-        // Kiểm tra nếu người dùng upload hình ảnh
-        if (!empty($_FILES["hinhanhSP"]["name"])) {
-            $target_dir = "../src/assets/uploads/product/";
-            $target_file = $target_dir . basename($_FILES["hinhanhSP"]["name"]);
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-            $allowedTypes = ['jpg', 'png', 'jpeg', 'gif'];
+    // Kiểm tra nếu người dùng upload hình ảnh
+    if (!empty($_FILES["hinhanhSP"]["name"])) {
+        $target_dir = "../src/assets/uploads/product/";
+        $target_file = $target_dir . basename($_FILES["hinhanhSP"]["name"]);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $allowedTypes = ['jpg', 'png', 'jpeg', 'gif'];
 
-            // Kiểm tra file có hợp lệ không
-            if (!in_array($imageFileType, $allowedTypes)) {
-                echo "<script>alert('Chỉ chấp nhận các định dạng file: JPG, JPEG, PNG, GIF!');</script>";
-            } elseif ($_FILES["hinhanhSP"]["size"] > 5000000) {
-                echo "<script>alert('File ảnh có kích thước quá lớn! Tối đa là 5MB.');</script>";
-            } elseif (!move_uploaded_file($_FILES["hinhanhSP"]["tmp_name"], $target_file)) {
-                echo "<script>alert('Có lỗi khi upload hình ảnh. Vui lòng thử lại!');</script>";
-            } else {
-                $hinhanhSP = basename($_FILES["hinhanhSP"]["name"]);
-            }
+        // Kiểm tra file có hợp lệ không
+        if (!in_array($imageFileType, $allowedTypes)) {
+            echo "<script>alert('Chỉ chấp nhận các định dạng file: JPG, JPEG, PNG, GIF!');</script>";
+        } elseif ($_FILES["hinhanhSP"]["size"] > 5000000) {
+            echo "<script>alert('File ảnh có kích thước quá lớn! Tối đa là 5MB.');</script>";
+        } elseif (!move_uploaded_file($_FILES["hinhanhSP"]["tmp_name"], $target_file)) {
+            echo "<script>alert('Có lỗi khi upload hình ảnh. Vui lòng thử lại!');</script>";
+        } else {
+            $hinhanhSP = basename($_FILES["hinhanhSP"]["name"]);
         }
+    }
 
-        // Thêm sản phẩm mới vào cơ sở dữ liệu
-        $sql = "INSERT INTO Product (product_id, product_name, description, price, image, stock) 
+    // Thêm sản phẩm mới vào cơ sở dữ liệu
+    $sql = "INSERT INTO Product (product_id, product_name, description, price, image, stock) 
                 VALUES ('$maSP', '$tenSP', '$motaSP', '$giaSP', '$hinhanhSP', '$soluongSP')";
 
-        if ($conn->query($sql) === TRUE) {
-            echo "
+    if ($conn->query($sql) === TRUE) {
+        echo "
             <script>
                 alert('Sản phẩm mới đã được thêm thành công!');
                 window.location.href = '../product/product_list.php';
             </script>
             ";
-        } else {
-            echo "Lỗi: " . $sql . "<br>" . $conn->error;
-        }
+    } else {
+        echo "Lỗi: " . $sql . "<br>" . $conn->error;
     }
+}
 
-    $conn->close();
+$conn->close();
 ?>
 
 
 <script>
-const inputGiaSP = document.getElementById('giaSP');
+    const inputGiaSP = document.getElementById('giaSP');
 
-inputGiaSP.addEventListener('input', function(e) {
-    // Xóa các ký tự không phải là số
-    let value = e.target.value.replace(/\D/g, '');
+    inputGiaSP.addEventListener('input', function (e) {
+        // Xóa các ký tự không phải là số
+        let value = e.target.value.replace(/\D/g, '');
 
-    // Thêm dấu chấm mỗi 3 số
-    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        // Thêm dấu chấm mỗi 3 số
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-    // Hiển thị giá trị đã định dạng
-    e.target.value = value;
-});
+        // Hiển thị giá trị đã định dạng
+        e.target.value = value;
+    });
 
-// Khi gửi form, loại bỏ dấu chấm trước khi gửi giá trị
-const form = document.querySelector('form');
-form.addEventListener('submit', function() {
-    inputGiaSP.value = inputGiaSP.value.replace(/\./g, '');
-});
+    // Khi gửi form, loại bỏ dấu chấm trước khi gửi giá trị
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function () {
+        inputGiaSP.value = inputGiaSP.value.replace(/\./g, '');
+    });
 </script>

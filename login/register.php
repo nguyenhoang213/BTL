@@ -2,12 +2,13 @@
 include("../connection.php");
 
 if (isset($_POST['submit'])) {
-  function generateUniqueId($length = 8) {
-    return bin2hex(random_bytes($length / 2));
-  }
+    function generateUniqueId($length = 8)
+    {
+        return bin2hex(random_bytes($length / 2));
+    }
     $user_id = generateUniqueId(12); // Tạo ID ngẫu nhiên có độ dài 12 ký tự
     $firstName = $_POST["firstName"];
-    $lastName= $_POST["lastName"];
+    $lastName = $_POST["lastName"];
     $gender = $_POST['gender'];
     $day = $_POST['day'];
     $month = $_POST['month'];
@@ -17,7 +18,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
 
     $password_user = $_POST['password'];
-    $hashed_password = password_hash($password_user, PASSWORD_DEFAULT); 
+    $hashed_password = password_hash($password_user, PASSWORD_DEFAULT);
 
     $check_query = "select * from `user` where email='$email'";
     $check_result = mysqli_query($conn, $check_query);
@@ -27,18 +28,18 @@ if (isset($_POST['submit'])) {
         exit();
     } else {
         $result_query_user = mysqli_query($conn, "insert into user(user_id, first_name, last_name, gender, birth, phone, email) VALUES ('$user_id','$firstName','$lastName','$gender','$birth','$phone','$email')");
-        if($result_query_user){
-          $result_query_user_account = mysqli_query($conn, "insert into user_account(email,user_id, password, phone) VALUES ('$email','$user_id','$hashed_password','$phone')");
-          if ($result_query_user_account) {
-              echo "<script>alert('Tạo mới người dùng thành công !')</script>";
-              echo "<script> window.location.href = 'http://localhost/BTL/login/login.php';</script>";  
-          } else {
-              echo "<script>alert('Đã xảy ra lỗi khi đăng ký!')</script>";
-              echo "<script>window.location.href='http://localhost/BTL/login/login.php';</script>'";
-          }
+        if ($result_query_user) {
+            $result_query_user_account = mysqli_query($conn, "insert into user_account(email,user_id, password, phone) VALUES ('$email','$user_id','$hashed_password','$phone')");
+            if ($result_query_user_account) {
+                echo "<script>alert('Tạo mới người dùng thành công !')</script>";
+                echo "<script> window.location.href = 'http://localhost/BTL/login/login.php';</script>";
+            } else {
+                echo "<script>alert('Đã xảy ra lỗi khi đăng ký!')</script>";
+                echo "<script>window.location.href='http://localhost/BTL/login/login.php';</script>'";
+            }
 
-        }else {
-          echo "<script>alert('Đã xảy ra lỗi khi đăng ký tài khoản!')</script>";
+        } else {
+            echo "<script>alert('Đã xảy ra lỗi khi đăng ký tài khoản!')</script>";
         }
     }
 }
@@ -96,10 +97,10 @@ if (isset($_POST['submit'])) {
                 <select class="form-select" id="validationDefault04" name="day" required>
                     <option selected disabled value="Ngày"></option>
                     <?php
-            for ($i = 1; $i <= 31; $i++) {
-                echo "<option value='$i'>$i</option>";
-            }
-            ?>
+                    for ($i = 1; $i <= 31; $i++) {
+                        echo "<option value='$i'>$i</option>";
+                    }
+                    ?>
                 </select>
             </div>
             <div class="col-md-3">
@@ -107,10 +108,10 @@ if (isset($_POST['submit'])) {
                 <select class="form-select" id="validationDefault04" name="month" required>
                     <option selected disabled value="Tháng"></option>
                     <?php
-            for ($i = 1; $i <= 12; $i++) {
-                echo "<option value='$i'>$i</option>";
-            }
-            ?>
+                    for ($i = 1; $i <= 12; $i++) {
+                        echo "<option value='$i'>$i</option>";
+                    }
+                    ?>
                 </select>
             </div>
             <div class="col-md-3">
@@ -118,11 +119,11 @@ if (isset($_POST['submit'])) {
                 <select class="form-select" id="validationDefault04" name="year" required>
                     <option selected disabled value="Nam"></option>
                     <?php
-            $currentYear = date("Y");
-            for ($i = $currentYear; $i >= 1900; $i--) {
-                echo "<option value='$i'>$i</option>";
-            }
-            ?>
+                    $currentYear = date("Y");
+                    for ($i = $currentYear; $i >= 1900; $i--) {
+                        echo "<option value='$i'>$i</option>";
+                    }
+                    ?>
 
                 </select>
             </div>
@@ -147,7 +148,7 @@ if (isset($_POST['submit'])) {
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

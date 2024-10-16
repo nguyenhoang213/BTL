@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("./connection.php");
 
 if (!isset($_SESSION['role'])) {
@@ -43,7 +42,7 @@ include("side_nav.php");
                 <a href="/BTL/account/admin_account.php">Quản lý tài khoản Admin</a>
             </div>
 
-            <div style="background-color: rgb(77, 224, 173);"  class="overview-item 2">
+            <div style="background-color: rgb(77, 224, 173);" class="overview-item 2">
                 <h3>Sản phẩm</h3>
                 <p>
                     <?php

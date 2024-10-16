@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include("../connection.php");
 include("../side_nav.php");
 include("../side_nav.php");

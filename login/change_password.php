@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include("../connection.php");
 include("../user/user_header.php");
 

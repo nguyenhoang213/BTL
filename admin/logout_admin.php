@@ -1,5 +1,5 @@
 <?php
-session_start(); // Bắt đầu session
+// Bắt đầu session
 
 // Kiểm tra nếu người dùng đã đăng nhập
 if (isset($_SESSION['admin_name'])) {

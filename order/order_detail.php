@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include("../side_nav.php");
 include("../connection.php");
 
@@ -91,49 +91,49 @@ if (isset($_POST['accept'])) {
     <title>Xử lý đơn hàng</title>
     <link rel="stylesheet" href="/BTL/css/list.css">
     <style>
-        .user {
-            display: flex;
-            justify-content: space-between;
-        }
+    .user {
+        display: flex;
+        justify-content: space-between;
+    }
 
-        .user>div {
-            margin: 20px 15px 15px 0px;
-            padding: 15px 20px;
-            border-radius: 10px;
-            width: 35%;
-            background-color: rgb(209 232 247);
-            border: solid;
-        }
+    .user>div {
+        margin: 20px 15px 15px 0px;
+        padding: 15px 20px;
+        border-radius: 10px;
+        width: 35%;
+        background-color: rgb(209 232 247);
+        border: solid;
+    }
 
-        table {
-            margin: 10px 0;
-        }
+    table {
+        margin: 10px 0;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
 
-        table thead {
-            background-color: #2980b9;
-            color: #fff;
-        }
+    table thead {
+        background-color: #2980b9;
+        color: #fff;
+    }
 
-        table th,
-        table td {
-            padding: 12px 15px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
+    table th,
+    table td {
+        padding: 12px 15px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
 
-        table tbody tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+    table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-        table tbody tr:hover {
-            background-color: #e1f5fe;
-        }
+    table tbody tr:hover {
+        background-color: #e1f5fe;
+    }
     </style>
 </head>
 

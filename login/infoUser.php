@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include("../connection.php");$email = $_SESSION['email'];
 $select_info = "select * from user where email = '$email'";
 $select_info_query = mysqli_query($connect, $select_info);

@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
     echo "<script>
                 alert('Không thể thực hiện hành động này');
@@ -9,21 +9,21 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
 }
 ?>
 <?php
-    include("../side_nav.php"); 
-    include("../connection.php");
-    // Truy vấn mặc định để lấy tất cả tài khoản user
-    $sql = "SELECT * FROM user";  
-    $result = $conn->query($sql);
-    $search_category = "user_id";  // Mặc định tìm kiếm theo ID user
+include("../side_nav.php");
+include("../connection.php");
+// Truy vấn mặc định để lấy tất cả tài khoản user
+$sql = "SELECT * FROM user";
+$result = $conn->query($sql);
+$search_category = "user_id";  // Mặc định tìm kiếm theo ID user
 
-    // Xử lý chức năng tìm kiếm
-    if (isset($_GET["search"])) {
-        $search_category = $_GET["search_category"];
-        $search_string = $_GET["search"];
-        // Truy vấn tìm kiếm trên bảng Admin_account thay vì Product
-        $sql = "SELECT * FROM user WHERE $search_category LIKE '%$search_string%'"; 
-        $result = $conn->query($sql);
-    }
+// Xử lý chức năng tìm kiếm
+if (isset($_GET["search"])) {
+    $search_category = $_GET["search_category"];
+    $search_string = $_GET["search"];
+    // Truy vấn tìm kiếm trên bảng Admin_account thay vì Product
+    $sql = "SELECT * FROM user WHERE $search_category LIKE '%$search_string%'";
+    $result = $conn->query($sql);
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +42,11 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
         <form action="" method="get">
             <label for="search">Tìm kiếm tài khoản:</label>
             <select name="search_category">
-                <option value="user_id" <?php if ($search_category == "user_id") echo 'selected'; ?>>ID tài khoản
+                <option value="user_id" <?php if ($search_category == "user_id")
+                    echo 'selected'; ?>>ID tài khoản
                 </option>
-                <option value="email" <?php if ($search_category == "email") echo 'selected'; ?>>Tên tài khoản
+                <option value="email" <?php if ($search_category == "email")
+                    echo 'selected'; ?>>Tên tài khoản
                 </option>
             </select>
             <input type="text" id="search" name="search" placeholder="Nhập từ khóa">

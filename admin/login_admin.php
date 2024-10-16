@@ -1,7 +1,7 @@
 <?php
 include("../connection.php");
-session_start();
-if(isset($_SESSION['user_id'])) {
+
+if (isset($_SESSION['user_id'])) {
     echo "<script>
     alert('Không có quyền truy cập vào trang này. Bạn sẽ được chuyển tới trang chủ');
     window.location.href = 'http://localhost/BTL';
@@ -10,27 +10,29 @@ if(isset($_SESSION['user_id'])) {
 if (isset($_POST['login'])) {
     $admin_name = $_POST['admin_name'];
     $password = $_POST['password'];
-    $select = mysqli_query($conn,
-      "select *
+    $select = mysqli_query(
+        $conn,
+        "select *
       from admin_account 
       where admin_name = '$admin_name'
-      ");
+      "
+    );
     $row = mysqli_fetch_assoc($select);
     if (is_array($row)) {
         $_SESSION['admin_id'] = $row['admin_id'];
         $_SESSION['admin_name'] = $row['admin_name'];
         $_SESSION['role'] = $row['role'];
-          if (isset($_SESSION['admin_name']) && $row['password'] == $password) {
-          echo "<script>
+        if (isset($_SESSION['admin_name']) && $row['password'] == $password) {
+            echo "<script>
           alert('Đăng nhập thành công');
           window.location.href = 'http://localhost/BTL/admin.php';
           </script>";
-          exit();
+            exit();
         } else {
             echo "<script type='text/javascript'>alert('Sai thông tin')</script>";
         }
     } else {
-      echo "<script type='text/javascript'>alert('Sai thông tin')</script>";
+        echo "<script type='text/javascript'>alert('Sai thông tin')</script>";
 
     }
 }
@@ -84,7 +86,7 @@ if (isset($_POST['login'])) {
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

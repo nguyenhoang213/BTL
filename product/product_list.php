@@ -1,20 +1,20 @@
 <?php
-    session_start();
-    include("../side_nav.php"); 
-    include("../connection.php");
-    // get sql
-    $sql = "SELECT * FROM Product";  
-    $result = $conn->query($sql);
-    $search_category = "product_id";
+
+include("../side_nav.php");
+include("../connection.php");
+// get sql
+$sql = "SELECT * FROM Product";
+$result = $conn->query($sql);
+$search_category = "product_id";
 ?>
 
-<?php 
-    if(isset($_GET["search"])) {
-        $search_category = $_GET["search_category"];
-        $searh_string = $_GET["search"];
-        $sql = "SELECT * From Product WHERE $search_category like '%$searh_string%'"; 
-        $result = $conn->query($sql);
-    }
+<?php
+if (isset($_GET["search"])) {
+    $search_category = $_GET["search_category"];
+    $searh_string = $_GET["search"];
+    $sql = "SELECT * From Product WHERE $search_category like '%$searh_string%'";
+    $result = $conn->query($sql);
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,12 +33,15 @@
         <form action="" method="get">
             <label for="search">Tìm kiếm sản phẩm:</label>
             <select name="search_category">
-                <option value="product_id" <?php if ($search_category == "product_id") echo 'selected'; ?>>Mã sản phẩm
+                <option value="product_id" <?php if ($search_category == "product_id")
+                    echo 'selected'; ?>>Mã sản phẩm
                 </option>
-                <option value="product_name" <?php if ($search_category == "product_name") echo 'selected'; ?>>Tên sản
+                <option value="product_name" <?php if ($search_category == "product_name")
+                    echo 'selected'; ?>>Tên sản
                     phẩm
                 </option>
-                <option value="status" <?php if ($search_category == "status") echo 'selected'; ?>>Tình trạng</option>
+                <option value="status" <?php if ($search_category == "status")
+                    echo 'selected'; ?>>Tình trạng</option>
             </select>
             <input type="text" id="search" name="search" placeholder="Nhập từ khóa">
             <button type="submit">Tìm kiếm</button>
@@ -61,36 +64,36 @@
                 </tr>
 
                 <?php
-            // hiển thị sản phẩm
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row['product_id'] . "</td>";
-                    echo "<td> <a href ='./product_detail.php?id=" . $row['product_id'] . "'>" . $row['product_name'] . "</a> </td>";
-                    if (!empty($row['image'])) {
-                        echo "<td><img src='/BTL/src/assets/uploads/product/" . $row['image'] . "' width='100'></td>";
-                    } else {
-                        echo "<td>Không có hình ảnh</td>";
+                // hiển thị sản phẩm
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row['product_id'] . "</td>";
+                        echo "<td> <a href ='./product_detail.php?id=" . $row['product_id'] . "'>" . $row['product_name'] . "</a> </td>";
+                        if (!empty($row['image'])) {
+                            echo "<td><img src='/BTL/src/assets/uploads/product/" . $row['image'] . "' width='100'></td>";
+                        } else {
+                            echo "<td>Không có hình ảnh</td>";
+                        }
+                        echo "<td>" . nl2br($row['description']) . "</td>";
+                        echo "<td>" . number_format($row['price'], 0, ',', '.') . "</td>";
+                        echo "<td>" . $row['stock'] . "</td>";
+                        if ($row['status'] == 0) {
+                            echo "<td  style = 'color: red'> Ngừng bán </td>";
+                        } else {
+                            echo "<td> Đang bán </td>";
+                        }
+                        // Nút chỉnh sửa và xóa
+                        echo "<td><a href='/BTL/product/product_edit.php?id=" . $row['product_id'] . "'>Chỉnh sửa</a></td>";
+                        echo "<td><a href='/BTL/product/product_delete.php?id=" . $row['product_id'] . "' onclick=\"return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');\">Xóa</a></td>";
+                        echo "</tr>";
                     }
-                    echo "<td>" . nl2br($row['description']) . "</td>";
-                    echo "<td>" . number_format($row['price'], 0, ',', '.') . "</td>";
-                    echo "<td>" . $row['stock'] . "</td>";
-                    if($row['status'] == 0) {
-                        echo "<td  style = 'color: red'> Ngừng bán </td>";
-                    } else {
-                        echo "<td> Đang bán </td>";
-                    }
-                    // Nút chỉnh sửa và xóa
-                    echo "<td><a href='/BTL/product/product_edit.php?id=" . $row['product_id'] . "'>Chỉnh sửa</a></td>";
-                    echo "<td><a href='/BTL/product/product_delete.php?id=" . $row['product_id'] . "' onclick=\"return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');\">Xóa</a></td>";
-                    echo "</tr>";
+                } else {
+                    echo "<tr><td colspan='9'>Không có sản phẩm nào!</td></tr>";
                 }
-            } else {
-                echo "<tr><td colspan='9'>Không có sản phẩm nào!</td></tr>";
-            }
 
-            $conn->close();
-        ?>
+                $conn->close();
+                ?>
             </table>
         </div>
     </div>
