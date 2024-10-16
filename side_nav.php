@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-   include("connection.php");
-=======
 include("connection.php");
->>>>>>> 02e2db1aa949807040e9c430130274515b3f3e7b
 ?>
 
 <head>
