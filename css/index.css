@@ -121,7 +121,7 @@ body {
   background-color: #ffd715;
   padding: 20px;
   margin-left: -20px;
-  width: 240px;
+  width: 239px;
 }
 .head-item p {
   margin-top: 15px;
@@ -308,7 +308,7 @@ ul {
   width: 238px;
   background-color: #f9f9f9;
   z-index: 5;
-  margin-left: 185px;
+  margin-left: 164px;
 }
 
 ul.menu {
