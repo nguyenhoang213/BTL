@@ -1,8 +1,10 @@
 .content {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
     margin-top: 70px;
     margin-left: 310px;
-    width: 80vw;
+    width: 78vw;
 }
 
 h1 {

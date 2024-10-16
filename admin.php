@@ -21,16 +21,15 @@ include("side_nav.php");
     <title>Trang quản lý Admin</title>
     <!-- Thêm thư viện Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
     <div class="content">
-        <h1>Trang quản lý tổng quát Admin</h1>
-
         <!-- Thông tin tổng quan (có thể hiển thị số lượng tài khoản, sản phẩm, đơn hàng, v.v.) -->
         <div class="overview">
             <!-- Tổng quan khác như tài khoản Admin, Sản phẩm, Đơn hàng, Người dùng -->
-            <div class="overview-item">
+            <div style="background-color: rgb(255 179 144);" class="overview-item">
                 <h3>Tài khoản Admin</h3>
                 <p>
                     <?php
@@ -44,7 +43,7 @@ include("side_nav.php");
                 <a href="/BTL/account/admin_account.php">Quản lý tài khoản Admin</a>
             </div>
 
-            <div class="overview-item">
+            <div style="background-color: rgb(77, 224, 173);"  class="overview-item 2">
                 <h3>Sản phẩm</h3>
                 <p>
                     <?php
@@ -58,7 +57,7 @@ include("side_nav.php");
                 <a href="/BTL/product/product_list.php">Quản lý sản phẩm</a>
             </div>
 
-            <div class="overview-item">
+            <div style="background-color: rgb(246, 154, 165);" class="overview-item 3">
                 <h3>Đơn hàng</h3>
                 <p>
                     <?php
@@ -72,7 +71,7 @@ include("side_nav.php");
                 <a href="/BTL/order/order_list.php">Quản lý đơn hàng</a>
             </div>
 
-            <div class="overview-item">
+            <div style="background-color: rgb(75, 208, 210);" class="overview-item 4">
                 <h3>Người dùng</h3>
                 <p>
                     <?php
@@ -89,8 +88,7 @@ include("side_nav.php");
 
         <!-- Báo cáo doanh thu -->
         <div class="admin-salereport">
-            <h2>Báo cáo doanh thu</h2>
-            <canvas id="revenueChart" width="400" height="150"></canvas>
+            <canvas id="revenueChart" width="250%" height="100%"></canvas>
 
             <?php
             // Truy vấn doanh thu theo tháng
@@ -153,7 +151,7 @@ include("side_nav.php");
         </div>
 
         <!-- Các chức năng chính -->
-        <div class="admin-functions">
+        <!-- <div class="admin-functions">
             <h2>Các chức năng quản lý</h2>
             <ul>
                 <li><a href="/BTL/account/admin_account.php">Quản lý tài khoản Admin</a></li>
@@ -163,7 +161,7 @@ include("side_nav.php");
                 <li><a href="">Báo cáo doanh thu</a></li>
                 <li><a href="">Cài đặt hệ thống</a></li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </body>
 
