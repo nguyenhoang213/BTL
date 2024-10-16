@@ -8,7 +8,7 @@
     <div class="box-header">
         <div class="box-header-logo">
             <a href="/BTL/index.php">
-                <img style="font-size: 10px;" src="/BTL/src/assets/images/logo-01.png" alt="">
+                <img src="/BTL/src/assets/images/logo-01.png" alt="">
             </a>
         </div>
         <form action="/BTL/find_product.php" method="GET" style="width:450px">
