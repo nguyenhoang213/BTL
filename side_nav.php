@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
    include("connection.php");
+=======
+include("connection.php");
+>>>>>>> 02e2db1aa949807040e9c430130274515b3f3e7b
 ?>
 
 <head>
@@ -14,7 +18,7 @@
     <div style="position: fixed; top: 0; width: 100vw">
         <div id="user">
             <img src="/BTL/src/assets/images/user.png" alt="User Avatar" class="user-avatar" />
-            <span class="user-name">Admin :<?php echo $_SESSION['admin_name']; ?></span>
+            <span class="user-name">Admin: <?php echo $_SESSION['admin_name']; ?></span>
             <!-- icon -->
             <nav style="position: fixed; right: 30px">
                 <div class="icon">

@@ -5,10 +5,10 @@ include("../header.php");
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 if (!isset($_SESSION["user_id"])) {
     echo "
-            <script>
-                window.location.href = '../login/login.php';
-            </script>
-            ";
+    <script>
+        window.location.href = '../login/login.php';
+    </script>
+    ";
 }
 
 $user_id = $_SESSION["user_id"];
@@ -120,6 +120,8 @@ if (isset($_POST['acp'])) {
             $sql_order_item = "INSERT INTO order_product (order_id, product_id, stock, price)
                                     VALUES ($order_id , '$product_id', $stock, '$price')";
             $conn->query($sql_order_item);
+            $sql_item_history = "INSERT INTO user_product_history (user_id, product_id, time, type)
+                                    VALUES ($user_id , '$product_id', '$order_time', 1)";
         }
 
         // Lưu mã người dùng đã dùng
@@ -138,7 +140,7 @@ if (isset($_POST['acp'])) {
 
         // Commit transaction
         $conn->commit();
-        // echo "<script>alert('Đặt hàng thành công!'); window.location.href = 'order_success.php';</script>";
+        echo "<script>alert('Đặt hàng thành công!'); window.location.href = 'order_success.php?id=" . $order_id . "';</script>";
     }
 }
 ?>
@@ -154,30 +156,30 @@ if (isset($_POST['acp'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-    .mb-3 {
-        margin-left: 40px;
-        margin-bottom: 1rem;
-    }
+        .mb-3 {
+            margin-left: 40px;
+            margin-bottom: 1rem;
+        }
 
-    .baner-header img {
-        width: 100%;
-        height: auto;
-    }
+        .baner-header img {
+            width: 100%;
+            height: auto;
+        }
 
-    .header-wrapper {
-        background-color: #f8f9fa;
-        padding: 1rem;
-    }
+        .header-wrapper {
+            background-color: #f8f9fa;
+            padding: 1rem;
+        }
 
-    .container-custom {
-        margin-top: 30px;
-    }
+        .container-custom {
+            margin-top: 30px;
+        }
 
 
-    .form-control,
-    .form-select {
-        margin-bottom: 1rem;
-    }
+        .form-control,
+        .form-select {
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 
@@ -217,7 +219,10 @@ if (isset($_POST['acp'])) {
                                     </tr>';
                             }
                         } else {
-                            echo "<tr><td colspan='4'>Giỏ hàng của bạn trống</td></tr>";
+                            echo "<script>
+                                alert('Giỏ hàng trống');
+                                window.location.href = '../cart/cart.php';
+                            </script>";
                         }
                         ?>
                     </tbody>
@@ -242,25 +247,50 @@ if (isset($_POST['acp'])) {
                 <form action="" method="POST">
                     <?php
                     if (isset($discount_amount) && $discount_amount > 0) {
-                        echo '<input type="hidden" name = "discount_amount" value = "' . $discount_amount . '">';
+                        echo '<input type="hidden" name="discount_amount" value="' . $discount_amount . '">';
                     } else {
-                        echo '<input type="hidden" name = "discount_amount" value = "0">';
+                        echo '<input type="hidden" name="discount_amount" value="0">';
                     }
                     if (isset($voucher_code) && $discount_amount > 0) {
-                        echo '<input type="hidden" name = "voucher" value = "' . $voucher_id . '">';
+                        echo '<input type="hidden" name="voucher" value="' . $voucher_id . '">';
                     }
                     ?>
                     <div class="mb-3">
                         <label for="payment_method" class="form-label">Phương thức thanh toán</label>
                         <select class="form-select" id="payment_method" name="payment_method" required>
-                            <option value="credit_card">Thẻ tín dụng</option>
-                            <option value="paypal">PayPal</option>
                             <option value="cod">Thanh toán khi nhận hàng</option>
+                            <option value="qr">Chuyển khoản</option>
                         </select>
                     </div>
-                    <div style="text-align: center"> <button type="submit" name="acp" class="btn btn-primary">Đặt
-                            hàng</button>
+
+                    <!-- Mã QR sẽ ẩn ban đầu và hiện ra khi chọn "Chuyển khoản" -->
+                    <div id="qr_code_section" style="display:none; text-align:center; margin: 20px 0;">
+
+                        <h5 style="color: red">Techombank: 19035842255014</h5>
+                        <h5>Nguyễn Như Hoàng</h5>
+                        <p>Quét mã QR để thanh toán:</p>
+                        <img src="/BTL/src/assets/images/qr-code-image.png" alt="QR Code" width="200">
                     </div>
+
+                    <div style="text-align: center">
+                        <button type="submit" name="acp" class="btn btn-primary">Đặt hàng</button>
+                    </div>
+                </form>
+
+                <script>
+                    // Lắng nghe sự thay đổi của phương thức thanh toán
+                    document.getElementById('payment_method').addEventListener('change', function () {
+                        var paymentMethod = this.value;
+                        var qrSection = document.getElementById('qr_code_section');
+
+                        // Nếu chọn phương thức "Chuyển khoản", hiện mã QR
+                        if (paymentMethod === 'qr') {
+                            qrSection.style.display = 'block';
+                        } else {
+                            qrSection.style.display = 'none';
+                        }
+                    });
+                </script>
             </div>
 
             <div class="col-lg-6">
@@ -304,134 +334,134 @@ if (isset($_POST['acp'])) {
 
 </html>
 <script>
-// Hàm tải dữ liệu từ tệp JSON
-async function fetchData() {
-    try {
-        const response = await fetch('/BTL/src/json/don_vi_hanh_chinh.json'); // Đường dẫn tới file JSON
-        const data = await response.json();
-        console.log(data); // In ra dữ liệu để kiểm tra
-        return data; // Trả về dữ liệu JSON
-    } catch (error) {
-        console.error('Error fetching JSON data:', error);
-    }
-}
-
-// Hàm để lấy danh sách tỉnh/thành phố từ dữ liệu ward
-function extractProvinces(data) {
-    // Tạo một mảng chứa các tỉnh/thành phố từ provinceId
-    const provinceMap = new Map();
-    data.province.forEach(province => {
-        if (!provinceMap.has(province.id)) {
-            provinceMap.set(province.id, {
-                id: province.id,
-                name: province.name
-            });
+    // Hàm tải dữ liệu từ tệp JSON
+    async function fetchData() {
+        try {
+            const response = await fetch('/BTL/src/json/don_vi_hanh_chinh.json'); // Đường dẫn tới file JSON
+            const data = await response.json();
+            console.log(data); // In ra dữ liệu để kiểm tra
+            return data; // Trả về dữ liệu JSON
+        } catch (error) {
+            console.error('Error fetching JSON data:', error);
         }
-    });
-
-    return Array.from(provinceMap.values()); // Trả về danh sách tỉnh/thành phố
-}
-
-// Hàm điền dữ liệu vào dropdown tỉnh/thành phố
-function populateProvinces(provinces) {
-    const provinceSelect = document.getElementById("province");
-
-    // Kiểm tra nếu provinces là mảng hợp lệ
-    if (Array.isArray(provinces)) {
-        provinces.forEach(province => {
-            let option = document.createElement("option");
-            option.value = province.id;
-            option.text = province.name;
-            provinceSelect.add(option);
-        });
-    } else {
-        console.error("Provinces data is not an array:", provinces);
-    }
-}
-
-// Hàm lấy danh sách quận/huyện từ provinceId
-function extractDistricts(data, selectedProvinceId) {
-    const districtMap = new Map();
-    data.district.forEach(district => {
-        if (district.provinceId === selectedProvinceId && !districtMap.has(district.id)) {
-            districtMap.set(district.id, {
-                id: district.id,
-                name: district.name
-            }); // Đặt tên tùy ý
-        }
-    });
-
-    return Array.from(districtMap.values()); // Trả về danh sách quận/huyện
-}
-
-// Hàm điền dữ liệu vào dropdown quận/huyện dựa trên tỉnh/thành phố được chọn
-function populateDistricts(districts, selectedProvinceId) {
-    const districtSelect = document.getElementById("district");
-    districtSelect.innerHTML = ''; // Xóa các lựa chọn trước đó
-
-    // Kiểm tra nếu districts là mảng hợp lệ
-    if (Array.isArray(districts)) {
-        districts.forEach(district => {
-            let option = document.createElement("option");
-            option.value = district.id;
-            option.text = district.name;
-            districtSelect.add(option);
-        });
-    } else {
-        console.error("Districts data is not an array:", districts);
     }
 
-    populateWards([]); // Xóa dữ liệu phường/xã khi chọn tỉnh mới
-}
-
-// Hàm điền dữ liệu vào dropdown phường/xã dựa trên quận/huyện được chọn
-function populateWards(wards, selectedDistrictId) {
-    const wardSelect = document.getElementById("ward");
-    wardSelect.innerHTML = ''; // Xóa các lựa chọn trước đó
-
-    // Kiểm tra nếu wards là mảng hợp lệ
-    if (Array.isArray(wards)) {
-        wards.forEach(ward => {
-            if (ward.districtId === selectedDistrictId) {
-                let option = document.createElement("option");
-                option.value = ward.id;
-                option.text = ward.name;
-                wardSelect.add(option);
+    // Hàm để lấy danh sách tỉnh/thành phố từ dữ liệu ward
+    function extractProvinces(data) {
+        // Tạo một mảng chứa các tỉnh/thành phố từ provinceId
+        const provinceMap = new Map();
+        data.province.forEach(province => {
+            if (!provinceMap.has(province.id)) {
+                provinceMap.set(province.id, {
+                    id: province.id,
+                    name: province.name
+                });
             }
         });
-    } else {
-        console.error("Wards data is not an array:", wards);
+
+        return Array.from(provinceMap.values()); // Trả về danh sách tỉnh/thành phố
     }
-}
 
-// Khi người dùng chọn tỉnh/thành phố
-document.getElementById("province").addEventListener('change', function() {
-    const selectedProvinceId = this.value;
-    fetchData().then(data => {
-        if (data) {
-            const districts = extractDistricts(data, selectedProvinceId);
-            populateDistricts(districts, selectedProvinceId); // Điền quận/huyện theo tỉnh đã chọn
-        }
-    });
-});
+    // Hàm điền dữ liệu vào dropdown tỉnh/thành phố
+    function populateProvinces(provinces) {
+        const provinceSelect = document.getElementById("province");
 
-// Khi người dùng chọn quận/huyện
-document.getElementById("district").addEventListener('change', function() {
-    const selectedDistrictId = this.value;
-    fetchData().then(data => {
-        if (data) {
-            populateWards(data.ward, selectedDistrictId); // Điền phường/xã theo quận/huyện đã chọn
+        // Kiểm tra nếu provinces là mảng hợp lệ
+        if (Array.isArray(provinces)) {
+            provinces.forEach(province => {
+                let option = document.createElement("option");
+                option.value = province.id;
+                option.text = province.name;
+                provinceSelect.add(option);
+            });
+        } else {
+            console.error("Provinces data is not an array:", provinces);
         }
-    });
-});
+    }
 
-// Tải dữ liệu khi trang được tải
-window.onload = function() {
-    fetchData().then(data => {
-        if (data) {
-            const provinces = extractProvinces(data);
-            populateProvinces(provinces); // Điền tỉnh/thành phố khi trang vừa tải
+    // Hàm lấy danh sách quận/huyện từ provinceId
+    function extractDistricts(data, selectedProvinceId) {
+        const districtMap = new Map();
+        data.district.forEach(district => {
+            if (district.provinceId === selectedProvinceId && !districtMap.has(district.id)) {
+                districtMap.set(district.id, {
+                    id: district.id,
+                    name: district.name
+                }); // Đặt tên tùy ý
+            }
+        });
+
+        return Array.from(districtMap.values()); // Trả về danh sách quận/huyện
+    }
+
+    // Hàm điền dữ liệu vào dropdown quận/huyện dựa trên tỉnh/thành phố được chọn
+    function populateDistricts(districts, selectedProvinceId) {
+        const districtSelect = document.getElementById("district");
+        districtSelect.innerHTML = ''; // Xóa các lựa chọn trước đó
+
+        // Kiểm tra nếu districts là mảng hợp lệ
+        if (Array.isArray(districts)) {
+            districts.forEach(district => {
+                let option = document.createElement("option");
+                option.value = district.id;
+                option.text = district.name;
+                districtSelect.add(option);
+            });
+        } else {
+            console.error("Districts data is not an array:", districts);
         }
+
+        populateWards([]); // Xóa dữ liệu phường/xã khi chọn tỉnh mới
+    }
+
+    // Hàm điền dữ liệu vào dropdown phường/xã dựa trên quận/huyện được chọn
+    function populateWards(wards, selectedDistrictId) {
+        const wardSelect = document.getElementById("ward");
+        wardSelect.innerHTML = ''; // Xóa các lựa chọn trước đó
+
+        // Kiểm tra nếu wards là mảng hợp lệ
+        if (Array.isArray(wards)) {
+            wards.forEach(ward => {
+                if (ward.districtId === selectedDistrictId) {
+                    let option = document.createElement("option");
+                    option.value = ward.id;
+                    option.text = ward.name;
+                    wardSelect.add(option);
+                }
+            });
+        } else {
+            console.error("Wards data is not an array:", wards);
+        }
+    }
+
+    // Khi người dùng chọn tỉnh/thành phố
+    document.getElementById("province").addEventListener('change', function () {
+        const selectedProvinceId = this.value;
+        fetchData().then(data => {
+            if (data) {
+                const districts = extractDistricts(data, selectedProvinceId);
+                populateDistricts(districts, selectedProvinceId); // Điền quận/huyện theo tỉnh đã chọn
+            }
+        });
     });
-};
+
+    // Khi người dùng chọn quận/huyện
+    document.getElementById("district").addEventListener('change', function () {
+        const selectedDistrictId = this.value;
+        fetchData().then(data => {
+            if (data) {
+                populateWards(data.ward, selectedDistrictId); // Điền phường/xã theo quận/huyện đã chọn
+            }
+        });
+    });
+
+    // Tải dữ liệu khi trang được tải
+    window.onload = function () {
+        fetchData().then(data => {
+            if (data) {
+                const provinces = extractProvinces(data);
+                populateProvinces(provinces); // Điền tỉnh/thành phố khi trang vừa tải
+            }
+        });
+    };
 </script>

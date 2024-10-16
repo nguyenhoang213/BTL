@@ -16,61 +16,61 @@
     include("header.php");
     ?>
     <!-- body -->
-<div class="head-body">
-    <div class="head-item">
-        <p>DANH MỤC SẢN PHẨM</p>
+    <div class="head-body">
+        <div class="head-item">
+            <p>DANH MỤC SẢN PHẨM</p>
+        </div>
+        <div class="main-item">
+            <ul class="ul-head">
+                <li class="li-head">
+                    <a href="">
+                        <img src="/BTL/src/assets/images/save-money-2.png" alt="" />
+                        <div style="color: black"><b>CAM KẾT</b> <br />Giá Tốt Nhất</div>
+                    </a>
+                </li>
+                <li class="li-head">
+                    <a href="">
+                        <img src="/BTL/src/assets/images/present.png" alt="" />
+                        <div style="color: black"><b>MIỄN PHÍ</b> <br />Vận Chuyển</div>
+                    </a>
+                </li>
+                <li class="li-head">
+                    <a href="">
+                        <img src="/BTL/src/assets/images/buy.png" alt="" />
+                        <div style="color: black">
+                            <b>THANH TOÁN</b> <br />Khi Nhận Hàng
+                        </div>
+                    </a>
+                </li>
+                <li class="li-head">
+                    <a href="">
+                        <img src="/BTL/src/assets/images/reload.png" alt="" />
+                        <div style="color: black">
+                            <b>ĐỔI TRẢ HÀNG</b> <br />Trong 3 Ngày
+                        </div>
+                    </a>
+                </li>
+                <li class="li-head">
+                    <a href="">
+                        <img src="/BTL/src/assets/images/repair-garage.png" alt="" />
+                        <div style="color: black">
+                            <b>BẢO HÀNH</b> <br />Tại Nơi Sử Dụng
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="main-item">
-        <ul class="ul-head">
-            <li class="li-head">
-                <a href="">
-                    <img src="/BTL/src/assets/images/save-money-2.png" alt="" />
-                    <div style="color: black"><b>CAM KẾT</b> <br />Giá Tốt Nhất</div>
-                </a>
-            </li>
-            <li class="li-head">
-                <a href="">
-                    <img src="/BTL/src/assets/images/present.png" alt="" />
-                    <div style="color: black"><b>MIỄN PHÍ</b> <br />Vận Chuyển</div>
-                </a>
-            </li>
-            <li class="li-head">
-                <a href="">
-                    <img src="/BTL/src/assets/images/buy.png" alt="" />
-                    <div style="color: black">
-                        <b>THANH TOÁN</b> <br />Khi Nhận Hàng
-                    </div>
-                </a>
-            </li>
-            <li class="li-head">
-                <a href="">
-                    <img src="/BTL/src/assets/images/reload.png" alt="" />
-                    <div style="color: black">
-                        <b>ĐỔI TRẢ HÀNG</b> <br />Trong 3 Ngày
-                    </div>
-                </a>
-            </li>
-            <li class="li-head">
-                <a href="">
-                    <img src="/BTL/src/assets/images/repair-garage.png" alt="" />
-                    <div style="color: black">
-                        <b>BẢO HÀNH</b> <br />Tại Nơi Sử Dụng
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
     <div class="main">
         <div class="main-bd">
             <ul id="mega_menu" class="menu">
                 <li id="menu-item-403">
-                    <a href=""><img width="24" height="24"
+                    <a href="/BTL/find_product.php?keyword=&category=DT"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/cate1_icon-24x24.png" />
                         <span>Điện thoại</span></a>
                     <ul class="sub-menu">
                         <li id="menu-item-404">
-                            <a href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/dien-thoai/apple/">
+                            <a href="/BTL/find_product.php?keyword=&category=Apple">
                                 <span>Apple</span></a>
                         </li>
                         <li id="menu-item-408">
@@ -93,8 +93,7 @@
                     </ul>
                 </li>
                 <li id="menu-item-409">
-                    <a href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/laptop/"><img width="24"
-                            height="24"
+                    <a href="/BTL/find_product.php?keyword=&category=LT"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/laptop-1.png" />
                         <span>Laptop</span></a>
                     <ul class="sub-menu">
@@ -327,202 +326,109 @@
             <button class="main-title">SẢN PHẨM BÁN CHẠY</button>
         </div>
         <div class="products">
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="menu-product">
-            <button class="main-title">Điện thoại</button>
-            <button class="active-product">Apple</button>
-            <button class="active-product">SamSung</button>
-            <button class="active-product">BlackBerry</button>
-            <button class="active-product">Motorola</button>
-            <button class="active-product">Nokia</button>
-        </div>
-        <div class="products">
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-            
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="menu-product">
-            <button class="main-title">Laptop</button>
-            <button class="active-product">Macbook</button>
-            <button class="active-product">Laptop Asus</button>
-            <button class="active-product">Laptop Dell</button>
-            <button class="active-product">Laptop HP</button>
-        </div>
-        <div class="products">
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-            
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-
-            <div class="product-item">
-                <img style="width: 170px; height: 170px" src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/apple-watch-stainless-space-sport-black-s4-gpscell-1.png">
-                <p>Apple Watch Series 4 Space Gray Aluminum Case</p>
-                <span>10,900,000 ₫</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- product cũ nhé -->
-    <!-- <div class="container">
-        <div id="message"></div>
-        <div class="row mt-2 pb-3">
             <?php
-            $stmt = $conn->prepare('SELECT * FROM Product');
-            $stmt->execute();
-            $result = $stmt->get_result();
-            while ($row = $result->fetch_assoc()) {
-                echo ' <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
-                        <div class="list-product">
-                            <a href="./product/product_detail.php?id=' . $row['product_id'] . '">
-                            <div>
-                                <img src="/BTL/src/assets/uploads/product/' . $row['image'] . '" class="card-img-top" height="250">
-                                <div class="card-body p-1">
-                                    <h4 class="card-title text-center text-info"> ' . $row['product_name'] . ' </h4>
-                                    <h5 class="card-text text-center text-danger"> ' . number_format($row['price']) . ' VNĐ</h5>
-                                </div>
-                            </a>
-                            </div>
-                        </div>
-                    </div>';
-            } ?>
+            $sql_hot = "SELECT ph.product_id, count(*) as COUNT, p.image, p.product_name, p.price
+                FROM user_product_history ph JOIN product p ON ph.product_id = p.product_id
+                GROUP BY ph.product_id 
+                Order by COUNT(*)
+                LIMIT 8";
+            $result_hot = $conn->query($sql_hot);
+            if ($result_hot->num_rows > 0) {
+                while ($row_hot = $result_hot->fetch_assoc()) {
+                    echo '
+                    <div class="product-item">
+                        <a href="/BTL/product/product_detail.php?id=' . $row_hot['product_id'] . '">
+                        <img style="width: 170px; height: 170px" src="' . $row_hot['image'] . '">
+                        <p>' . $row_hot['product_name'] . '</p>
+                        <span>' . number_format($row_hot['price'], 0, ',', '.') . ' VNĐ </span>
+                        </a>    
+                    </div>
+                    ';
+                }
+            }
+            ?>
         </div>
-    </div> -->
+    </div>
+    <!-- Điện thoại -->
+    <div class="container">
+        <div class="menu1-product">
+            <button class="main-title" value="DT">Điện thoại</button>
+            <button class="active-product" value="apple">Apple</button>
+            <button class="active-product" value="samsung">Samsung</button>
+            <button class="active-product" value="blackberry">BlackBerry</button>
+            <button class="active-product" value="motorola">Motorola</button>
+            <button class="active-product" value="nokia">Nokia</button>
+        </div>
+        <div class="products" id="product-list-dt"></div>
+    </div>
 
-    <?php 
+    <!-- Laptop -->
+    <div class="container">
+        <div class="menu2-product">
+            <button class="main-title" value="LT">Laptop</button>
+            <button class="active-product" value="macbook">Macbook</button>
+            <button class="active-product" value="ltasus">Laptop Asus</button>
+            <button class="active-product" value="ltdell">Laptop Dell</button>
+            <button class="active-product" value="lthp">Laptop HP</button>
+        </div>
+        <div class="products" id="product-list-lt"></div>
+    </div>
+
+    <script>
+        // Điện thoại
+        document.querySelectorAll('.menu1-product button').forEach(button => {
+            button.addEventListener('click', function () {
+                const category = this.value;
+                fetchProductsDT(category); // Gọi hàm lấy sản phẩm Điện thoại
+            });
+        });
+
+        function fetchProductsDT(category) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'fetch_product.php', true); // Gửi yêu cầu tới file PHP xử lý
+            document.getElementById('product-list-dt').innerHTML = ''; // Xóa sản phẩm cũ
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('category=' + category); // Gửi dữ liệu category
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('product-list-dt').innerHTML = xhr.responseText;
+                }
+            };
+        }
+
+        // Laptop
+        document.querySelectorAll('.menu2-product button').forEach(button => {
+            button.addEventListener('click', function () {
+                const category = this.value;
+                fetchProductsLT(category); // Gọi hàm lấy sản phẩm Laptop
+            });
+        });
+
+        function fetchProductsLT(category) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'fetch_product.php', true); // Gửi yêu cầu tới file PHP xử lý
+            document.getElementById('product-list-lt').innerHTML = ''; // Xóa sản phẩm cũ
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('category=' + category); // Gửi dữ liệu category
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('product-list-lt').innerHTML = xhr.responseText;
+                }
+            };
+        }
+
+        // Mặc định hiển thị sản phẩm Điện thoại khi trang tải
+        window.onload = function () {
+            fetchProductsDT('DT'); // Hiển thị sản phẩm Điện thoại mặc định
+            fetchProductsLT('LT');
+        };
+    </script>
+
+    <?php
     include("footer.php")
-    ?>
+        ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>

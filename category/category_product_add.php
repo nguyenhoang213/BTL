@@ -10,6 +10,18 @@ if (isset($_GET["id"])) {
     $danhmuc_name = $row["category_name"];
 }
 
+$existing_products = [];
+
+// Truy vấn để lấy danh sách các sản phẩm đã có trong danh mục
+$sql_existing = "SELECT product_id FROM product_category WHERE category_id = '$danhmuc_id'";
+$result_existing = $conn->query($sql_existing);
+
+if ($result_existing->num_rows > 0) {
+    while ($row = $result_existing->fetch_assoc()) {
+        $existing_products[] = $row['product_id'];
+    }
+}
+
 if (isset($_POST["maSP"])) {
     $sanpham_id = $_POST['maSP'];
 }
@@ -56,8 +68,11 @@ if (isset($_POST['submit'])) {
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($row = mysqli_fetch_array($result)) {
-                        $selected = ($row['product_id'] == $sanpham_id) ? 'selected' : '';
-                        echo "<option value='" . $row['product_id'] . "' $selected>" . $row['product_id'] . " - " . $row['product_name'] . "</option>";
+                        if (!in_array($row['product_id'], $existing_products)) {
+                            $selected = ($row['product_id'] == $sanpham_id) ? 'selected' : '';
+                            echo "<option value='" . $row['product_id'] . "' $selected>" . $row['product_id'] . " - " . $row['product_name'] . "</option>";
+                        }
+
                     }
                 }
                 ?>
