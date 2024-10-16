@@ -53,12 +53,22 @@ if (isset($_POST['login'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/BTL/css/login.css">
+    <link rel="stylesheet" href="/BTL/css/index.css">
+    <link rel="stylesheet" href="/BTL/css/footer.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" />
     <title>Đăng nhập</title>
+    <style>
+        .btn-number{
+            margin: 10px;
+        }
+    </style>
 </head>
 
 <body>
+    <?php 
+    include("../header.php")
+    ?>
     <div class="form-login">
         <div class="form-register">
             <form class="row g-3" method="POST">
@@ -119,6 +129,9 @@ if (isset($_POST['login'])) {
             }
         </script>
     </div>
+    <?php 
+    include("../footer.php")
+    ?>
 </body>
 
 </html>

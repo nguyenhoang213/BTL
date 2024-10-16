@@ -9,87 +9,6 @@
     <link rel="stylesheet" href="css/footer.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .main {
-            display: flex;
-        }
-
-        .main-bd {
-            width: 238px;
-            background-color: #f9f9f9;
-            z-index: 5;
-            margin-left: 179px;
-        }
-
-        ul.menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        ul.menu>li {
-            padding: 10px;
-            background-color: #f1f1f1;
-            border-bottom: 1px solid #ddd;
-            position: relative;
-            /* Để sub-menu có thể xuất hiện */
-        }
-
-        ul.menu>li>a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #333;
-        }
-
-        ul.menu>li>a img {
-            margin-right: 10px;
-        }
-
-        ul.menu>li:hover {
-            background-color: #ddd;
-        }
-
-        ul.menu li ul.sub-menu {
-            display: none;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            background-color: #f9f9f9;
-            position: absolute;
-            left: 100%;
-            top: 0;
-            width: 200px;
-            border: 1px solid #ddd;
-            z-index: 999;
-        }
-
-        ul.menu li:hover ul.sub-menu {
-            display: block;
-        }
-
-        ul.sub-menu li {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        ul.sub-menu li:hover {
-            background-color: #eee;
-        }
-
-        ul.sub-menu li a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        ul.sub-menu li a:hover {
-            color: #007bff;
-        }
-    </style>
 
 <body>
 
@@ -97,6 +16,53 @@
     include("connection.php");
     include("header.php");
     ?>
+    <!-- body -->
+<div class="head-body">
+    <div class="head-item">
+        <i class="fa-solid fa-bars"></i>
+        <p>DANH MỤC SẢN PHẨM</p>
+    </div>
+    <div class="main-item">
+        <ul class="ul-head">
+            <li class="li-head">
+                <a href="">
+                    <img src="/BTL/src/assets/images/save-money-2.png" alt="" />
+                    <div style="color: black"><b>CAM KẾT</b> <br />Giá Tốt Nhất</div>
+                </a>
+            </li>
+            <li class="li-head">
+                <a href="">
+                    <img src="/BTL/src/assets/images/present.png" alt="" />
+                    <div style="color: black"><b>MIỄN PHÍ</b> <br />Vận Chuyển</div>
+                </a>
+            </li>
+            <li class="li-head">
+                <a href="">
+                    <img src="/BTL/src/assets/images/buy.png" alt="" />
+                    <div style="color: black">
+                        <b>THANH TOÁN</b> <br />Khi Nhận Hàng
+                    </div>
+                </a>
+            </li>
+            <li class="li-head">
+                <a href="">
+                    <img src="/BTL/src/assets/images/reload.png" alt="" />
+                    <div style="color: black">
+                        <b>ĐỔI TRẢ HÀNG</b> <br />Trong 3 Ngày
+                    </div>
+                </a>
+            </li>
+            <li class="li-head">
+                <a href="">
+                    <img src="/BTL/src/assets/images/repair-garage.png" alt="" />
+                    <div style="color: black">
+                        <b>BẢO HÀNH</b> <br />Tại Nơi Sử Dụng
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
     <div class="main">
         <div class="main-bd">
             <ul id="mega_menu" class="menu">

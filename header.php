@@ -28,7 +28,7 @@
             </button>
             <!-- Nút kích hoạt Modal -->
             <?php
-            session_start();
+            // session_start();
             if (isset($_SESSION["user_id"])) {
                 $user_id = $_SESSION["user_id"];
                 $sql_user = "SELECT * FROM user WHERE user_id = '$user_id'";
@@ -60,56 +60,9 @@
                         class="badge badge-danger"></span></a>
             </button>
         </div>
-
     </div>
 </div>
 <!-- end header -->
-<!-- body -->
-<div class="head-body">
-    <div class="head-item">
-        <i class="fa-solid fa-bars"></i>
-        <p>DANH MỤC SẢN PHẨM</p>
-    </div>
-    <div class="main-item">
-        <ul class="ul-head">
-            <li class="li-head">
-                <a href="">
-                    <img src="/BTL/src/assets/images/save-money-2.png" alt="" />
-                    <div style="color: black"><b>CAM KẾT</b> <br />Giá Tốt Nhất</div>
-                </a>
-            </li>
-            <li class="li-head">
-                <a href="">
-                    <img src="/BTL/src/assets/images/present.png" alt="" />
-                    <div style="color: black"><b>MIỄN PHÍ</b> <br />Vận Chuyển</div>
-                </a>
-            </li>
-            <li class="li-head">
-                <a href="">
-                    <img src="/BTL/src/assets/images/buy.png" alt="" />
-                    <div style="color: black">
-                        <b>THANH TOÁN</b> <br />Khi Nhận Hàng
-                    </div>
-                </a>
-            </li>
-            <li class="li-head">
-                <a href="">
-                    <img src="/BTL/src/assets/images/reload.png" alt="" />
-                    <div style="color: black">
-                        <b>ĐỔI TRẢ HÀNG</b> <br />Trong 3 Ngày
-                    </div>
-                </a>
-            </li>
-            <li class="li-head">
-                <a href="">
-                    <img src="/BTL/src/assets/images/repair-garage.png" alt="" />
-                    <div style="color: black">
-                        <b>BẢO HÀNH</b> <br />Tại Nơi Sử Dụng
-                    </div>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
+
 
 <script src="https://kit.fontawesome.com/0236bf0649.js" crossorigin="anonymous"></script>
