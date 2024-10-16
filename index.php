@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/footer.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
 <body>
 
     <?php
@@ -228,7 +227,63 @@
             </ul>
         </div>
         <!-- slider -->
-        <div id="carouselExampleIndicators" class="carousel slide">
+        <?php
+        // Truy vấn lấy tất cả các slider từ cơ sở dữ liệu
+        $sql = "SELECT * FROM slider";
+        $result = $conn->query($sql);
+        ?>
+
+            <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <?php
+                $index = 0;
+                // Tạo các nút điều hướng (indicators)
+                while ($row = $result->fetch_assoc()) {
+                    $active = ($index === 0) ? 'active' : '';
+                    echo "<button type='button' data-bs-target='#carouselExampleIndicators' data-bs-slide-to='{$index}' class='{$active}' aria-current='true' aria-label='Slide " . ($index + 1) . "'></button>";
+                    $index++;
+                }
+                ?>
+            </div>
+            <div style="width: 910px; height: 570px"  class="carousel-inner">
+                <?php
+                $result->data_seek(0); // Đặt lại chỉ số kết quả truy vấn để lặp lại từ đầu
+                $index = 0;
+                // Tạo các mục (items) của carousel
+                while ($row = $result->fetch_assoc()) {
+                    $active = ($index === 0) ? 'active' : '';
+                    echo "
+                    <div  class='carousel-item {$active}'>
+                        <img src='./slider/{$row['slider_image']}' class='d-block w-100' alt='/{$row['slider_name']}' style='width: 910px; height: 570px;' />
+                    </div>
+                    ";
+                    $index++;
+                }
+                ?>
+            </div>
+
+            <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev"
+            >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next"
+            >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+        <!-- <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -262,7 +317,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </div>
+    </div> -->
     <!-- end slider -->
     </div>
     <!-- product -->

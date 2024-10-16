@@ -56,8 +56,7 @@
                         class="fa-solid fa-chevron-left icon"></i>
                 </div>
                 <ul class="dropdown">
-                    <li><a href="#">Quản lý giao diện</a></li>
-                    <li><a href="#">Danh sách bài đăng</a></li>
+                    <li><a href="/BTL/slider/slider.php">Quản lý giao diện</a></li>
                 </ul>
             </li>
             <li>
