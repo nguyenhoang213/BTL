@@ -66,12 +66,12 @@
         <div class="main-bd">
             <ul id="mega_menu" class="menu">
                 <li id="menu-item-403">
-                    <a href=""><img width="24" height="24"
+                    <a href="/BTL/find_product.php?keyword=&category=DT"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/cate1_icon-24x24.png" />
                         <span>Điện thoại</span></a>
                     <ul class="sub-menu">
                         <li id="menu-item-404">
-                            <a href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/dien-thoai/apple/">
+                            <a href="/BTL/find_product.php?keyword=&category=Apple">
                                 <span>Apple</span></a>
                         </li>
                         <li id="menu-item-408">
@@ -94,8 +94,7 @@
                     </ul>
                 </li>
                 <li id="menu-item-409">
-                    <a href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/laptop/"><img width="24"
-                            height="24"
+                    <a href="/BTL/find_product.php?keyword=&category=LT"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/laptop-1.png" />
                         <span>Laptop</span></a>
                     <ul class="sub-menu">

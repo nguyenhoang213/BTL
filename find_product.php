@@ -9,7 +9,7 @@ $sort = isset($_GET['sort']) ? $_GET['sort'] : '';
 $sql = "SELECT * FROM product WHERE product_name like '%$keyword%'";
 
 if ($category !== 'Tất cả') {
-    $sql .= " AND product_id IN (SELECT product_id FROM product_category WHERE category_id in (SELECT category_id FROM category WHERE category_name like '%$category%'))";
+    $sql .= " AND product_id IN (SELECT product_id FROM product_category WHERE category_id = '$category')";
 }
 
 if ($price_range) {
@@ -40,105 +40,105 @@ if (!empty($sort)) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
 
-        a {
-            text-decoration: none;
-        }
+    a {
+        text-decoration: none;
+    }
 
-        body {
-            background-color: #f5f5f5;
-        }
+    body {
+        background-color: #f5f5f5;
+    }
 
-        .container {
-            display: flex;
-            padding: 20px;
-        }
+    .container {
+        display: flex;
+        padding: 20px;
+    }
 
-        .filter-section {
-            width: 250px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-left: 31px;
-        }
+    .filter-section {
+        width: 250px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-left: 31px;
+    }
 
-        .filter-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-        }
+    .filter-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
 
-        .filter-group {
-            margin-bottom: 20px;
-        }
+    .filter-group {
+        margin-bottom: 20px;
+    }
 
-        .filter-group label {
-            font-size: 16px;
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
+    .filter-group label {
+        font-size: 16px;
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
 
-        .filter-group select,
-        .filter-group input[type="range"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
+    .filter-group select,
+    .filter-group input[type="range"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
 
-        .filter-group input[type="checkbox"] {
-            margin-right: 10px;
-        }
+    .filter-group input[type="checkbox"] {
+        margin-right: 10px;
+    }
 
-        .apply-filter-btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #ee9a00;
-            border: none;
-            color: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    .apply-filter-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #ee9a00;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-        .apply-filter-btn:hover {
-            background-color: orange;
-        }
+    .apply-filter-btn:hover {
+        background-color: orange;
+    }
 
-        .product-section {
-            flex: 1;
-            margin-left: 20px;
-        }
+    .product-section {
+        flex: 1;
+        margin-left: 20px;
+    }
 
-        .product-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-        }
+    .product-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
 
-        .products {
-            display: flex;
-            justify-content: center;
-        }
+    .products {
+        display: flex;
+        justify-content: center;
+    }
 
-        .product-card {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 230px;
-        }
+    .product-card {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 230px;
+    }
     </style>
 
 <body>
@@ -159,20 +159,10 @@ if (!empty($sort)) {
                     <select id="category" name="category">
                         <option <?php if ($category == 'Tất cả')
                             echo 'selected'; ?>>Tất cả</option>
-                        <option <?php if ($category == 'Điện thoại')
-                            echo 'selected'; ?>>Điện thoại</option>
-                        <option <?php if ($category == 'Laptop')
-                            echo 'selected'; ?>>Laptop</option>
-                        <option <?php if ($category == 'Table')
-                            echo 'selected'; ?>>Table</option>
-                        <option <?php if ($category == 'Tai nghe')
-                            echo 'selected'; ?>>Tai nghe</option>
-                        <option <?php if ($category == 'Chuột máy tính')
-                            echo 'selected'; ?>>Chuột máy tính</option>
-                        <option <?php if ($category == 'PC')
-                            echo 'selected'; ?>>PC</option>
-                        <option <?php if ($category == 'Dây sạc')
-                            echo 'selected'; ?>>Dây sạc</option>
+                        <option <?php if ($category == 'DT')
+                            echo 'selected'; ?> value='DT'>Điện thoại</option>
+                        <option <?php if ($category == 'LT')
+                            echo 'selected'; ?> value='LT'>Laptop</option>
                     </select>
                 </div>
 
@@ -207,7 +197,12 @@ if (!empty($sort)) {
         </form>
 
         <div class="product-section">
-            <h2 style="margin: 10px 0 20px 53px">Kết quả tìm kiếm cho từ khóa "<?php echo $keyword ?>"</h2>
+            <?php
+            if (!empty($keyword)) {
+                echo '<h2 style="margin: 10px 0 20px 53px">Kết quả tìm kiếm cho từ khóa "' . $keyword . '"
+            </h2>';
+            } 
+            ?>
             <div class="products">
                 <?php
                 $result = $conn->query($sql);
@@ -236,16 +231,16 @@ if (!empty($sort)) {
     <script src="https://kit.fontawesome.com/0236bf0649.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
+    </script>
 </body>
 
 </html>
 
 
 <script>
-    function price_range_display() {
-        var price = document.getElementById('price-range').value;
-        document.getElementById('price_display').textContent = parseInt(price).toLocaleString('vi-VN') + " VNĐ";
+function price_range_display() {
+    var price = document.getElementById('price-range').value;
+    document.getElementById('price_display').textContent = parseInt(price).toLocaleString('vi-VN') + " VNĐ";
 
-    }
+}
 </script>
