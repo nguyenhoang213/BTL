@@ -19,7 +19,6 @@
     <!-- body -->
 <div class="head-body">
     <div class="head-item">
-        <i class="fa-solid fa-bars"></i>
         <p>DANH MỤC SẢN PHẨM</p>
     </div>
     <div class="main-item">
