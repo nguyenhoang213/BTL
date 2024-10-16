@@ -117,12 +117,16 @@ body {
   display: flex;
   gap: 10px;
   align-items: center;
+   justify-content: center;
   background-color: #ffd715;
   padding: 20px;
   margin-left: -20px;
+  width: 240px;
 }
 .head-item p {
   margin-top: 15px;
+  font-weight: 500;
+ 
 }
 .main-item a {
   text-decoration: none;
@@ -304,7 +308,7 @@ ul {
   width: 238px;
   background-color: #f9f9f9;
   z-index: 5;
-  margin-left: 179px;
+  margin-left: 185px;
 }
 
 ul.menu {
