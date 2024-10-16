@@ -6,48 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* Side Navigation */
-        .sidenav {
-            height: 100vh;
-            width: 250px;
-            position: fixed;
-            z-index: 1;
-            background-color: #FFFFFF;
-            /* Màu nền đậm hơn */
-            padding-top: 20px;
-            border-right: 1px solid #dee2e6;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            /* Hiệu ứng đổ bóng */
-            color: #fff;
-            /* Màu chữ trắng */
-        }
+    /* Side Navigation */
+    .sidenav {
+        height: 100vh;
+        width: 250px;
+        position: fixed;
+        z-index: 1;
+        background-color: #FFFFFF;
+        /* Màu nền đậm hơn */
+        padding-top: 20px;
+        border-right: 1px solid #dee2e6;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        /* Hiệu ứng đổ bóng */
+        color: #fff;
+        /* Màu chữ trắng */
+    }
 
-        .sidenav h3 {
-            color: black;
-            /* Màu chữ của tiêu đề */
-            padding-bottom: 20px;
-            border-bottom: 1px solid #dee2e6;
-            /* Đường ngăn cách phía dưới tiêu đề */
-            margin-bottom: 20px;
-        }
+    .sidenav h3 {
+        color: black;
+        /* Màu chữ của tiêu đề */
+        padding-bottom: 20px;
+        border-bottom: 1px solid #dee2e6;
+        /* Đường ngăn cách phía dưới tiêu đề */
+        margin-bottom: 20px;
+    }
 
-        .sidenav a {
-            padding: 12px 20px;
-            text-decoration: none;
-            font-size: 16px;
-            color: black;
-            /* Màu chữ nhạt hơn cho side nav */
-            display: block;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-            margin: 5px 10px;
-        }
+    .sidenav a {
+        padding: 12px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        color: black;
+        /* Màu chữ nhạt hơn cho side nav */
+        display: block;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        margin: 5px 10px;
+    }
 
-        .sidenav a:hover {
-            background-color: #495057;
-            /* Hiệu ứng nền khi hover */
-            color: #f8f9fa;
-        }
+    .sidenav a:hover {
+        background-color: #495057;
+        /* Hiệu ứng nền khi hover */
+        color: #f8f9fa;
+    }
     </style>
 </head>
 
@@ -89,18 +89,18 @@
                                 <div class="dropdown-content">
                                     <a href="/BTL/user/user_info.php">Thông tin cá nhân</a>
                                     <a href="/BTL/orders/orders.php">Đơn hàng của tôi</a>
-                                    <a href="/BTL/logout.php">Đăng xuất</a>
+                                    <a href="/BTL/login/logout.php">Đăng xuất</a>
                                 </div>
                             </div>';
                             }
                         }
                     } else {
                         ?>
-                        <button class="button-custom" type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#authModal" onclick="window.location.href='/BTL/login/login.php'">
-                            Đăng Ký/Đăng Nhập <i class="fa-solid fa-user"></i>
-                        </button>
-                        <?php
+                    <button class="button-custom" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#authModal" onclick="window.location.href='/BTL/login/login.php'">
+                        Đăng Ký/Đăng Nhập <i class="fa-solid fa-user"></i>
+                    </button>
+                    <?php
                     }
                     ?>
                     <button class="btn-shopping">

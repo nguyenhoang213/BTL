@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("../connection.php");
 include("user_header.php");
 
@@ -96,8 +95,8 @@ $ward_name = getWardName($order['ward'], $locations);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/BTL/css/index.css">
     <style>
-         /* Side Navigation */
-         .sidenav {
+        /* Side Navigation */
+        .sidenav {
             height: 100vh;
             width: 250px;
             position: fixed;

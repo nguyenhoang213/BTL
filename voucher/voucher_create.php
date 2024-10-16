@@ -1,7 +1,6 @@
 <?php
-    session_start();
-    include("../connection.php");
-    include("../side_nav.php") ;
+include("../connection.php");
+include("../side_nav.php");
 ?>
 
 <!DOCTYPE html>
@@ -45,38 +44,36 @@
 </body>
 
 </html>
-<?php 
+<?php
 
-    // Xử lý khi form thêm sản phẩm được submit
-    if (isset($_POST['submit'])) {
-        $code = $_POST['code'];
-        $discount_value = $_POST['discount_value'];
-        $discount_type = $_POST['discount_type'];
-        $min_order_value = $_POST['min_order_value'];
-        $expiration_date = !empty($_POST['expiration_date']) ? $_POST['expiration_date'] : NULL;
-        $usage_limit = $_POST['usage_limit'];
-        $status = $_POST['status'];
+// Xử lý khi form thêm sản phẩm được submit
+if (isset($_POST['submit'])) {
+    $code = $_POST['code'];
+    $discount_value = $_POST['discount_value'];
+    $discount_type = $_POST['discount_type'];
+    $min_order_value = $_POST['min_order_value'];
+    $expiration_date = !empty($_POST['expiration_date']) ? $_POST['expiration_date'] : NULL;
+    $usage_limit = $_POST['usage_limit'];
+    $status = $_POST['status'];
 
-        // Thêm sản phẩm mới vào cơ sở dữ liệu
-        if($expiration_date) {
-            $sql = "INSERT INTO voucher(code, discount_value, discount_type, min_order_value, expiration_date, usage_limit, status)
+    // Thêm sản phẩm mới vào cơ sở dữ liệu
+    if ($expiration_date) {
+        $sql = "INSERT INTO voucher(code, discount_value, discount_type, min_order_value, expiration_date, usage_limit, status)
                     VALUES ('$code','$discount_value','$discount_type','$min_order_value','$expiration_date','$usage_limit','$status')";
 
-        } else {
-            $sql = "INSERT INTO voucher(code, discount_value, discount_type, min_order_value, expiration_date, usage_limit, status)
+    } else {
+        $sql = "INSERT INTO voucher(code, discount_value, discount_type, min_order_value, expiration_date, usage_limit, status)
                     VALUES ('$code','$discount_value','$discount_type','$min_order_value',NULL,'$usage_limit','$status')";
-        }
-        if ($conn->query($sql)===TRUE) {
-            echo "
+    }
+    if ($conn->query($sql) === TRUE) {
+        echo "
             <script>alert('Chương trình khuyến mại đã được thêm thành công!');
             window.location.href='../voucher/voucher_list.php';
             </script>";
-        }
-
-        else {
-            echo "Lỗi: ". $sql . "<br>". $conn->error;
-        }
+    } else {
+        echo "Lỗi: " . $sql . "<br>" . $conn->error;
     }
+}
 
-    $conn->close();
-    ?>
+$conn->close();
+?>

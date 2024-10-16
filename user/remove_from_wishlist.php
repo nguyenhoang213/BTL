@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("../connection.php");
 
 // Kiểm tra nếu người dùng chưa đăng nhập

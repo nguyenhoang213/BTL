@@ -1,6 +1,6 @@
 <?php
- // Bắt đầu session
-
+// Bắt đầu session
+include("../connection.php");
 // Kiểm tra nếu người dùng đã đăng nhập
 if (isset($_SESSION['user_id'])) {
     // Hủy bỏ tất cả các session

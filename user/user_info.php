@@ -1,7 +1,5 @@
 <?php
 include("../connection.php"); // Kết nối đến cơ sở dữ liệu
-session_start();
-
 include("user_header.php");
 
 // Kiểm tra xem người dùng đã đăng nhập chưa
