@@ -117,11 +117,16 @@ if (isset($_POST['acp'])) {
             $stock = $row['stock'];
             $price = $row['price'];
 
+            $sql_update_stock = "UPDATE product SET stock = stock - $stock WHERE product_id = '$product_id'";
+            $conn->query($sql_update_stock);
+
             $sql_order_item = "INSERT INTO order_product (order_id, product_id, stock, price)
                                     VALUES ($order_id , '$product_id', $stock, '$price')";
             $conn->query($sql_order_item);
+
             $sql_item_history = "INSERT INTO user_product_history (user_id, product_id, time, type)
-                                    VALUES ($user_id , '$product_id', '$order_time', 1)";
+                                    VALUES ('$user_id' , '$product_id', '$order_time', 1)";
+            $conn->query($sql_item_history);
         }
 
         // Lưu mã người dùng đã dùng
@@ -275,22 +280,7 @@ if (isset($_POST['acp'])) {
                     <div style="text-align: center">
                         <button type="submit" name="acp" class="btn btn-primary">Đặt hàng</button>
                     </div>
-                </form>
 
-                <script>
-                    // Lắng nghe sự thay đổi của phương thức thanh toán
-                    document.getElementById('payment_method').addEventListener('change', function () {
-                        var paymentMethod = this.value;
-                        var qrSection = document.getElementById('qr_code_section');
-
-                        // Nếu chọn phương thức "Chuyển khoản", hiện mã QR
-                        if (paymentMethod === 'qr') {
-                            qrSection.style.display = 'block';
-                        } else {
-                            qrSection.style.display = 'none';
-                        }
-                    });
-                </script>
             </div>
 
             <div class="col-lg-6">
@@ -464,4 +454,19 @@ if (isset($_POST['acp'])) {
             }
         });
     };
+</script>
+
+<script>
+    // Lắng nghe sự thay đổi của phương thức thanh toán
+    document.getElementById('payment_method').addEventListener('change', function () {
+        var paymentMethod = this.value;
+        var qrSection = document.getElementById('qr_code_section');
+
+        // Nếu chọn phương thức "Chuyển khoản", hiện mã QR
+        if (paymentMethod === 'qr') {
+            qrSection.style.display = 'block';
+        } else {
+            qrSection.style.display = 'none';
+        }
+    });
 </script>

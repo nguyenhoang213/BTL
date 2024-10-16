@@ -4,7 +4,7 @@
 include("../connection.php");
 include("../side_nav.php");
 
-$sql = "SELECT * FROM orders";
+$sql = "SELECT * FROM orders WHERE 1";
 $result = $conn->query($sql);
 $search_category = "order_id";
 
@@ -51,7 +51,6 @@ if (isset($_GET["search"])) {
     $search_category = $_GET["search_category"];
     $search_string = $_GET["search"];
     $sql = "SELECT * FROM orders WHERE $search_category LIKE '%$search_string%'";
-    $result = $conn->query($sql);
 }
 ?>
 
@@ -63,6 +62,11 @@ if (isset($_GET["search"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý đơn hàng</title>
     <link rel="stylesheet" href="/BTL/css/list.css">
+    <style>
+    table {
+        margin-bottom: 20px;
+    }
+    </style>
 </head>
 
 <body>
@@ -85,7 +89,7 @@ if (isset($_GET["search"])) {
             <input type="text" id="search" name="search" placeholder="Nhập từ khóa">
             <button type="submit">Tìm kiếm</button>
         </form>
-
+        <h2>Đơn hàng đang chờ</h2>
         <table>
             <tr>
                 <th>Mã đơn hàng</th>
@@ -103,6 +107,54 @@ if (isset($_GET["search"])) {
             </tr>
 
             <?php
+            // Hiển thị danh sách đơn hàng
+            $sql1 = $sql . " and order_status='Đang chờ'";
+            $result = $conn->query($sql1);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $province_name = getProvinceName($row['province'], $locations);
+                    $district_name = getDistrictName($row['district'], $locations);
+                    $ward_name = getWardName($row['ward'], $locations);
+                    echo "<tr>";
+                    echo "<td>" . $row['order_id'] . "</td>";
+                    echo "<td>" . $row['full_name'] . "</td>";
+                    echo "<td>" . $row['phone'] . "</td>";
+                    echo "<td>" . $row['email'] . "</td>";
+                    echo "<td>" . $province_name . ' - ' . $district_name . ' - ' . $ward_name . ' - ' . htmlspecialchars($row['address']) . "</td>";
+                    echo "<td>" . number_format($row['total'], 0, ',', '.') . " VND</td>";
+                    echo "<td>" . number_format($row['discount_amount'], 0, ',', '.') . " VND</td>";
+                    echo "<td>" . number_format($row['total'] - $row['discount_amount'], 0, ',', '.') . " VND</td>";
+                    echo "<td>" . $row['payment_method'] . "</td>";
+                    echo "<td> <span style='color:red; font-weight: bold'>" . $row['order_status'] . "</td>";
+                    echo "<td>" . $row['order_time'] . "</td>";
+                    echo "<td><a href='../order/order_detail.php?id=" . $row['order_id'] . "'>Xử lý</a></td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='14'>Không có đơn hàng nào!</td></tr>";
+            }
+            ?>
+        </table>
+        <h2>Đơn hàng đang xử lý</h2>
+        <table>
+            <tr>
+                <th>Mã đơn hàng</th>
+                <th>Họ tên</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Địa chỉ</th>
+                <th>Tổng tiền</th>
+                <th>Giảm giá</th>
+                <th>Thu thực</th>
+                <th>Phương thức thanh toán</th>
+                <th>Trạng thái đơn hàng</th>
+                <th>Thời gian đặt hàng</th>
+                <th style="width: 60px">Xử lý</th>
+            </tr>
+
+            <?php
+            $sql2 = $sql . " and order_status='Đã xác nhận'";
+            $result = $conn->query($sql2);
             // Hiển thị danh sách đơn hàng
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -127,8 +179,52 @@ if (isset($_GET["search"])) {
             } else {
                 echo "<tr><td colspan='14'>Không có đơn hàng nào!</td></tr>";
             }
+            ?>
+        </table>
+        <h2>Đơn hàng đã hoàn thành</h2>
+        <table>
+            <tr>
+                <th>Mã đơn hàng</th>
+                <th>Họ tên</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Địa chỉ</th>
+                <th>Tổng tiền</th>
+                <th>Giảm giá</th>
+                <th>Thu thực</th>
+                <th>Phương thức thanh toán</th>
+                <th>Trạng thái đơn hàng</th>
+                <th>Thời gian đặt hàng</th>
+                <th style="width: 60px">Xử lý</th>
+            </tr>
 
-            $conn->close();
+            <?php
+            $sql3 = $sql . " and order_status='Đã hoàn thành'";
+            $result = $conn->query($sql3);
+            // Hiển thị danh sách đơn hàng
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $province_name = getProvinceName($row['province'], $locations);
+                    $district_name = getDistrictName($row['district'], $locations);
+                    $ward_name = getWardName($row['ward'], $locations);
+                    echo "<tr>";
+                    echo "<td>" . $row['order_id'] . "</td>";
+                    echo "<td>" . $row['full_name'] . "</td>";
+                    echo "<td>" . $row['phone'] . "</td>";
+                    echo "<td>" . $row['email'] . "</td>";
+                    echo "<td>" . $province_name . ' - ' . $district_name . ' - ' . $ward_name . ' - ' . htmlspecialchars($row['address']) . "</td>";
+                    echo "<td>" . number_format($row['total'], 0, ',', '.') . " VND</td>";
+                    echo "<td>" . number_format($row['discount_amount'], 0, ',', '.') . " VND</td>";
+                    echo "<td>" . number_format($row['total'] - $row['discount_amount'], 0, ',', '.') . " VND</td>";
+                    echo "<td>" . $row['payment_method'] . "</td>";
+                    echo "<td> <span style='color:red; font-weight: bold'>" . $row['order_status'] . "</td>";
+                    echo "<td>" . $row['order_time'] . "</td>";
+                    echo "<td><a href='../order/order_detail.php?id=" . $row['order_id'] . "'>Xử lý</a></td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='14'>Không có đơn hàng nào!</td></tr>";
+            }
             ?>
         </table>
     </div>

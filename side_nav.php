@@ -1,7 +1,3 @@
-<?php
-include("connection.php");
-?>
-
 <head>
     <link rel="stylesheet" href="/BTL/css/side_nav.css" />
     <script src="https://kit.fontawesome.com/8fcd74b091.js" crossorigin="anonymous"></script>
