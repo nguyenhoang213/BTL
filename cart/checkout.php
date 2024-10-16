@@ -5,10 +5,10 @@ include("../header.php");
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 if (!isset($_SESSION["user_id"])) {
     echo "
-            <script>
-                window.location.href = '../login/login.php';
-            </script>
-            ";
+    <script>
+        window.location.href = '../login/login.php';
+    </script>
+    ";
 }
 
 $user_id = $_SESSION["user_id"];
@@ -138,7 +138,7 @@ if (isset($_POST['acp'])) {
 
         // Commit transaction
         $conn->commit();
-        // echo "<script>alert('Đặt hàng thành công!'); window.location.href = 'order_success.php';</script>";
+        echo "<script>alert('Đặt hàng thành công!'); window.location.href = 'order_success.php?id=" . $order_id . "';</script>";
     }
 }
 ?>
@@ -217,7 +217,10 @@ if (isset($_POST['acp'])) {
                                     </tr>';
                             }
                         } else {
-                            echo "<tr><td colspan='4'>Giỏ hàng của bạn trống</td></tr>";
+                            echo "<script>
+                                alert('Giỏ hàng trống');
+                                window.location.href = '../cart/cart.php';
+                            </script>";
                         }
                         ?>
                     </tbody>
@@ -242,25 +245,50 @@ if (isset($_POST['acp'])) {
                 <form action="" method="POST">
                     <?php
                     if (isset($discount_amount) && $discount_amount > 0) {
-                        echo '<input type="hidden" name = "discount_amount" value = "' . $discount_amount . '">';
+                        echo '<input type="hidden" name="discount_amount" value="' . $discount_amount . '">';
                     } else {
-                        echo '<input type="hidden" name = "discount_amount" value = "0">';
+                        echo '<input type="hidden" name="discount_amount" value="0">';
                     }
                     if (isset($voucher_code) && $discount_amount > 0) {
-                        echo '<input type="hidden" name = "voucher" value = "' . $voucher_id . '">';
+                        echo '<input type="hidden" name="voucher" value="' . $voucher_id . '">';
                     }
                     ?>
                     <div class="mb-3">
                         <label for="payment_method" class="form-label">Phương thức thanh toán</label>
                         <select class="form-select" id="payment_method" name="payment_method" required>
-                            <option value="credit_card">Thẻ tín dụng</option>
-                            <option value="paypal">PayPal</option>
                             <option value="cod">Thanh toán khi nhận hàng</option>
+                            <option value="qr">Chuyển khoản</option>
                         </select>
                     </div>
-                    <div style="text-align: center"> <button type="submit" name="acp" class="btn btn-primary">Đặt
-                            hàng</button>
+
+                    <!-- Mã QR sẽ ẩn ban đầu và hiện ra khi chọn "Chuyển khoản" -->
+                    <div id="qr_code_section" style="display:none; text-align:center; margin: 20px 0;">
+
+                        <h5 style="color: red">Techombank: 19035842255014</h5>
+                        <h5>Nguyễn Như Hoàng</h5>
+                        <p>Quét mã QR để thanh toán:</p>
+                        <img src="/BTL/src/assets/images/qr-code-image.png" alt="QR Code" width="200">
                     </div>
+
+                    <div style="text-align: center">
+                        <button type="submit" name="acp" class="btn btn-primary">Đặt hàng</button>
+                    </div>
+                </form>
+
+                <script>
+                // Lắng nghe sự thay đổi của phương thức thanh toán
+                document.getElementById('payment_method').addEventListener('change', function() {
+                    var paymentMethod = this.value;
+                    var qrSection = document.getElementById('qr_code_section');
+
+                    // Nếu chọn phương thức "Chuyển khoản", hiện mã QR
+                    if (paymentMethod === 'qr') {
+                        qrSection.style.display = 'block';
+                    } else {
+                        qrSection.style.display = 'none';
+                    }
+                });
+                </script>
             </div>
 
             <div class="col-lg-6">
