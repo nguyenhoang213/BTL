@@ -132,6 +132,19 @@ if (isset($_SESSION['user_id'])) {
 
     }
     ?>
+    <script>
+        function inc() {
+            var count = document.getElementById('count');
+            count.value = parseInt(count.value) + 1;
+        }
+
+        function des() {
+            var count = document.getElementById('count');
+            if (count.value > 1) {
+                count.value = parseInt(count.value) - 1;
+            }
+        }
+    </script>
 
     <!-- product -->
     <!-- <h1 style="text-align:center; margin: 25px">Thông Tin Sản phẩm</h1> -->
@@ -152,6 +165,7 @@ if (isset($_SESSION['user_id'])) {
                         <h2>Mô tả sản phẩm</h2>';
                     echo nl2br($row['description']);
                     echo '<h2>Tình trạng: ' . ($row['status'] == 0 ? "Hết hàng" : "Còn hàng") . '</h2>';
+                    
                     echo '<div class="count">
                         <button type="button"  onclick="des()">-</button>
                         <input type="number" value="1" name="count" id="count">
@@ -182,17 +196,6 @@ if (isset($_SESSION['user_id'])) {
 </html>
 
 <script>
-    function inc() {
-        var count = document.getElementById('count');
-        count.value = parseInt(count.value) + 1;
-    }
-
-    function des() {
-        var count = document.getElementById('count');
-        if (count.value > 1) {
-            count.value = parseInt(count.value) - 1;
-        }
-    }
 
     document.querySelector('.toggle-favorite').addEventListener('click', function (event) {
         event.preventDefault();
