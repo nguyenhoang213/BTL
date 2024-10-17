@@ -1,7 +1,6 @@
 <?php
 
 
-include("../connection.php");
 include("../side_nav.php");
 // Lấy category_id từ URL
 if (isset($_GET['id'])) {

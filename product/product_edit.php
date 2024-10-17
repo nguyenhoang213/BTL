@@ -1,6 +1,6 @@
 <?php
 
-include("../connection.php");
+
 include("../side_nav.php");
 // Lấy product_id từ URL
 if (isset($_GET['id'])) {

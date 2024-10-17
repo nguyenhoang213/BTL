@@ -1,6 +1,6 @@
 <?php
 
-include("../connection.php");
+
 include("../side_nav.php");
 // get sql
 $sql = "SELECT * FROM Product";

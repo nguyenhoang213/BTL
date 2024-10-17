@@ -1,5 +1,4 @@
 <?php
-include("../connection.php");
 include("../side_nav.php");
 if (isset($_GET["id"])) {
     $danhmuc_id = $_GET["id"];

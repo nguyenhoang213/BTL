@@ -1,6 +1,5 @@
 <?php
 ob_start();
-include("../connection.php");
 include("../side_nav.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

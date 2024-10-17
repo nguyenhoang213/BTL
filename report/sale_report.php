@@ -1,6 +1,5 @@
 <?php
-include("../connection.php");
-
+include("../side_nav.php");
 // Kiểm tra quyền truy cập (chỉ admin có thể truy cập)
 if (!isset($_SESSION['role'])) {
     echo "<script>
@@ -10,7 +9,7 @@ if (!isset($_SESSION['role'])) {
     exit();
 }
 
-include("../side_nav.php");
+
 
 $first_day_of_month = date('Y-m-01');
 $today = date('Y-m-d');

@@ -1,6 +1,6 @@
 <?php
 
-include("../connection.php");
+
 include("../side_nav.php");
 
 // Lấy support_id từ GET request

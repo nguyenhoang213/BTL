@@ -1,12 +1,8 @@
 <?php
-session_start();
-
+include "connection.php";
 if (!isset($_SESSION['admin_name'])) {
-    echo "Session không tồn tại. Chuyển hướng về trang đăng nhập...";
     header('Location: /BTL/admin/login_admin.php');
     exit();
-} else {
-    echo "Session admin_name: " . $_SESSION['admin_name'];
 }
 ?>
 

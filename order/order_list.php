@@ -1,7 +1,4 @@
 <?php
-
-
-include("../connection.php");
 include("../side_nav.php");
 
 $sql = "SELECT * FROM orders WHERE 1";

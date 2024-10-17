@@ -1,6 +1,4 @@
 <?php
-
-include("../connection.php");
 include("../side_nav.php");
 
 // Truy vấn mặc định để lấy tất cả yêu cầu hỗ trợ

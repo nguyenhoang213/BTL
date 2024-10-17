@@ -1,6 +1,5 @@
 <?php
-include("./connection.php");
-
+include("side_nav.php");
 if (!isset($_SESSION['role'])) {
     echo "<script>
             alert('Không có quyền truy cập vào trang này. Bạn sẽ được chuyển tới trang chủ');
@@ -8,7 +7,7 @@ if (!isset($_SESSION['role'])) {
           </script>";
 }
 
-include("side_nav.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="vi">

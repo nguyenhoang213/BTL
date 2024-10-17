@@ -1,7 +1,6 @@
 <?php
 
 
-include("../connection.php");
 include("../side_nav.php");
 // Truy vấn SQL để lấy danh sách danh mục và tên danh mục cha
 $sql = "SELECT c1.category_id, c1.category_name, c1.description, c1.image, c1.parent, c2.category_name AS parent_name 

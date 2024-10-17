@@ -1,5 +1,4 @@
 <?php
-include("../connection.php");
 include("../side_nav.php");
 
 if (isset($_GET["danhMuc"])) {
