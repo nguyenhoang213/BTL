@@ -269,48 +269,11 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
-
-        <!-- <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div style="width: 910px; height: 570px" class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/28_Mayf1d8cb54a857e1fbef4e30412cfe2411.jpg"
-                        class="d-block w-100" alt="..." />
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/26_May19b7f7c0d8d0401061a18ee3900d92f8.jpg"
-                        class="d-block w-100" alt="..." />
-                </div>
-                <div class="carousel-item">
-                    <img src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/04_Jun54996437df548ee7736b9ec3939ffc2b.jpg"
-                        class="d-block w-100" alt="..." />
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div> -->
         <!-- end slider -->
     </div>
     <!-- product -->
     <div class="container">
-        <div class="menu-product">
+        <div class="menu0-product">
             <button class="main-title">SẢN PHẨM BÁN CHẠY</button>
         </div>
         <div class="products">
