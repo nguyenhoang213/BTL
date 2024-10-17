@@ -295,6 +295,37 @@
         <div class="products" id="product-list-lt"></div>
     </div>
 
+         
+    <script>
+        // Đổi trạng thái active menu1
+        const buttons = document.querySelectorAll('.menu1-product button');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (buttons[0].classList.contains('main-title')) {
+                    buttons[0].classList.remove('main-title');
+                    buttons[0].classList.add('active-product');
+                }
+                buttons.forEach(btn => btn.classList.remove('main-title'));
+                this.classList.add('main-title');   
+            });
+        });
+    </script>
+
+    <script>
+        // Đổi trạng thái active menu1
+        const buttons2 = document.querySelectorAll('.menu2-product button');
+        buttons2.forEach(button => {
+            button.addEventListener('click', function() {
+                if (buttons2[0].classList.contains('main-title')) {
+                    buttons2[0].classList.remove('main-title');
+                    buttons2[0].classList.add('active-product');
+                }
+                buttons2.forEach(btn => btn.classList.remove('main-title'));
+                this.classList.add('main-title');   
+            });
+        });
+    </script>
+
     <script>
         // Điện thoại
         document.querySelectorAll('.menu1-product button').forEach(button => {

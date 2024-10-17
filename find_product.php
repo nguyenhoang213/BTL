@@ -22,9 +22,9 @@ if (!empty($sort)) {
     } elseif ($sort === 'price-desc') {
         $sql .= " ORDER BY price DESC"; // Giá giảm dần
     } elseif ($sort === 'name-asc') {
-        $sql .= " ORDER BY name ASC"; // Tên sản phẩm từ A đến Z
+        $sql .= " ORDER BY product_name ASC"; // Tên sản phẩm từ A đến Z
     } elseif ($sort === 'name-desc') {
-        $sql .= " ORDER BY name DESC"; // Tên sản phẩm từ Z đến A
+        $sql .= " ORDER BY product_name DESC"; // Tên sản phẩm từ Z đến A
     }
 }
 ?>
