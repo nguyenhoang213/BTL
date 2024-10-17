@@ -55,7 +55,7 @@ if (isset($_POST['update'])) {
         echo "
             <script>
                 alert('Cập nhật thông tin sản phẩm thành công!');
-                window.location.href = '../product/list.php';
+                window.location.href = '../product/product_list.php';
             </script>
             ";
     } else {
