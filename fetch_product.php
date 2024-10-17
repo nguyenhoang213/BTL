@@ -22,7 +22,7 @@ if (isset($_POST['category'])) {
             echo '
             <div class="product-item">
                 <a href="/BTL/product/product_detail.php?id=' . $row['product_id'] . '">
-                <img style="width: 170px; height: 170px" src="' . $row['image'] . '">
+                <img style="width: 170px; height: 170px" src="/BTL/src/assets/uploads/product/' . $row['image'] . '">
                 <p>' . $row['product_name'] . '</p>
                 <span>' . number_format($row['price'], 0, ',', '.') . ' VNĐ</span>
                 </a>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 <body>
 
     <?php
@@ -233,7 +234,7 @@
         $result = $conn->query($sql);
         ?>
 
-            <div id="carouselExampleIndicators" class="carousel slide">
+        <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
                 <?php
                 $index = 0;
@@ -245,7 +246,7 @@
                 }
                 ?>
             </div>
-            <div style="width: 910px; height: 570px"  class="carousel-inner">
+            <div style="width: 910px; height: 570px" class="carousel-inner">
                 <?php
                 $result->data_seek(0); // Đặt lại chỉ số kết quả truy vấn để lặp lại từ đầu
                 $index = 0;
@@ -262,21 +263,13 @@
                 ?>
             </div>
 
-            <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev"
-            >
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next"
-            >
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -318,7 +311,7 @@
             </button>
         </div>
     </div> -->
-    <!-- end slider -->
+        <!-- end slider -->
     </div>
     <!-- product -->
     <div class="container">
@@ -375,55 +368,55 @@
     </div>
 
     <script>
-        // Điện thoại
-        document.querySelectorAll('.menu1-product button').forEach(button => {
-            button.addEventListener('click', function () {
-                const category = this.value;
-                fetchProductsDT(category); // Gọi hàm lấy sản phẩm Điện thoại
-            });
+    // Điện thoại
+    document.querySelectorAll('.menu1-product button').forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.value;
+            fetchProductsDT(category); // Gọi hàm lấy sản phẩm Điện thoại
         });
+    });
 
-        function fetchProductsDT(category) {
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'fetch_product.php', true); // Gửi yêu cầu tới file PHP xử lý
-            document.getElementById('product-list-dt').innerHTML = ''; // Xóa sản phẩm cũ
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send('category=' + category); // Gửi dữ liệu category
+    function fetchProductsDT(category) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'fetch_product.php', true); // Gửi yêu cầu tới file PHP xử lý
+        document.getElementById('product-list-dt').innerHTML = ''; // Xóa sản phẩm cũ
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send('category=' + category); // Gửi dữ liệu category
 
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById('product-list-dt').innerHTML = xhr.responseText;
-                }
-            };
-        }
-
-        // Laptop
-        document.querySelectorAll('.menu2-product button').forEach(button => {
-            button.addEventListener('click', function () {
-                const category = this.value;
-                fetchProductsLT(category); // Gọi hàm lấy sản phẩm Laptop
-            });
-        });
-
-        function fetchProductsLT(category) {
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'fetch_product.php', true); // Gửi yêu cầu tới file PHP xử lý
-            document.getElementById('product-list-lt').innerHTML = ''; // Xóa sản phẩm cũ
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send('category=' + category); // Gửi dữ liệu category
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    document.getElementById('product-list-lt').innerHTML = xhr.responseText;
-                }
-            };
-        }
-
-        // Mặc định hiển thị sản phẩm Điện thoại khi trang tải
-        window.onload = function () {
-            fetchProductsDT('DT'); // Hiển thị sản phẩm Điện thoại mặc định
-            fetchProductsLT('LT');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById('product-list-dt').innerHTML = xhr.responseText;
+            }
         };
+    }
+
+    // Laptop
+    document.querySelectorAll('.menu2-product button').forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.value;
+            fetchProductsLT(category); // Gọi hàm lấy sản phẩm Laptop
+        });
+    });
+
+    function fetchProductsLT(category) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'fetch_product.php', true); // Gửi yêu cầu tới file PHP xử lý
+        document.getElementById('product-list-lt').innerHTML = ''; // Xóa sản phẩm cũ
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send('category=' + category); // Gửi dữ liệu category
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                document.getElementById('product-list-lt').innerHTML = xhr.responseText;
+            }
+        };
+    }
+
+    // Mặc định hiển thị sản phẩm Điện thoại khi trang tải
+    window.onload = function() {
+        fetchProductsDT('DT'); // Hiển thị sản phẩm Điện thoại mặc định
+        fetchProductsLT('LT');
+    };
     </script>
 
     <?php
@@ -431,7 +424,7 @@
         ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
+    </script>
 </body>
 
 </html>
