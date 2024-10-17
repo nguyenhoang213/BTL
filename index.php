@@ -338,7 +338,7 @@
                     echo '
                     <div class="product-item">
                         <a href="/BTL/product/product_detail.php?id=' . $row_hot['product_id'] . '">
-                        <img style="width: 170px; height: 170px" src="' . $row_hot['image'] . '">
+                        <img style="width: 170px; height: 170px" src="/BTL/src/assets/uploads/product/' . $row_hot['image'] . '">
                         <p>' . $row_hot['product_name'] . '</p>
                         <span>' . number_format($row_hot['price'], 0, ',', '.') . ' VNĐ </span>
                         </a>    
