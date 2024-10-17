@@ -1,5 +1,5 @@
 <?php
-
+include("../connection.php");
 include("../side_nav.php");
 if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
     echo "<script>
@@ -9,7 +9,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
             </script>";
 
 }
-include("../connection.php");
 // Lấy admin_id từ URL
 if (isset($_GET['id'])) {
     $admin_id = $_GET['id'];

@@ -1,5 +1,6 @@
 <?php
 
+include("../connection.php");
 include("../side_nav.php");
 if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
     echo "<script>
@@ -57,32 +58,31 @@ function generateUniqueId($length = 8)
     </div>
 
     <script>
-        // Script hiện/ẩn mật khẩu
-        const password = document.getElementById('password');
-        const confirmPassword = document.getElementById('confirm_password');
-        const showPassword = document.getElementById('show_password');
+    // Script hiện/ẩn mật khẩu
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirm_password');
+    const showPassword = document.getElementById('show_password');
 
-        showPassword.addEventListener('change', function () {
-            const type = this.checked ? 'text' : 'password';
-            password.type = type;
-            confirmPassword.type = type;
-        });
+    showPassword.addEventListener('change', function() {
+        const type = this.checked ? 'text' : 'password';
+        password.type = type;
+        confirmPassword.type = type;
+    });
 
-        // Script kiểm tra mật khẩu xác nhận trước khi gửi form
-        const form = document.querySelector('form');
-        form.addEventListener('submit', function (e) {
-            if (password.value !== confirmPassword.value) {
-                e.preventDefault(); // Ngăn không cho gửi form
-                alert('Mật khẩu và mật khẩu xác nhận không khớp!');
-            }
-        });
+    // Script kiểm tra mật khẩu xác nhận trước khi gửi form
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e) {
+        if (password.value !== confirmPassword.value) {
+            e.preventDefault(); // Ngăn không cho gửi form
+            alert('Mật khẩu và mật khẩu xác nhận không khớp!');
+        }
+    });
     </script>
 </body>
 
 </html>
 
 <?php
-include("../connection.php");
 
 // Xử lý khi form thêm tài khoản admin được submit
 if (isset($_POST['submit'])) {

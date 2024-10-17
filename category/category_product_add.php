@@ -1,8 +1,6 @@
 <?php
-
-
-include("../side_nav.php");
 include("../connection.php");
+include("../side_nav.php");
 if (isset($_GET["id"])) {
     $danhmuc_id = $_GET["id"];
     $sql_tdm = "Select * FROM category WHERE category_id = '$danhmuc_id'";

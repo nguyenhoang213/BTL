@@ -1,6 +1,5 @@
 <?php
-
-
+include("../connection.php");
 include("../side_nav.php");
 
 if (isset($_GET["danhMuc"])) {
@@ -27,7 +26,6 @@ if (isset($_GET["danhMuc"])) {
             <select name="danhMuc" onchange="this.form.submit()">
                 <option value="">-Chọn danh mục-</option>
                 <?php
-                include("../connection.php");
                 $sql_dm = "SELECT * FROM category";
                 $result = $conn->query($sql_dm);
                 if ($result->num_rows > 0) {

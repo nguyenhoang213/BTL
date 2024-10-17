@@ -1,7 +1,7 @@
 <?php
 ob_start();
-include("../side_nav.php");
 include("../connection.php");
+include("../side_nav.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $slider_name = $_POST['slider_name'];
@@ -42,113 +42,114 @@ ob_end_flush();
 <head>
     <title>Thêm Slider</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #FFFFFF;
-            color: #333;
-            line-height: 1.6;
-        }
+    body {
+        margin-top: 70px;
+        font-family: 'Arial', sans-serif;
+        background-color: #FFFFFF;
+        color: #333;
+        line-height: 1.6;
+    }
 
+    .form-container {
+        margin-left: 300px;
+        width: 80%;
+        padding: 30px;
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    /* Tiêu đề */
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        color: #444;
+    }
+
+    .form-container h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Form styling */
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    form label {
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #555;
+        font-size: 1.1rem;
+    }
+
+    form input[type="text"],
+    form input[type="file"] {
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        width: 100%;
+    }
+
+    form button {
+        padding: 12px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    form button:hover {
+        background-color: #218838;
+    }
+
+    /* Nút Quay lại */
+    .btn-back {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #007bff;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .btn-back:hover {
+        text-decoration: underline;
+        color: #0056b3;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
         .form-container {
-            margin-left: 300px;
-            width: 80%;
-            padding: 30px;
-            border-radius: 8px;
-            background: #fff;
+            padding: 20px;
         }
 
-        /* Tiêu đề */
         h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-            color: #444;
-        }
-
-        .form-container h2 {
-            text-align: center;
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        /* Form styling */
-        form {
-            display: flex;
-            flex-direction: column;
+            font-size: 2rem;
         }
 
         form label {
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #555;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         form input[type="text"],
         form input[type="file"] {
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            width: 100%;
+            font-size: 1rem;
         }
 
         form button {
-            padding: 12px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 100%;
-        }
-
-        form button:hover {
-            background-color: #218838;
-        }
-
-        /* Nút Quay lại */
-        .btn-back {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #007bff;
             font-size: 1rem;
-            text-align: center;
         }
-
-        .btn-back:hover {
-            text-decoration: underline;
-            color: #0056b3;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .form-container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            form label {
-                font-size: 1rem;
-            }
-
-            form input[type="text"],
-            form input[type="file"] {
-                font-size: 1rem;
-            }
-
-            form button {
-                font-size: 1rem;
-            }
-        }
+    }
     </style>
 </head>
 

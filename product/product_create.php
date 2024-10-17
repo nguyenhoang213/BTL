@@ -1,5 +1,5 @@
 <?php
-
+include("../connection.php");
 include("../side_nav.php");
 ?>
 <!DOCTYPE html>
@@ -37,7 +37,6 @@ include("../side_nav.php");
 </html>
 
 <?php
-include("../connection.php");
 
 // Xử lý khi form thêm sản phẩm được submit
 if (isset($_POST['submit'])) {
@@ -88,22 +87,22 @@ $conn->close();
 
 
 <script>
-    const inputGiaSP = document.getElementById('giaSP');
+const inputGiaSP = document.getElementById('giaSP');
 
-    inputGiaSP.addEventListener('input', function (e) {
-        // Xóa các ký tự không phải là số
-        let value = e.target.value.replace(/\D/g, '');
+inputGiaSP.addEventListener('input', function(e) {
+    // Xóa các ký tự không phải là số
+    let value = e.target.value.replace(/\D/g, '');
 
-        // Thêm dấu chấm mỗi 3 số
-        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    // Thêm dấu chấm mỗi 3 số
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-        // Hiển thị giá trị đã định dạng
-        e.target.value = value;
-    });
+    // Hiển thị giá trị đã định dạng
+    e.target.value = value;
+});
 
-    // Khi gửi form, loại bỏ dấu chấm trước khi gửi giá trị
-    const form = document.querySelector('form');
-    form.addEventListener('submit', function () {
-        inputGiaSP.value = inputGiaSP.value.replace(/\./g, '');
-    });
+// Khi gửi form, loại bỏ dấu chấm trước khi gửi giá trị
+const form = document.querySelector('form');
+form.addEventListener('submit', function() {
+    inputGiaSP.value = inputGiaSP.value.replace(/\./g, '');
+});
 </script>

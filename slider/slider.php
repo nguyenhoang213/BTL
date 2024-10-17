@@ -1,6 +1,6 @@
 <?php
-include("../side_nav.php");
 include("../connection.php");
+include("../side_nav.php");
 
 // Xóa slider nếu có yêu cầu
 if (isset($_GET['delete'])) {
@@ -27,99 +27,100 @@ $result = $conn->query($sql);
     <title>Danh sách Slider</title>
 
     <style>
-        .sliders {
-            margin-left: 300px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-        }
+    .sliders {
+        margin-top: 70px;
+        margin-left: 300px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+    }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-            color: #444;
-        }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        color: #444;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
 
-        table th,
-        table td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+    table th,
+    table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
 
-        table th {
-            background-color: #f4f4f4;
-            color: #333;
-            font-weight: bold;
-        }
+    table th {
+        background-color: #f4f4f4;
+        color: #333;
+        font-weight: bold;
+    }
 
-        table td {
-            vertical-align: middle;
-        }
+    table td {
+        vertical-align: middle;
+    }
 
-        table img {
-            width: 100px;
-            border-radius: 8px;
-        }
+    table img {
+        width: 100px;
+        border-radius: 8px;
+    }
 
-        .btn-edit,
-        .btn-delete,
-        .btn-add {
-            padding: 5px 10px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 3px;
-            text-decoration: none;
-            font-size: 1rem;
-        }
+    .btn-edit,
+    .btn-delete,
+    .btn-add {
+        padding: 5px 10px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+        text-decoration: none;
+        font-size: 1rem;
+    }
 
-        .btn-edit {
-            background-color: #007bff;
-        }
+    .btn-edit {
+        background-color: #007bff;
+    }
 
-        .btn-edit:hover {
-            background-color: #0056b3;
-        }
+    .btn-edit:hover {
+        background-color: #0056b3;
+    }
 
-        .btn-delete {
-            background-color: #dc3545;
-        }
+    .btn-delete {
+        background-color: #dc3545;
+    }
 
-        .btn-delete:hover {
-            background-color: #c82333;
-        }
+    .btn-delete:hover {
+        background-color: #c82333;
+    }
 
-        .btn-add {
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: #28a745;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
+    .btn-add {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
 
-        .btn-add:hover {
-            background-color: #218838;
-        }
+    .btn-add:hover {
+        background-color: #218838;
+    }
 
-        table tr:hover {
-            background-color: #f0f0f0;
-        }
+    table tr:hover {
+        background-color: #f0f0f0;
+    }
 
-        .actions {
-            display: flex;
-            gap: 10px;
-        }
+    .actions {
+        display: flex;
+        gap: 10px;
+    }
     </style>
 
 </head>
@@ -145,7 +146,7 @@ $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     // Hiển thị từng hàng slider
                     while ($row = $result->fetch_assoc()) {
-                        $image_path = 'image_slider/' . $row['slider_image']; 
+                        $image_path = 'image_slider/' . $row['slider_image'];
                         echo "<tr>";
                         echo "<td>" . $row['slider_id'] . "</td>";
                         echo "<td>" . $row['slider_name'] . "</td>";

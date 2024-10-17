@@ -1,6 +1,6 @@
 <?php
-include("../side_nav.php");
 include("../connection.php");
+include("../side_nav.php");
 
 if (isset($_GET['edit'])) {
     $slider_id = $_GET['edit'];
@@ -36,94 +36,95 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sửa Slider</title>
     <style>
-        .edit_slider {
-            margin-left: 300px;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
+    .edit_slider {
+        margin-top: 70px;
+        margin-left: 300px;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
 
-        /* Tiêu đề */
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-            color: #444;
-        }
+    /* Tiêu đề */
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        color: #444;
+    }
 
-        /* Form container giống bảng quản lý slider */
-        .form-container {
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
+    /* Form container giống bảng quản lý slider */
+    .form-container {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
 
-        .form-container h2 {
-            text-align: center;
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
+    .form-container h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
 
-        /* Form styling */
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+    /* Form styling */
+    form {
+        display: flex;
+        flex-direction: column;
+    }
 
-        form label {
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #555;
-        }
+    form label {
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #555;
+    }
 
-        form input[type="text"],
-        form input[type="file"] {
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            width: 100%;
-            /* Đảm bảo các trường input chiếm hết chiều rộng */
-        }
+    form input[type="text"],
+    form input[type="file"] {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        width: 100%;
+        /* Đảm bảo các trường input chiếm hết chiều rộng */
+    }
 
-        form img {
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
+    form img {
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
 
-        form button {
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    form button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-        form button:hover {
-            background-color: #218838;
-        }
+    form button:hover {
+        background-color: #218838;
+    }
 
-        /* Nút Quay lại */
-        .btn-back {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #007bff;
-            font-size: 1rem;
-        }
+    /* Nút Quay lại */
+    .btn-back {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #007bff;
+        font-size: 1rem;
+    }
 
-        .btn-back:hover {
-            text-decoration: underline;
-        }
+    .btn-back:hover {
+        text-decoration: underline;
+    }
     </style>
 </head>
 

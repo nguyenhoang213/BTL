@@ -1,7 +1,7 @@
 <?php
 
-include("../side_nav.php");
 include("../connection.php");
+include("../side_nav.php");
 
 // Lấy support_id từ GET request
 $support_id = isset($_GET['support_id']) ? intval($_GET['support_id']) : 0;

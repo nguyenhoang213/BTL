@@ -1,7 +1,7 @@
 <?php
 
-include("../side_nav.php");
 include("../connection.php");
+include("../side_nav.php");
 // get sql
 $sql = "SELECT * FROM Product";
 $result = $conn->query($sql);

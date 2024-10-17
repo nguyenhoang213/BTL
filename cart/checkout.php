@@ -137,7 +137,7 @@ if (isset($_POST['acp'])) {
             $conn->query($sql_insert);
         }
 
-        // Xóa giỏ hàng sau khi đặt hàng thành công
+        // Xóa giỏ hàng sau khi đặt hàng thành công`
         $sql_clear_cart = "DELETE FROM cart_product WHERE cart_id = ?";
         $stmt_clear = $conn->prepare($sql_clear_cart);
         $stmt_clear->bind_param('i', $cart_id);

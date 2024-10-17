@@ -1,5 +1,6 @@
 <?php
-
+include("../connection.php");
+include("../side_nav.php");
 if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
     echo "<script>
                 alert('Không thể thực hiện hành động này');
@@ -9,8 +10,6 @@ if (isset($_SESSION['role']) && $_SESSION['role'] == 1) {
 }
 ?>
 <?php
-include("../side_nav.php");
-include("../connection.php");
 // Truy vấn mặc định để lấy tất cả tài khoản user
 $sql = "SELECT * FROM user";
 $result = $conn->query($sql);

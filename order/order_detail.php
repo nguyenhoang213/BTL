@@ -1,7 +1,7 @@
 <?php
 
-include("../side_nav.php");
 include("../connection.php");
+include("../side_nav.php");
 
 // Kiểm tra xem id của đơn hàng đã được truyền vào chưa
 if (isset($_GET["id"])) {
