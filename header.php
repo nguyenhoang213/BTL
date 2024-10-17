@@ -39,7 +39,6 @@
                                 <button class="user-button">Xin chào, ' . $row_user['first_name'] . ' ' . $row_user['last_name'] . '</button>
                                 <div class="dropdown-content">  
                                     <a href="/BTL/user/user_info.php">Thông tin cá nhân</a>
-                                    <a href="/BTL/orders/orders.php">Đơn hàng của tôi</a>
                                     <a href="/BTL/login/logout.php">Đăng xuất</a>
                                 </div>
                             </div>';
