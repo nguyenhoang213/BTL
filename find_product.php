@@ -40,108 +40,108 @@ if (!empty($sort)) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
 
-        a {
-            text-decoration: none;
-        }
+    a {
+        text-decoration: none;
+    }
 
-        body {
-            background-color: #f5f5f5;
-        }
+    body {
+        background-color: #f5f5f5;
+    }
 
-        .container {
-            display: flex;
-            padding: 20px;
-            gap: 30px;
-            margin-right: 150px;
-        }
+    .container {
+        display: flex;
+        padding: 20px;
+        gap: 30px;
+        margin-right: 150px;
+    }
 
-        .filter-section {
-            width: 250px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-left: -4px;
-        }
+    .filter-section {
+        width: 250px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-left: -4px;
+    }
 
-        .filter-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-        }
+    .filter-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
 
-        .filter-group {
-            margin-bottom: 20px;
-        }
+    .filter-group {
+        margin-bottom: 20px;
+    }
 
-        .filter-group label {
-            font-size: 16px;
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
+    .filter-group label {
+        font-size: 16px;
+        display: block;
+        margin-bottom: 5px;
+        color: #555;
+    }
 
-        .filter-group select,
-        .filter-group input[type="range"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
+    .filter-group select,
+    .filter-group input[type="range"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
 
-        .filter-group input[type="checkbox"] {
-            margin-right: 10px;
-        }
+    .filter-group input[type="checkbox"] {
+        margin-right: 10px;
+    }
 
-        .apply-filter-btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #ee9a00;
-            border: none;
-            color: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    .apply-filter-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #ee9a00;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-        .apply-filter-btn:hover {
-            background-color: orange;
-        }
+    .apply-filter-btn:hover {
+        background-color: orange;
+    }
 
-        .product-section {
-            flex: 1;
-            margin-left: 20px;
-        }
+    .product-section {
+        flex: 1;
+        margin-left: 20px;
+    }
 
-        .product-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
-        }
+    .product-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
 
-        .products {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+    .products {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 
-        .product-card {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 264px;
-        }
+    .product-card {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 264px;
+    }
     </style>
 
 <body>
@@ -234,16 +234,16 @@ if (!empty($sort)) {
     <script src="https://kit.fontawesome.com/0236bf0649.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
+    </script>
 </body>
 
 </html>
 
 
 <script>
-    function price_range_display() {
-        var price = document.getElementById('price-range').value;
-        document.getElementById('price_display').textContent = parseInt(price).toLocaleString('vi-VN') + " VNĐ";
+function price_range_display() {
+    var price = document.getElementById('price-range').value;
+    document.getElementById('price_display').textContent = parseInt(price).toLocaleString('vi-VN') + " VNĐ";
 
-    }
+}
 </script>
