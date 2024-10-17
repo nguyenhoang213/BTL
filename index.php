@@ -111,7 +111,7 @@
                     </ul>
                 </li>
                 <li id="menu-item-421">
-                    <a href="/BTL/find_product.php?keyword=&category=tablet"><img width="24" height="24"
+                    <a href="/BTL/find_product.php?keyword=&category=TL"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/tablet-outline-in-horizontal-position.png"
                             class="menu-image menu-image-title-after" alt="" /><span>Tablet</span></a>
                     <ul class="sub-menu">

@@ -166,6 +166,28 @@ if (!empty($sort)) {
                             echo 'selected'; ?> value='DT'>Điện thoại</option>
                         <option <?php if ($category == 'LT')
                             echo 'selected'; ?> value='LT'>Laptop</option>
+                        <option <?php if ($category == 'TL')
+                            echo 'selected'; ?> value='TL'>Tablet</option>
+                        <option <?php if ($category == 'PK')
+                            echo 'selected'; ?> value='PK'>Phụ kiện</option>
+                        <option <?php if ($category == 'SW')
+                            echo 'selected'; ?> value='SW'>SmartWatch</option>
+                        <option <?php if ($category == 'AW')
+                            echo 'selected'; ?> value='AW'>Apple Watch</option>
+                        <option <?php if ($category == 'MI')
+                            echo 'selected'; ?> value='MI'>Thiết bị máy in</option>
+                        <option <?php if ($category == 'PC')
+                            echo 'selected'; ?> value='PC'>PC</option>
+                        <option <?php if ($category == 'TN')
+                            echo 'selected'; ?> value='TN'>Tai nghe</option>
+                        <option <?php if ($category == 'CM')
+                            echo 'selected'; ?> value='CM'>Camera</option>
+                        <option <?php if ($category == 'LK')
+                            echo 'selected'; ?> value='LK'>Linh kiện</option>
+                        <option <?php if ($category == 'BP')
+                            echo 'selected'; ?> value='BP'>Bàn phím</option>
+                        <option <?php if ($category == 'mouse')
+                            echo 'selected'; ?> value='mouse'>Chuột máy tính</option>
                     </select>
                 </div>
 
