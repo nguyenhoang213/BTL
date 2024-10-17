@@ -15,7 +15,7 @@ $success_message = '';
 // Lấy danh sách đơn hàng của người dùng (nếu có) để người dùng chọn đơn hàng trong form
 $order_sql = "SELECT order_id FROM orders WHERE user_id = ?";
 $order_stmt = $conn->prepare($order_sql);
-$order_stmt->bind_param("i", $user_id);
+$order_stmt->bind_param("s", $user_id);
 $order_stmt->execute();
 $order_result = $order_stmt->get_result();
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Truy vấn các yêu cầu hỗ trợ đã gửi của người dùng
 $support_sql = "SELECT support_id, order_id, message, status, time FROM support WHERE user_id = ? ORDER BY time DESC";
 $support_stmt = $conn->prepare($support_sql);
-$support_stmt->bind_param("i", $user_id);
+$support_stmt->bind_param("s", $user_id);
 $support_stmt->execute();
 $support_result = $support_stmt->get_result();
 ?>
