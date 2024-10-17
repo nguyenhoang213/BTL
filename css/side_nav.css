@@ -28,11 +28,13 @@
   transform-origin: top right;
   animation: notifition ease-in 0.25s;
   display: none;
+  margin-top: 16px;
 }
 .notifi header {
   display: flex;
   justify-content: center;
-  background-color: #e49f7a;
+  background-color: #eedcd3;
+  padding: 10px;
 }
 .notifi ul {
   background-color: #fff;
