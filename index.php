@@ -142,84 +142,52 @@
                     </ul>
                 </li>
                 <li id="menu-item-415">
-                    <a href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/phu-kien/"><img width="24"
-                            height="24"
+                    <a href="/BTL/find_product.php?keyword=&category=PK"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/headset.png"
                             class="menu-image menu-image-title-after" alt="" /><span>Phụ
                             kiện</span></a>
-                    <ul class="sub-menu">
-                        <li id="menu-item-416"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/phu-kien/bao-da-op-lung-dan-man-hinh/"><span>Bao
-                                    da, Ốp lưng, Dán màn hình</span></a></li>
-                        <li id="menu-item-417"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/phu-kien/loa/"><span>Loa</span></a>
-                        </li>
-                        <li id="menu-item-418"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/phu-kien/may-nghe-nhac/"><span>Máy
-                                    nghe nhạc</span></a>
-                        </li>
-                        <li id="menu-item-419"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/phu-kien/phu-kien-am-thanh/"><span>Phụ
-                                    kiện âm
-                                    thanh</span></a>
-                        </li>
-                    </ul>
                 </li>
-                <li id="menu-item-1564"><a
-                        href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/smartwatch/"><img width="24"
-                            height="24"
+                <li id="menu-item-1564"><a href="/BTL/find_product.php?keyword=&category=SW"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/03/cate2_icon-24x24.png"
                             class="menu-image menu-image-title-after" alt="" /><span>SmartWatch</span></a></li>
-                <li id="menu-item-1563"><a
-                        href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/apple-watch/"><img
-                            width="24" height="24"
+                <li id="menu-item-1563"><a href="/BTL/find_product.php?keyword=&category=AW"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/smartphone.png"
                             class="menu-image menu-image-title-after" alt="" /><span>Apple
                             Watch</span></a></li>
                 <li id="menu-item-433" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-433"><a
-                        href="#"><img width="24" height="24"
+                        href="/BTL/find_product.php?keyword=&category=MI"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/printer.png"
                             class="menu-image menu-image-title-after" alt="" /><span>Thiết bị
                             máy
                             in</span></a></li>
                 <li id="menu-item-434" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-434"><a
-                        href="#"><img width="24" height="24"
+                        href="/BTL/find_product.php?keyword=&category=PC"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/ssd-24x24.png"
                             class="menu-image menu-image-title-after" alt="" /><span>Máy tính
                             bộ,
                             màn hình</span></a></li>
                 <li id="menu-item-420">
-                    <a href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/phu-kien/tai-nghe/"><img
-                            width="24" height="24"
+                    <a href="/BTL/find_product.php?keyword=&category=TN"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/cloud-computing-24x24.png"
                             class="menu-image menu-image-title-after" alt="" /><span>Tai
                             nghe</span></a>
                 </li>
-                <li id="menu-item-2041"><a
-                        href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/camera/"><img width="24"
-                            height="24"
+                <li id="menu-item-2041"><a href="/BTL/find_product.php?keyword=&category=CM"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/processor-24x24.png"
                             class="menu-image menu-image-title-after" alt="" /><span>Camera</span></a></li>
-                <li id="menu-item-2042"><a
-                        href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/linh-kien-may-tinh/"><img
-                            width="24" height="24"
+                <li id="menu-item-2042"><a href="/BTL/find_product.php?keyword=&category=LK"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/flash-disk-24x24.png"
                             class="menu-image menu-image-title-after" alt="" /><span>Linh kiện
                             máy
                             tính</span></a></li>
-                <li id="menu-item-2043"><a
-                        href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/phu-kien/ban-phim/"><img
-                            width="24" height="24"
+                <li id="menu-item-2043"><a href="/BTL/find_product.php?keyword=&category=BP"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/database-24x24.png"
                             class="menu-image menu-image-title-after" alt="" /><span>Bàn
                             phím</span></a></li>
-                <li id="menu-item-2044"><a
-                        href=" https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/may-tinh-van-phong/"><img
-                            width="24" height="24"
+                <li id="menu-item-2044"><a href="/BTL/find_product.php?keyword=&category=mouse"><img width="24"
+                            height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2019/06/pay-per-click-24x24.png"
-                            class="menu-image menu-image-title-after" alt="" /><span>Máy tính
-                            văn
-                            phòng</span></a></li>
+                            class="menu-image menu-image-title-after" alt="" /><span>Chuột máy tính</span></a></li>
             </ul>
         </div>
         <!-- slider -->

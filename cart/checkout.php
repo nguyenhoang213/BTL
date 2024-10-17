@@ -110,6 +110,15 @@ if (isset($_POST['acp'])) {
         // Lấy order_id của đơn hàng vừa tạo
         $order_id = $conn->insert_id;
 
+        $notification_title = "Đơn hàng mới từ $full_name";
+        $notification_type = "Order";
+        $notification_time = date('Y-m-d H:i:s');
+
+        $sql_notification = "INSERT INTO admin_notification (title, order_id, type, time)
+    VALUES ('$notification_title', '$order_id', '$notification_type', '$notification_time')";
+
+        $conn->query($sql_notification);
+
         // Thêm sản phẩm vào bảng order_items
         $result->data_seek(0); // Đặt lại con trỏ result để duyệt lại từ đầu
         while ($row = $result->fetch_assoc()) {
