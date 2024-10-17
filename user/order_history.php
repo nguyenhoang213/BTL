@@ -158,9 +158,9 @@ function getWardName($ward_id, $locations)
                 </thead>
                 <tbody>
                     <?php while ($order = $result->fetch_assoc()):
-                        $province_name = getProvinceName($order['province'], $locations);
-                        $district_name = getDistrictName($order['district'], $locations);
-                        $ward_name = getWardName($order['ward'], $locations);
+                        // $province_name = getProvinceName($order['province'], $locations);
+                        // $district_name = getDistrictName($order['district'], $locations);
+                        // $ward_name = getWardName($order['ward'], $locations);
                         $status_class = 'status-' . strtolower(str_replace(' ', '-', $order['order_status'])); ?>
                         <tr>
                             <td><?php echo htmlspecialchars(string: $order['order_id']); ?></td>
