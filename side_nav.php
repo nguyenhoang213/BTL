@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['admin_name'])) {
+    echo "Session không tồn tại. Chuyển hướng về trang đăng nhập...";
+    header('Location: /BTL/admin/login_admin.php');
+    exit();
+} else {
+    echo "Session admin_name: " . $_SESSION['admin_name'];
+}
+?>
+
+
 <head>
     <link rel="stylesheet" href="/BTL/css/side_nav.css" />
     <script src="https://kit.fontawesome.com/8fcd74b091.js" crossorigin="anonymous"></script>
