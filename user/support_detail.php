@@ -13,7 +13,7 @@ $support_id = isset($_GET['support_id']) ? intval($_GET['support_id']) : 0;
 // Truy vấn chi tiết yêu cầu hỗ trợ và phản hồi của admin (nếu có)
 $sql = "SELECT support_id, order_id, message, status, time, admin_response FROM support WHERE support_id = ? AND user_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ii", $support_id, $_SESSION['user_id']);
+$stmt->bind_param("is", $support_id, $_SESSION['user_id']);
 $stmt->execute();
 $result = $stmt->get_result();
 

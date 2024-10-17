@@ -22,7 +22,7 @@ $order_id = $_GET['order_id']; // Lấy order_id từ URL
 // Truy vấn chi tiết đơn hàng
 $sql_order = "SELECT * FROM orders WHERE order_id = ? AND user_id = ?";
 $stmt_order = $conn->prepare($sql_order);
-$stmt_order->bind_param("ii", $order_id, $user_id);
+$stmt_order->bind_param("is", $order_id, $user_id);
 $stmt_order->execute();
 $result_order = $stmt_order->get_result();
 

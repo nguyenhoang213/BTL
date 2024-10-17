@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Lấy mật khẩu đã băm từ cơ sở dữ liệu
         $sql = "SELECT password FROM user_account WHERE user_id = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("i", $user_id);
+        $stmt->bind_param("s", $user_id);
         $stmt->execute();
         $stmt->bind_result($stored_password);
         $stmt->fetch();
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 // Cập nhật mật khẩu mới vào cơ sở dữ liệu
                 $sql_update = "UPDATE user_account SET password = ? WHERE user_id = ?";
                 $stmt_update = $conn->prepare($sql_update);
-                $stmt_update->bind_param("si", $hashed_new_password, $user_id);
+                $stmt_update->bind_param("ss", $hashed_new_password, $user_id);
                 $stmt_update->execute();
 
                 if ($stmt_update->affected_rows > 0) {

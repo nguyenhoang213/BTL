@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("../connection.php");
 
 // Kiểm tra xem người dùng đã đăng nhập chưa

@@ -13,7 +13,7 @@ $user_id = $_SESSION['user_id']; // Lấy user_id từ session
 // Truy vấn thông tin người dùng từ cơ sở dữ liệu
 $sql = "SELECT first_name, last_name, email, phone, address FROM user WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
+$stmt->bind_param("s", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
