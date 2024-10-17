@@ -110,42 +110,42 @@ include("side_nav.php");
             ?>
 
             <script>
-                // Lấy dữ liệu từ PHP
-                var months = <?php echo json_encode($months); ?>;
-                var revenues = <?php echo json_encode($revenues); ?>;
+            // Lấy dữ liệu từ PHP
+            var months = <?php echo json_encode($months); ?>;
+            var revenues = <?php echo json_encode($revenues); ?>;
 
-                // Vẽ biểu đồ doanh thu
-                var ctx = document.getElementById('revenueChart').getContext('2d');
-                var revenueChart = new Chart(ctx, {
-                    type: 'bar', // Kiểu biểu đồ: cột
-                    data: {
-                        labels: months, // Tháng (labels)
-                        datasets: [{
-                            label: 'Doanh thu (VND)',
-                            data: revenues, // Doanh thu theo tháng
-                            backgroundColor: 'rgba(54, 162, 235, 0.6)', // Màu nền
-                            borderColor: 'rgba(54, 162, 235, 1)', // Màu viền
-                            borderWidth: 1
-                        }]
+            // Vẽ biểu đồ doanh thu
+            var ctx = document.getElementById('revenueChart').getContext('2d');
+            var revenueChart = new Chart(ctx, {
+                type: 'bar', // Kiểu biểu đồ: cột
+                data: {
+                    labels: months, // Tháng (labels)
+                    datasets: [{
+                        label: 'Doanh thu (VND)',
+                        data: revenues, // Doanh thu theo tháng
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)', // Màu nền
+                        borderColor: 'rgba(54, 162, 235, 1)', // Màu viền
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true // Bắt đầu từ 0 trên trục y
+                        }
                     },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true // Bắt đầu từ 0 trên trục y
-                            }
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
                         },
-                        plugins: {
-                            legend: {
-                                display: true,
-                                position: 'top',
-                            },
-                            title: {
-                                display: true,
-                                text: 'Biểu đồ doanh thu hàng tháng'
-                            }
+                        title: {
+                            display: true,
+                            text: 'Biểu đồ doanh thu hàng tháng'
                         }
                     }
-                });
+                }
+            });
             </script>
         </div>
 

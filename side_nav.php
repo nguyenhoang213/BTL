@@ -125,7 +125,7 @@
                 <ul class="dropdown">
                     <li><a href="/BTL/report/order_report.php">Thống kê đơn hàng</a></li>
                     <li><a href="/BTL/report/sale_report.php">Thống kê doanh thu</a></li>
-                    <li><a href="#">Thống kê sản phẩm</a></li>
+                    <li><a href="/BTL/report/sale_report.php">Thống kê sản phẩm</a></li>
                 </ul>
             </li>
             <li>
