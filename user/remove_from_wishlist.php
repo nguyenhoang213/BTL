@@ -16,7 +16,7 @@ if (isset($_POST['product_id'])) {
     // Xóa sản phẩm khỏi danh sách yêu thích
     $sql = "DELETE FROM user_favorites WHERE user_id = ? AND product_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $user_id, $product_id);
+    $stmt->bind_param("ss", $user_id, $product_id);
 
     if ($stmt->execute()) {
         echo "<script>alert('Đã xóa sản phẩm khỏi danh sách yêu thích.'); window.location.href = 'wishlist.php';</script>";

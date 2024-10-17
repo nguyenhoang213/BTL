@@ -29,7 +29,7 @@ if (isset($_POST['update'])) {
     // Cập nhật thông tin trong cơ sở dữ liệu
     $update_query = "UPDATE user SET first_name = ?, last_name = ?, email = ?, phone = ?, address = ? WHERE user_id = ?";
     $update_stmt = $conn->prepare($update_query);
-    $update_stmt->bind_param('sssssi', $first_name, $last_name, $email, $phone, $address, $user_id);
+    $update_stmt->bind_param('ssssss', $first_name, $last_name, $email, $phone, $address, $user_id);
 
     if ($update_stmt->execute()) {
         echo "<script>alert('Cập nhật thông tin thành công');</script>";

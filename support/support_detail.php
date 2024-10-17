@@ -10,7 +10,7 @@ $user_id = $_SESSION['user_id']; // Lấy ID người dùng từ session
 // Kiểm tra yêu cầu hỗ trợ tồn tại
 $sql = "SELECT * FROM support WHERE support_id = ? AND user_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ii", $support_id, $user_id);
+$stmt->bind_param("is", $support_id, $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
