@@ -38,7 +38,10 @@ if (!isset($_SESSION['role'])) {
                     echo $row['count'];
                     ?>
                 </p>
-                <a href="/BTL/account/admin_account.php">Quản lý tài khoản Admin</a>
+                <a  href="/BTL/account/admin_account.php"
+                    class="effect">
+                    Quản lý tài khoản Admin
+                </a>
             </div>
 
             <div style="background-color: rgb(77, 224, 173);" class="overview-item 2">
@@ -52,7 +55,7 @@ if (!isset($_SESSION['role'])) {
                     echo $row['count'];
                     ?>
                 </p>
-                <a href="/BTL/product/product_list.php">Quản lý sản phẩm</a>
+                <a class="effect" href="/BTL/product/product_list.php">Quản lý sản phẩm</a>
             </div>
 
             <div style="background-color: rgb(246, 154, 165);" class="overview-item 3">
@@ -66,7 +69,7 @@ if (!isset($_SESSION['role'])) {
                     echo $row['count'];
                     ?>
                 </p>
-                <a href="/BTL/order/order_list.php">Quản lý đơn hàng</a>
+                <a class="effect" href="/BTL/order/order_list.php">Quản lý đơn hàng</a>
             </div>
 
             <div style="background-color: rgb(75, 208, 210);" class="overview-item 4">
@@ -80,7 +83,7 @@ if (!isset($_SESSION['role'])) {
                     echo $row['count'];
                     ?>
                 </p>
-                <a href="/BTL/account/user_account.php">Quản lý người dùng</a>
+                <a class="effect" href="/BTL/account/user_account.php">Quản lý người dùng</a>
             </div>
         </div>
 
@@ -109,42 +112,42 @@ if (!isset($_SESSION['role'])) {
             ?>
 
             <script>
-            // Lấy dữ liệu từ PHP
-            var months = <?php echo json_encode($months); ?>;
-            var revenues = <?php echo json_encode($revenues); ?>;
+                // Lấy dữ liệu từ PHP
+                var months = <?php echo json_encode($months); ?>;
+                var revenues = <?php echo json_encode($revenues); ?>;
 
-            // Vẽ biểu đồ doanh thu
-            var ctx = document.getElementById('revenueChart').getContext('2d');
-            var revenueChart = new Chart(ctx, {
-                type: 'bar', // Kiểu biểu đồ: cột
-                data: {
-                    labels: months, // Tháng (labels)
-                    datasets: [{
-                        label: 'Doanh thu (VND)',
-                        data: revenues, // Doanh thu theo tháng
-                        backgroundColor: 'rgba(54, 162, 235, 0.6)', // Màu nền
-                        borderColor: 'rgba(54, 162, 235, 1)', // Màu viền
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true // Bắt đầu từ 0 trên trục y
-                        }
+                // Vẽ biểu đồ doanh thu
+                var ctx = document.getElementById('revenueChart').getContext('2d');
+                var revenueChart = new Chart(ctx, {
+                    type: 'bar', // Kiểu biểu đồ: cột
+                    data: {
+                        labels: months, // Tháng (labels)
+                        datasets: [{
+                            label: 'Doanh thu (VND)',
+                            data: revenues, // Doanh thu theo tháng
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)', // Màu nền
+                            borderColor: 'rgba(54, 162, 235, 1)', // Màu viền
+                            borderWidth: 1
+                        }]
                     },
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'top',
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true // Bắt đầu từ 0 trên trục y
+                            }
                         },
-                        title: {
-                            display: true,
-                            text: 'Biểu đồ doanh thu hàng tháng'
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Biểu đồ doanh thu hàng tháng'
+                            }
                         }
                     }
-                }
-            });
+                });
             </script>
         </div>
 
