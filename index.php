@@ -71,24 +71,23 @@
                         <span>Điện thoại</span></a>
                     <ul class="sub-menu">
                         <li id="menu-item-404">
-                            <a href="/BTL/find_product.php?keyword=&category=Apple">
+                            <a href="/BTL/find_product.php?keyword=&category=apple">
                                 <span>Apple</span></a>
                         </li>
                         <li id="menu-item-408">
-                            <a href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/dien-thoai/samsung/">
+                            <a href="/BTL/find_product.php?keyword=&category=samsung">
                                 <span>Samsung</span></a>
                         </li>
                         <li id="menu-item-405">
-                            <a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/dien-thoai/blackberry/">
+                            <a href="/BTL/find_product.php?keyword=&category=blackberry/">
                                 <span>BlackBerry</span></a>
                         </li>
                         <li id="menu-item-406">
-                            <a href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/dien-thoai/motorola/">
+                            <a href="/BTL/find_product.php?keyword=&category=motorola/">
                                 <span>Motorola</span></a>
                         </li>
                         <li id="menu-item-407">
-                            <a href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/dien-thoai/nokia/">
+                            <a href="/BTL/find_product.php?keyword=&category=nokia/">
                                 <span>Nokia</span></a>
                         </li>
                     </ul>
@@ -99,49 +98,45 @@
                         <span>Laptop</span></a>
                     <ul class="sub-menu">
                         <li id="menu-item-414"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/laptop/macbook/"><span>Macbook</span></a>
+                                href="/BTL/find_product.php?keyword=&category=macbook"><span>Macbook</span></a>
                         </li>
-                        <li id="menu-item-410"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/laptop/laptop-asus/"><span>Laptop
+                        <li id="menu-item-410"><a href="/BTL/find_product.php?keyword=&category=laptopasus"><span>Laptop
                                     Asus</span></a>
                         </li>
-                        <li id="menu-item-411"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/laptop/laptop-dell/"><span>Laptop
+                        <li id="menu-item-411"><a href="/BTL/find_product.php?keyword=&category=laptopdell"><span>Laptop
                                     Dell</span></a>
                         </li>
-                        <li id="menu-item-412"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/laptop/laptop-hp/"><span>Laptop
+                        <li id="menu-item-412"><a href="/BTL/find_product.php?keyword=&category=laptophp"><span>Laptop
                                     HP</span></a></li>
                     </ul>
                 </li>
                 <li id="menu-item-421">
-                    <a href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/tablet/"><img width="24"
-                            height="24"
+                    <a href="/BTL/find_product.php?keyword=&category=tablet"><img width="24" height="24"
                             src="https://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/tablet-outline-in-horizontal-position.png"
                             class="menu-image menu-image-title-after" alt="" /><span>Tablet</span></a>
                     <ul class="sub-menu">
                         <li id="menu-item-425"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/tablet/tablet-ipad/"><span>Tablet
+                                href="/BTL/find_product.php?keyword=&category=tablet-ipad"><span>Tablet
                                     Ipad</span></a>
                         </li>
                         <li id="menu-item-422"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/tablet/tablet-beneve/"><span>Tablet
+                                href="/BTL/find_product.php?keyword=&category=tablet-beneve"><span>Tablet
                                     Beneve</span></a>
                         </li>
                         <li id="menu-item-426"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/tablet/tablet-itel/"><span>Tablet
+                                href="/BTL/find_product.php?keyword=&category=tablet-itel"><span>Tablet
                                     Itel</span></a>
                         </li>
                         <li id="menu-item-427"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/tablet/tablet-kindle/"><span>Tablet
+                                href="/BTL/find_product.php?keyword=&category=tablet-kindle"><span>Tablet
                                     Kindle</span></a>
                         </li>
                         <li id="menu-item-428"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/tablet/tablet-mobell/"><span>Tablet
+                                href="/BTL/find_product.php?keyword=&category=tablet-mobell"><span>Tablet
                                     Mobell</span></a>
                         </li>
                         <li id="menu-item-429"><a
-                                href="https://mauweb.monamedia.net/hanoicomputer/danh-muc-san-pham/tablet/tablet-samsung/"><span>Tablet
+                                href="/BTL/find_product.php?keyword=&category=tablet-samsung"><span>Tablet
                                     Samsung</span></a>
                         </li>
                     </ul>
@@ -360,63 +355,63 @@
         <div class="menu2-product">
             <button class="main-title" value="LT">Laptop</button>
             <button class="active-product" value="macbook">Macbook</button>
-            <button class="active-product" value="ltasus">Laptop Asus</button>
-            <button class="active-product" value="ltdell">Laptop Dell</button>
-            <button class="active-product" value="lthp">Laptop HP</button>
+            <button class="active-product" value="laptopasus">Laptop Asus</button>
+            <button class="active-product" value="laptopdell">Laptop Dell</button>
+            <button class="active-product" value="laptophp">Laptop HP</button>
         </div>
         <div class="products" id="product-list-lt"></div>
     </div>
 
     <script>
-    // Điện thoại
-    document.querySelectorAll('.menu1-product button').forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.value;
-            fetchProductsDT(category); // Gọi hàm lấy sản phẩm Điện thoại
+        // Điện thoại
+        document.querySelectorAll('.menu1-product button').forEach(button => {
+            button.addEventListener('click', function () {
+                const category = this.value;
+                fetchProductsDT(category); // Gọi hàm lấy sản phẩm Điện thoại
+            });
         });
-    });
 
-    function fetchProductsDT(category) {
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'fetch_product.php', true); // Gửi yêu cầu tới file PHP xử lý
-        document.getElementById('product-list-dt').innerHTML = ''; // Xóa sản phẩm cũ
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send('category=' + category); // Gửi dữ liệu category
+        function fetchProductsDT(category) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'fetch_product.php', true); // Gửi yêu cầu tới file PHP xử lý
+            document.getElementById('product-list-dt').innerHTML = ''; // Xóa sản phẩm cũ
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('category=' + category); // Gửi dữ liệu category
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById('product-list-dt').innerHTML = xhr.responseText;
-            }
-        };
-    }
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('product-list-dt').innerHTML = xhr.responseText;
+                }
+            };
+        }
 
-    // Laptop
-    document.querySelectorAll('.menu2-product button').forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.value;
-            fetchProductsLT(category); // Gọi hàm lấy sản phẩm Laptop
+        // Laptop
+        document.querySelectorAll('.menu2-product button').forEach(button => {
+            button.addEventListener('click', function () {
+                const category = this.value;
+                fetchProductsLT(category); // Gọi hàm lấy sản phẩm Laptop
+            });
         });
-    });
 
-    function fetchProductsLT(category) {
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'fetch_product.php', true); // Gửi yêu cầu tới file PHP xử lý
-        document.getElementById('product-list-lt').innerHTML = ''; // Xóa sản phẩm cũ
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send('category=' + category); // Gửi dữ liệu category
+        function fetchProductsLT(category) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'fetch_product.php', true); // Gửi yêu cầu tới file PHP xử lý
+            document.getElementById('product-list-lt').innerHTML = ''; // Xóa sản phẩm cũ
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('category=' + category); // Gửi dữ liệu category
 
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById('product-list-lt').innerHTML = xhr.responseText;
-            }
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('product-list-lt').innerHTML = xhr.responseText;
+                }
+            };
+        }
+
+        // Mặc định hiển thị sản phẩm Điện thoại khi trang tải
+        window.onload = function () {
+            fetchProductsDT('DT'); // Hiển thị sản phẩm Điện thoại mặc định
+            fetchProductsLT('LT');
         };
-    }
-
-    // Mặc định hiển thị sản phẩm Điện thoại khi trang tải
-    window.onload = function() {
-        fetchProductsDT('DT'); // Hiển thị sản phẩm Điện thoại mặc định
-        fetchProductsLT('LT');
-    };
     </script>
 
     <?php
@@ -424,7 +419,7 @@
         ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>
