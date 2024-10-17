@@ -22,7 +22,7 @@ a {
   /* justify-content: space-between; */
   align-items: center;
   padding: 11px 20px;
-  margin-left: 136px;
+  margin-left: 157px;
   margin-right: 160px;
 }
 .box-header-logo {
@@ -306,6 +306,7 @@ ul {
 
 .main {
   display: flex;
+  margin-left: 21px;
 }
 
 .main-bd {
