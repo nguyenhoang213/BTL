@@ -73,28 +73,7 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="/BTL/css/product_detail.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-    .toggle-favorite {
-        width: 50px !important;
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 24px;
-    }
 
-    .toggle-favorite i {
-        transition: color 0.3s ease;
-    }
-
-    .toggle-favorite i:hover {
-        color: #ff6666;
-        /* Màu khi hover */
-    }
-
-    .icon {
-        font-size: 20px
-    }
-    </style>
 
 <body>
     <?php
@@ -153,9 +132,22 @@ if (isset($_SESSION['user_id'])) {
 
     }
     ?>
+    <script>
+        function inc() {
+            var count = document.getElementById('count');
+            count.value = parseInt(count.value) + 1;
+        }
+
+        function des() {
+            var count = document.getElementById('count');
+            if (count.value > 1) {
+                count.value = parseInt(count.value) - 1;
+            }
+        }
+    </script>
 
     <!-- product -->
-    <h1 style="text-align:center; margin: 25px">Thông Tin Sản phẩm</h1>
+    <!-- <h1 style="text-align:center; margin: 25px">Thông Tin Sản phẩm</h1> -->
     <div class="content">
         <form action="" method="POST">
             <div class="product_detail">
@@ -172,7 +164,8 @@ if (isset($_SESSION['user_id'])) {
                         <p style ="color: red; font-weight: bold; font-size: 24px">' . number_format($row['price'], 0, ',', '.') . ' VNĐ</p>
                         <h2>Mô tả sản phẩm</h2>';
                     echo nl2br($row['description']);
-                    echo '<h2>Tình trạng: ' . ($row['status'] == 0 ? "dừng bán" : "đang bán") . '</h2>';
+                    echo '<h2>Tình trạng: ' . ($row['status'] == 0 ? "Hết hàng" : "Còn hàng") . '</h2>';
+                    
                     echo '<div class="count">
                         <button type="button"  onclick="des()">-</button>
                         <input type="number" value="1" name="count" id="count">
@@ -181,63 +174,51 @@ if (isset($_SESSION['user_id'])) {
                     echo '<button method = "submit" class="add-to-cart" name ="add-to-cart"><i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng</button>';
                     echo '<button class="buy-now"><i class="fa-solid fa-credit-card"></i> Mua ngay</button>';
                     ?>
-                <button type="submit" class="toggle-favorite" name="toggle-favorite">
-                    <i class="fa-solid fa-heart icon" style="color: <?= $is_favorited ? 'red' : 'black' ?>;"></i>
-                </button>
+                    <button type="submit" class="toggle-favorite" name="toggle-favorite">
+                        <i class="fa-solid fa-heart icon" style="color: <?= $is_favorited ? 'red' : 'black' ?>;"></i>
+                    </button>
 
-                <?php
+                    <?php
                     echo ' </div>
     </div>';
                 }
                 ?>
             </div>
         </form>
-
     </div>
 
-    <?php 
+    <?php
     include("../footer.php")
-    ?>
+        ?>
     <script src="https://kit.fontawesome.com/0236bf0649.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
 
 <script>
-function inc() {
-    var count = document.getElementById('count');
-    count.value = parseInt(count.value) + 1;
-}
 
-function des() {
-    var count = document.getElementById('count');
-    if (count.value > 1) {
-        count.value = parseInt(count.value) - 1;
-    }
-}
+    document.querySelector('.toggle-favorite').addEventListener('click', function (event) {
+        event.preventDefault();
 
-document.querySelector('.toggle-favorite').addEventListener('click', function(event) {
-    event.preventDefault();
+        var productId = <?= $product_id ?>;
+        var userId = <?= $user_id ?>;
 
-    var productId = <?= $product_id ?>;
-    var userId = <?= $user_id ?>;
-
-    fetch('/toggle_favorite.php', {
+        fetch('/toggle_favorite.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: 'product_id=' + productId + '&user_id=' + userId
         })
-        .then(response => response.text())
-        .then(data => {
-            const icon = document.querySelector('.toggle-favorite i');
-            if (icon.style.color === 'black') {
-                icon.style.color = 'red';
-            } else {
-                icon.style.color = 'black';
-            }
-        })
-        .catch(error => console.error('Lỗi:', error));
-});
+            .then(response => response.text())
+            .then(data => {
+                const icon = document.querySelector('.toggle-favorite i');
+                if (icon.style.color === 'black') {
+                    icon.style.color = 'red';
+                } else {
+                    icon.style.color = 'black';
+                }
+            })
+            .catch(error => console.error('Lỗi:', error));
+    });
 </script>

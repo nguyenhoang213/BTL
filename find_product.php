@@ -130,7 +130,7 @@ if (!empty($sort)) {
 
         .products {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             flex-wrap: wrap;
         }
 

@@ -278,11 +278,13 @@
         </div>
         <div class="products">
             <?php
-            $sql_hot = "SELECT ph.product_id, count(*) as COUNT, p.image, p.product_name, p.price
-                FROM user_product_history ph JOIN product p ON ph.product_id = p.product_id
-                GROUP BY ph.product_id 
-                Order by COUNT(*)
-                LIMIT 8";
+            $sql_hot = "SELECT op.product_id, SUM(op.stock) as total_stock, p.image, p.product_name, p.price
+                        FROM order_product op 
+                        JOIN product p ON op.product_id = p.product_id
+                        GROUP BY op.product_id 
+                        ORDER BY total_stock DESC
+                        LIMIT 8;
+                        ";
             $result_hot = $conn->query($sql_hot);
             if ($result_hot->num_rows > 0) {
                 while ($row_hot = $result_hot->fetch_assoc()) {

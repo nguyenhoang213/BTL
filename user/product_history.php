@@ -18,7 +18,7 @@ $sql = "SELECT p.product_id, p.product_name, p.image, p.price, uph.time
         ORDER BY uph.time DESC";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
+$stmt->bind_param("s", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>

@@ -10,7 +10,7 @@ if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
     // Cập nhật số lượng sản phẩm trong giỏ hàng
     $sql = "UPDATE cart_product SET stock = ? WHERE product_id = ? AND cart_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("iii", $quantity, $product_id, $cart_id);
+    $stmt->bind_param("isi", $quantity, $product_id, $cart_id);
     $stmt->execute();
 
 }

@@ -147,6 +147,7 @@ if (isset($_POST['submit'])) {
                     <span style="margin-right: 20px;">Đã có tài khoản?</span>
                     <a href="./login.php">Đăng nhập</a>
                 </div>
+            </form>
     </div>
     <?php
     include("../footer.php")
