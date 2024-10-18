@@ -1,18 +1,13 @@
 <?php
-
-
 include("../side_nav.php");
 
 // Lấy support_id từ GET request
 $support_id = isset($_GET['support_id']) ? intval($_GET['support_id']) : 0;
-$user_id = $_SESSION['user_id']; // Lấy ID người dùng từ session
+$user_id = $_SESSION['user_id'];
 
 // Kiểm tra yêu cầu hỗ trợ tồn tại
-$sql = "SELECT * FROM support WHERE support_id = ? AND user_id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("is", $support_id, $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
+$sql = "SELECT * FROM support WHERE support_id = '$support_id'";
+$result = $conn->query($sql);
 
 if ($result->num_rows == 0) {
     echo "Yêu cầu hỗ trợ không tồn tại.";
@@ -99,9 +94,3 @@ $support = $result->fetch_assoc();
 </body>
 
 </html>
-
-<?php
-// Đóng kết nối
-$stmt->close();
-$conn->close();
-?>
