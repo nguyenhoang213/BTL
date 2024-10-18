@@ -11,137 +11,137 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <style>
-    /* General Styles */
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f8f9fa;
-        margin: 0;
-        padding: 0;
-        color: #343a40;
-    }
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #343a40;
+        }
 
-    .container {
-        margin-top: 50px;
-    }
+        .container {
+            margin-top: 50px;
+        }
 
-    h4 {
-        font-size: 24px;
-        color: #007bff;
-        font-weight: 600;
-        margin-bottom: 20px;
-    }
+        h4 {
+            font-size: 24px;
+            color: #007bff;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
 
-    .table-responsive {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: white;
-        padding: 20px;
-        border-radius: 10px;
-    }
+        .table-responsive {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
 
-    /* Table Styles */
-    table {
-        width: 100%;
-        margin-bottom: 20px;
-        border-collapse: collapse;
-    }
+        /* Table Styles */
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
 
-    thead th {
-        background-color: #007bff;
-        color: white;
-        text-align: center;
-        padding: 12px;
-        font-size: 18px;
-    }
+        thead th {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-size: 18px;
+        }
 
-    tbody td {
-        padding: 15px;
-        vertical-align: middle;
-        font-size: 16px;
-        text-align: center;
-    }
+        tbody td {
+            padding: 15px;
+            vertical-align: middle;
+            font-size: 16px;
+            text-align: center;
+        }
 
-    tbody tr:nth-child(even) {
-        background-color: #f8f9fa;
-        /* Màu nền xen kẽ */
-    }
+        tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+            /* Màu nền xen kẽ */
+        }
 
-    /* Styling for Image */
-    table img {
-        border-radius: 5px;
-        object-fit: cover;
-        width: 50px;
-        height: 50px;
-    }
+        /* Styling for Image */
+        table img {
+            border-radius: 5px;
+            object-fit: cover;
+            width: 50px;
+            height: 50px;
+        }
 
-    /* Button Styles */
-    .btn {
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 5px;
-        transition: all 0.3s ease;
-    }
+        /* Button Styles */
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
 
-    .btn-danger {
-        background-color: #dc3545;
-        color: white;
-        border: none;
-    }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+        }
 
-    .btn-danger:hover {
-        background-color: #c82333;
-        color: white;
-    }
+        .btn-danger:hover {
+            background-color: #c82333;
+            color: white;
+        }
 
-    .btn-primary {
-        background-color: #007bff;
-        color: white;
-        border: none;
-    }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
 
-    .btn-primary:hover {
-        background-color: #0056b3;
-    }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
 
-    /* Styling for Quantity Controls */
-    .count {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        /* Styling for Quantity Controls */
+        .count {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .count button {
-        background-color: #007bff;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        font-size: 18px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        border-radius: 5px;
-    }
+        .count button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
 
-    .count button:hover {
-        background-color: #0056b3;
-    }
+        .count button:hover {
+            background-color: #0056b3;
+        }
 
-    .count input {
-        width: 50px;
-        height: 40px;
-        text-align: center;
-        border: 1px solid #ddd;
-        margin: 0 10px;
-        border-radius: 5px;
-    }
+        .count input {
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
 
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
-    input[type="number"] {
-        -moz-appearance: textfield;
-    }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
     </style>
 </head>
 
@@ -208,28 +208,29 @@
                                             <td>' . $row['product_name'] . '</td>
                                             <td>' . number_format($row['price'], 0, ',', '.') . ' VNĐ</td>';
                                         ?>
-                                <td>
-                                    <div class="count">
-                                        <button type="button"
-                                            onclick="des('<?php echo $row['product_id']; ?>', <?php echo $row['price']; ?>)">-</button>
-                                        <input type="number" value="<?php echo $row['stock']; ?>" name="count"
-                                            id="quantity-<?php echo $row['product_id']; ?>" style="width: 40px"
-                                            onchange="updatePrice('<?php echo $row['product_id']; ?>', <?php echo $row['price']; ?>)">
-                                        <button type="button"
-                                            onclick="inc('<?php echo $row['product_id']; ?>', <?php echo $row['price']; ?>)">+</button>
-                                    </div>
-                                </td>
-                                <?php
+                                        <td>
+                                            <div class="count">
+                                                <button type="button"
+                                                    onclick="des('<?php echo $row['product_id']; ?>', <?php echo $row['price']; ?>)">-</button>
+                                                <input type="number" value="<?php echo $row['stock']; ?>" name="count"
+                                                    id="quantity-<?php echo $row['product_id']; ?>" style="width: 40px"
+                                                    onchange="updatePrice('<?php echo $row['product_id']; ?>', <?php echo $row['price']; ?>)"
+                                                    readonly>
+                                                <button type="button"
+                                                    onclick="inc('<?php echo $row['product_id']; ?>', <?php echo $row['price']; ?>)">+</button>
+                                            </div>
+                                        </td>
+                                        <?php
                                         echo '<td>' . $row['remain'] . ' </td>';
                                         ?>
-                                <input type="hidden" name="remain" value="<?php echo $row['remain']; ?>"
-                                    id="remain-<?php echo $row['product_id']; ?>">
+                                        <input type="hidden" name="remain" value="<?php echo $row['remain']; ?>"
+                                            id="remain-<?php echo $row['product_id']; ?>">
 
 
-                                <td id="total-<?php echo $row['product_id']; ?>">
-                                    <?php echo number_format($total, 0, ',', '.') . ' VNĐ'; ?>
-                                </td>
-                                <?php
+                                        <td id="total-<?php echo $row['product_id']; ?>">
+                                            <?php echo number_format($total, 0, ',', '.') . ' VNĐ'; ?>
+                                        </td>
+                                        <?php
                                         echo '
                                         
                                     <td><a href="remove_from_cart.php?id=' . $row['product_id'] . '" class="btn btn-danger">Xóa</a></td>
@@ -267,61 +268,61 @@
 </html>
 
 <script>
-function updateQuantity(product_id) {
-    var quantity = document.getElementById("count_" + product_id).value;
+    function updateQuantity(product_id) {
+        var quantity = document.getElementById("count_" + product_id).value;
 
-    // Gửi AJAX đến server để cập nhật số lượng
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "update_quantity.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            alert(xhr.responseText); // Hiển thị phản hồi từ server
-        }
-    };
-    xhr.send("product_id=" + product_id + "&quantity=" + quantity);
+        // Gửi AJAX đến server để cập nhật số lượng
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "update_quantity.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert(xhr.responseText); // Hiển thị phản hồi từ server
+            }
+        };
+        xhr.send("product_id=" + product_id + "&quantity=" + quantity);
 
-}
-
-function inc(productId, pricePerUnit) {
-    var count = document.getElementById('quantity-' + productId);
-    var remain = document.getElementById('remain-' + productId).value; // Lấy giá trị tồn kho từ input hidden
-
-    if (parseInt(count.value) < parseInt(remain)) {
-        count.value = parseInt(count.value) + 1;
-        updatePrice(productId, pricePerUnit);
-    } else {
-        alert("Số lượng đã đạt tối đa tồn kho!"); // Thông báo khi số lượng vượt quá kho
     }
-}
 
-function des(productId, pricePerUnit) {
-    var count = document.getElementById('quantity-' + productId);
-    if (count.value > 1) {
-        count.value = parseInt(count.value) - 1;
-        updatePrice(productId, pricePerUnit);
-    }
-}
+    function inc(productId, pricePerUnit) {
+        var count = document.getElementById('quantity-' + productId);
+        var remain = document.getElementById('remain-' + productId).value; // Lấy giá trị tồn kho từ input hidden
 
-function updatePrice(productId, pricePerUnit) {
-    var quantity = document.getElementById('quantity-' + productId).value;
-    var total = pricePerUnit * quantity;
-
-    // Cập nhật tổng tiền cho sản phẩm
-    document.getElementById('total-' + productId).innerHTML = total.toLocaleString('vi-VN', {
-        style: 'currency',
-        currency: 'VND'
-    });
-
-    // Gửi yêu cầu AJAX để cập nhật số lượng trên server
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "update_quantity.php", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText);
+        if (parseInt(count.value) < parseInt(remain)) {
+            count.value = parseInt(count.value) + 1;
+            updatePrice(productId, pricePerUnit);
+        } else {
+            alert("Số lượng đã đạt tối đa tồn kho!"); // Thông báo khi số lượng vượt quá kho
         }
-    };
-    xhr.send("product_id=" + productId + "&quantity=" + quantity);
-}
+    }
+
+    function des(productId, pricePerUnit) {
+        var count = document.getElementById('quantity-' + productId);
+        if (count.value > 1) {
+            count.value = parseInt(count.value) - 1;
+            updatePrice(productId, pricePerUnit);
+        }
+    }
+
+    function updatePrice(productId, pricePerUnit) {
+        var quantity = document.getElementById('quantity-' + productId).value;
+        var total = pricePerUnit * quantity;
+
+        // Cập nhật tổng tiền cho sản phẩm
+        document.getElementById('total-' + productId).innerHTML = total.toLocaleString('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+        });
+
+        // Gửi yêu cầu AJAX để cập nhật số lượng trên server
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "update_quantity.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send("product_id=" + productId + "&quantity=" + quantity);
+    }
 </script>
