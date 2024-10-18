@@ -294,18 +294,24 @@ if (isset($_POST['acp'])) {
 
             <div class="col-lg-6">
 
-                <h3>Thông tin người nhận hàng</h3>
+                <?php
+                $user_id = $_SESSION['user_id'];
+                $sql_user = "SELECT * FROM user WHERE user_id = '$user_id'";
+                $result = $conn->query($sql_user);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo '<h3>Thông tin người nhận hàng</h3>
                 <div class="mb-3">
                     <label for="full_name" class="form-label">Họ tên</label>
-                    <input type="text" class="form-control" id="full_name" name="full_name" required>
+                    <input type="text" class="form-control" id="full_name" value = "' . $row['first_name'] . " " . $row['last_name'] . '" name="full_name" required>
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label">SĐT</label>
-                    <input type="text" class="form-control" id="phone" name="phone" required>
+                    <input type="text" class="form-control" id="phone" name="phone" value = "' . $row['phone'] . '" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" value = "' . $row['email'] . '" required>
                 </div>
                 <div class="mb-3">
                     <label for="province" class="form-label">Tỉnh/Thành phố</label>
@@ -323,7 +329,11 @@ if (isset($_POST['acp'])) {
                     <label for="address" class="form-label">Địa chỉ</label>
                     <input type="text" class="form-control" id="address" name="address" required>
                 </div>
-                </form>
+                </form>';
+                    }
+                }
+                ?>
+
             </div>
         </div>
     </div>
