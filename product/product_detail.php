@@ -137,17 +137,17 @@ if (isset($_SESSION['user_id'])) {
     }
     ?>
     <script>
-        function inc() {
-            var count = document.getElementById('count');
-            count.value = parseInt(count.value) + 1;
-        }
+    function inc() {
+        var count = document.getElementById('count');
+        count.value = parseInt(count.value) + 1;
+    }
 
-        function des() {
-            var count = document.getElementById('count');
-            if (count.value > 1) {
-                count.value = parseInt(count.value) - 1;
-            }
+    function des() {
+        var count = document.getElementById('count');
+        if (count.value > 1) {
+            count.value = parseInt(count.value) - 1;
         }
+    }
     </script>
 
     <!-- product -->
@@ -168,7 +168,7 @@ if (isset($_SESSION['user_id'])) {
                         <p style ="color: red; font-weight: bold; font-size: 24px">' . number_format($row['price'], 0, ',', '.') . ' VNĐ</p>
                         <h2>Mô tả sản phẩm</h2>';
                     echo nl2br($row['description']);
-                    echo '<h2>Tình trạng: ' . ($row['status'] == 0 ? "Hết hàng" : "Còn hàng") . '</h2>';
+                    // echo '<h2>Tình trạng: ' . ($row['status'] == 0 ? "Hết hàng" : "Còn hàng") . '</h2>';
                     echo '<h2>Số lượng: ' . $row['stock'] . '</h2>';
                     echo '<input type="hidden" name = "stock" value = "' . $row['stock'] . '">';
                     echo '<div class="count">
@@ -179,11 +179,11 @@ if (isset($_SESSION['user_id'])) {
                     echo '<button method = "submit" class="add-to-cart" name ="add-to-cart"><i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng</button>';
                     echo '<button class="buy-now"><i class="fa-solid fa-credit-card"></i> Mua ngay</button>';
                     ?>
-                    <button type="submit" class="toggle-favorite" name="toggle-favorite">
-                        <i class="fa-solid fa-heart icon" style="color: <?= $is_favorited ? 'red' : 'black' ?>;"></i>
-                    </button>
+                <button type="submit" class="toggle-favorite" name="toggle-favorite">
+                    <i class="fa-solid fa-heart icon" style="color: <?= $is_favorited ? 'red' : 'black' ?>;"></i>
+                </button>
 
-                    <?php
+                <?php
                     echo ' </div>
     </div>';
                 }
@@ -201,28 +201,28 @@ if (isset($_SESSION['user_id'])) {
 </html>
 
 <script>
-    document.querySelector('.toggle-favorite').addEventListener('click', function (event) {
-        event.preventDefault();
+document.querySelector('.toggle-favorite').addEventListener('click', function(event) {
+    event.preventDefault();
 
-        var productId = <?= $product_id ?>;
-        var userId = <?= $user_id ?>;
+    var productId = <?= $product_id ?>;
+    var userId = <?= $user_id ?>;
 
-        fetch('/toggle_favorite.php', {
+    fetch('/toggle_favorite.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: 'product_id=' + productId + '&user_id=' + userId
         })
-            .then(response => response.text())
-            .then(data => {
-                const icon = document.querySelector('.toggle-favorite i');
-                if (icon.style.color === 'black') {
-                    icon.style.color = 'red';
-                } else {
-                    icon.style.color = 'black';
-                }
-            })
-            .catch(error => console.error('Lỗi:', error));
-    });
+        .then(response => response.text())
+        .then(data => {
+            const icon = document.querySelector('.toggle-favorite i');
+            if (icon.style.color === 'black') {
+                icon.style.color = 'red';
+            } else {
+                icon.style.color = 'black';
+            }
+        })
+        .catch(error => console.error('Lỗi:', error));
+});
 </script>
