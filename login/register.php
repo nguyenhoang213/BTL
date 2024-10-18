@@ -56,6 +56,18 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="/BTL/css/index.css">
     <link rel="stylesheet" href="/BTL/css/footer.css">
     <title>Đăng ký</title>
+    <style>
+        .password {
+            position: relative;
+        }
+
+        .password i {
+            position: absolute;
+            top: 45px;
+            right: 15px;
+            font-size: 13px;
+                }
+    </style>
 </head>
 
 <body>
@@ -83,13 +95,14 @@ if (isset($_POST['submit'])) {
                     <input type="text" name="lastName" class="form-control" id="validationDefault02" value=""
                         required />
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 password">
                     <label for="validationDefault03" class="form-label">Mật khẩu</label>
                     <input type="password" name="password" class="form-control" id="validationDefault03" required />
+                    <i onclick="showPassword();" class="fa-solid fa-eye-slash" id="toggleIcon"></i>
                 </div>
                 <div class="col-md-5">
                     <label for="validationDefault03" class="form-label">Số điện thoại</label>
-                    <input type="text" name="phone" class="form-control" id="validationDefault03" required />
+                    <input type="text" pattern="[0-9]{10}" name="phone" class="form-control" id="validationDefault03" required />
                 </div>
                 <div class="col-md-7">
                     <label for="validationDefault03" class="form-label">Email</label>
@@ -155,6 +168,25 @@ if (isset($_POST['submit'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
         </script>
+
+<script>
+function showPassword() {
+    var passwordInput = document.getElementById('validationDefault03');
+    var toggleIcon = document.getElementById('toggleIcon');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text'; // Hiển thị giá trị trong input
+        toggleIcon.classList.remove('fa-eye-slash'); // Đổi icon thành con mắt mở
+        toggleIcon.classList.add('fa-eye');
+    } else {
+        passwordInput.type = 'password'; // Ẩn giá trị trong input
+        toggleIcon.classList.remove('fa-eye'); // Đổi icon thành con mắt đóng
+        toggleIcon.classList.add('fa-eye-slash');
+    }
+}
+</script>
 </body>
 
 </html>
+
+<script src="https://kit.fontawesome.com/0236bf0649.js" crossorigin="anonymous"></script>

@@ -61,6 +61,17 @@ if (isset($_POST['login'])) {
         .btn-number {
             margin: 10px;
         }
+         
+
+        .password {
+            position: relative;
+        }
+
+        .password i {
+            position: absolute;
+            top: 43px;
+            right: 20px;
+        }
     </style>
 </head>
 
@@ -76,9 +87,10 @@ if (isset($_POST['login'])) {
                     <label for="validationDefault02" class="form-label">Email</label>
                     <input type="email" name="email" class="form-control" id="validationDefault02" value="" required />
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12 password">
                     <label for="validationDefault03" class="form-label">Mật khẩu</label>
                     <input type="password" name="password" class="form-control" id="validationDefault03" required />
+                    <i onclick="showPassword();" class="fa-solid fa-eye-slash" id="toggleIcon"></i>
                 </div>
                 <div class="col-12">
                     <button style="width: 100%; margin-top: 5px;" class="btn btn-primary" type="submit"
@@ -126,6 +138,24 @@ if (isset($_POST['login'])) {
                     modal.style.display = "none";
                 }
             }
+        </script>
+
+        <script>
+            // show password
+        function showPassword() {
+            var passwordInput = document.getElementById('validationDefault03');
+            var toggleIcon = document.getElementById('toggleIcon');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text'; // Hiển thị giá trị trong input
+                toggleIcon.classList.remove('fa-eye-slash'); // Đổi icon thành con mắt mở
+                toggleIcon.classList.add('fa-eye');
+            } else {
+                passwordInput.type = 'password'; // Ẩn giá trị trong input
+                toggleIcon.classList.remove('fa-eye'); // Đổi icon thành con mắt đóng
+                toggleIcon.classList.add('fa-eye-slash');
+            }
+        }
         </script>
     </div>
     <?php
