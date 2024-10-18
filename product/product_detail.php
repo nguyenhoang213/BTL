@@ -176,8 +176,13 @@ if (isset($_SESSION['user_id'])) {
                         <input type="number" value="1" name="count" id="count" readonly>
                         <button type="button"  onclick="inc()">+</button></div>';
                     echo '<div class = "buy_btn">';
-                    echo '<button method = "submit" class="add-to-cart" name ="add-to-cart"><i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng</button>';
-                    echo '<button class="buy-now"><i class="fa-solid fa-credit-card"></i> Mua ngay</button>';
+                    if($row['stock'] == 0) {
+                        echo '<button class="add-to-cart" >Hết hàng</button>';
+                    } else {
+                        echo '<button method = "submit" class="add-to-cart" name ="add-to-cart"><i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng</button>';
+                        echo '<button class="buy-now"><i class="fa-solid fa-credit-card"></i> Mua ngay</button>';
+                    }
+                  
                     ?>
                 <button type="submit" class="toggle-favorite" name="toggle-favorite">
                     <i class="fa-solid fa-heart icon" style="color: <?= $is_favorited ? 'red' : 'black' ?>;"></i>
