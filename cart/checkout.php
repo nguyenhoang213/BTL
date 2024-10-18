@@ -294,7 +294,7 @@ if (isset($_POST['acp'])) {
 
             <div class="col-lg-6">
 
-                <h3>Thông tin giao hàng</h3>
+                <h3>Thông tin người nhận hàng</h3>
                 <div class="mb-3">
                     <label for="full_name" class="form-label">Họ tên</label>
                     <input type="text" class="form-control" id="full_name" name="full_name" required>
@@ -410,13 +410,13 @@ if (isset($_POST['acp'])) {
             console.error("Districts data is not an array:", districts);
         }
 
-        populateWards([]); // Xóa dữ liệu phường/xã khi chọn tỉnh mới
+        populateWards([]);
     }
 
     // Hàm điền dữ liệu vào dropdown phường/xã dựa trên quận/huyện được chọn
     function populateWards(wards, selectedDistrictId) {
         const wardSelect = document.getElementById("ward");
-        wardSelect.innerHTML = ''; // Xóa các lựa chọn trước đó
+        wardSelect.innerHTML = '';
 
         // Kiểm tra nếu wards là mảng hợp lệ
         if (Array.isArray(wards)) {
